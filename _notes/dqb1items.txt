@@ -1,0 +1,25 @@
+pebblestone
+brick wall
+magic sand
+flame sand
+frost sand
+dragonstone
+water lily
+fencing
+saloon door
+seal of Erdrick
+spike trap
+ancient altar
+transmutation table
+heartfruit
+mason's workstation
+carpenter's workstation
+Builder's workbench
+colour wheel
+miner's refiner
+sewing station
+herbalist's cauldron
+machinist's workbench
+welder's workbench
+diviner's altar
+forbidden altar

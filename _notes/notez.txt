@@ -1,0 +1,27 @@
+poison test!!
+189: underwater
+188: fake full
+385: full block
+187: 1 awau
+186: 2 away
+185: 3 away
+184: 4 away
+183: 5 away
+182: end of flow
+
+345: poured shallow
+182: end of flow
+
+water!
+120: underwater
+142: fake full
+
+383: fullblock
+121: 1 away
+143: 2 away
+122: 3 away
+144: 4 away
+123: 5 away
+
+343: shallow
+145: end of flow

@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://nd34kb5d40qb"]
+
+[ext_resource type="FontVariation" uid="uid://cc8u6p7xikihw" path="res://Resources/AbolonVariation1.tres" id="2_eo3b1"]
+
+[resource]
+default_font_size = 20
+Button/fonts/font = ExtResource("2_eo3b1")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("2_eo3b1")
+LineEdit/fonts/font = ExtResource("2_eo3b1")
+MenuBar/fonts/font = ExtResource("2_eo3b1")
+PopupMenu/fonts/font = ExtResource("2_eo3b1")
+ProgressBar/fonts/font = ExtResource("2_eo3b1")
+TabBar/fonts/font = ExtResource("2_eo3b1")
+TabContainer/font_sizes/font_size = 20
+TabContainer/fonts/font = ExtResource("2_eo3b1")
+TextEdit/fonts/font = ExtResource("2_eo3b1")
+Tree/fonts/font = ExtResource("2_eo3b1")
+Tree/fonts/title_button_font = ExtResource("2_eo3b1")
+Window/fonts/title_font = ExtResource("2_eo3b1")

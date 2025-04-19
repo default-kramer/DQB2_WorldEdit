@@ -1,0 +1,703 @@
+[gd_scene load_steps=12 format=3 uid="uid://d5ygrv1j2owh"]
+
+[ext_resource type="Theme" uid="uid://nd34kb5d40qb" path="res://Resources/DQB_Theme.tres" id="1_sua2j"]
+[ext_resource type="Script" uid="uid://dmw4aaodejfmb" path="res://Nodes/AutoSubmenu.cs" id="2_50glp"]
+[ext_resource type="Script" uid="uid://o1l3wpft1cmb" path="res://Scenes/Main.cs" id="2_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://bbb02kcnsh46o" path="res://Graphics/gratitude_icon.png" id="5_krhx3"]
+[ext_resource type="Texture2D" uid="uid://cu28pcctmgf18" path="res://Graphics/NinePatchRect.png" id="7_01ce4"]
+[ext_resource type="Texture2D" uid="uid://b7erpavyy88qa" path="res://villagerscreenshots/hair/1b.png" id="7_s4at1"]
+[ext_resource type="Texture2D" uid="uid://dvftt8ir3g2r6" path="res://villagerscreenshots/face/1.png" id="8_010tf"]
+[ext_resource type="Texture2D" uid="uid://b3pl50nh0blma" path="res://villagerscreenshots/body/1.png" id="9_igwea"]
+[ext_resource type="Texture2D" uid="uid://cr2637peckkoi" path="res://villagerscreenshots/hair/1f.png" id="10_4clea"]
+[ext_resource type="PackedScene" uid="uid://mgvg4mys85bh" path="res://Nodes/ItemButton.tscn" id="10_bmxlf"]
+[ext_resource type="PackedScene" uid="uid://si68n61gn1cn" path="res://Scenes/WorldEditor.tscn" id="11_4kpch"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sua2j")
+script = ExtResource("2_vy5pj")
+metadata/_edit_lock_ = true
+
+[node name="Debug" type="PopupMenu" parent="."]
+size = Vector2i(215, 112)
+theme = ExtResource("1_sua2j")
+allow_search = false
+item_count = 8
+item_0/text = "Voice Test"
+item_0/id = 0
+item_1/text = "MessageType Test"
+item_1/id = 3
+item_2/text = "Item Test"
+item_2/id = 5
+item_3/text = "Generic Name Test"
+item_3/id = 4
+item_4/text = "Voice Check"
+item_4/id = 1
+item_5/text = "Check Residents"
+item_5/id = 2
+item_6/text = "Item Sorting Test"
+item_6/id = 6
+item_7/text = "tilled soil test"
+item_7/id = 7
+
+[node name="Test" type="PopupMenu" parent="."]
+
+[node name="Settings" type="PopupMenu" parent="."]
+size = Vector2i(189, 100)
+item_count = 1
+item_0/text = "Advanced Mode"
+item_0/checkable = 1
+item_0/id = 0
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme = ExtResource("1_sua2j")
+
+[node name="File" type="PopupMenu" parent="MenuBar"]
+size = Vector2i(259, 302)
+theme = ExtResource("1_sua2j")
+allow_search = false
+item_count = 13
+item_0/text = "Open Folder..."
+item_0/id = 0
+item_1/text = "Open File..."
+item_1/id = 1
+item_2/id = 999
+item_2/separator = true
+item_3/text = "Save All"
+item_3/id = 2
+item_4/text = "Save All As..."
+item_4/id = 3
+item_5/text = "Save File"
+item_5/id = 4
+item_6/text = "Save File As"
+item_6/id = 5
+item_7/id = 999
+item_7/separator = true
+item_8/text = "Export"
+item_8/id = 10
+item_9/text = "Import"
+item_9/id = 11
+item_10/id = 999
+item_10/separator = true
+item_11/text = "Close"
+item_11/id = 8
+item_12/text = "Quit"
+item_12/id = 9
+
+[node name="SaveSingleFileMenu" type="PopupMenu" parent="MenuBar/File"]
+auto_translate_mode = 1
+allow_search = false
+item_count = 3
+item_0/text = "Save CMNDAT"
+item_0/id = 0
+item_1/text = "Save STGDAT"
+item_1/id = 1
+item_2/text = "Save SCSHDAT"
+item_2/id = 2
+script = ExtResource("2_50glp")
+SubmenuIndex = 5
+
+[node name="SaveAsSingleFileMenu" type="PopupMenu" parent="MenuBar/File"]
+auto_translate_mode = 1
+allow_search = false
+item_count = 3
+item_0/text = "Save CMNDAT As..."
+item_0/id = 0
+item_1/text = "Save STGDAT As..."
+item_1/id = 1
+item_2/text = "Save SCSHDAT As..."
+item_2/id = 2
+script = ExtResource("2_50glp")
+SubmenuIndex = 6
+
+[node name="ExportMenu" type="PopupMenu" parent="MenuBar/File"]
+auto_translate_mode = 1
+allow_search = false
+item_count = 3
+item_0/text = "Export CMNDAT..."
+item_0/id = 0
+item_1/text = "Export STGDAT..."
+item_1/id = 1
+item_2/text = "Export SCSHDAT..."
+item_2/id = 2
+script = ExtResource("2_50glp")
+SubmenuIndex = 8
+
+[node name="ImportMenu" type="PopupMenu" parent="MenuBar/File"]
+auto_translate_mode = 1
+allow_search = false
+item_count = 3
+item_0/text = "Import CMNDAT..."
+item_0/id = 0
+item_1/text = "Import STGDAT..."
+item_1/id = 1
+item_2/text = "Import SCSHDAT..."
+item_2/id = 2
+script = ExtResource("2_50glp")
+SubmenuIndex = 9
+
+[node name="GratitudeIcon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(736, 103)
+texture = ExtResource("5_krhx3")
+
+[node name="GratitudeBox" type="SpinBox" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 834.0
+offset_top = 63.0
+offset_right = 922.0
+offset_bottom = 93.0
+theme = ExtResource("1_sua2j")
+max_value = 99999.0
+rounded = true
+editable = false
+
+[node name="TimeBox" type="SpinBox" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 932.0
+offset_top = 74.0
+offset_right = 1130.0
+offset_bottom = 104.0
+max_value = 1200.0
+
+[node name="ComplexWeatherSelect" type="OptionButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 106.0
+offset_top = 80.0
+offset_right = 406.0
+offset_bottom = 119.0
+selected = 0
+item_count = 31
+popup/item_0/text = "Weather"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Sunny"
+popup/item_1/id = 1
+popup/item_2/text = "Cloudy"
+popup/item_2/id = 2
+popup/item_3/text = "Rainy"
+popup/item_3/id = 3
+popup/item_4/text = "Snowy"
+popup/item_4/id = 4
+popup/item_5/text = "Stormy"
+popup/item_5/id = 11
+popup/item_6/text = "Furrowfield_Sunny"
+popup/item_6/id = 8
+popup/item_7/text = "Furrowfield_Cloudy"
+popup/item_7/id = 9
+popup/item_8/text = "Furrowfield_Rainy"
+popup/item_8/id = 10
+popup/item_9/text = "KhrumbulDun_Sunny"
+popup/item_9/id = 12
+popup/item_10/text = "Moonbrooke_Sunny"
+popup/item_10/id = 24
+popup/item_11/text = "Moonbrooke_PartlyCloudy"
+popup/item_11/id = 13
+popup/item_12/text = "Moonbrooke_Cloudy"
+popup/item_12/id = 14
+popup/item_13/text = "Moonbrooke_Rainy"
+popup/item_13/id = 15
+popup/item_14/text = "Moonbrooke_Snowy"
+popup/item_14/id = 16
+popup/item_15/text = "Moonbrooke_Stormy"
+popup/item_15/id = 25
+popup/item_16/text = "Malhalla_Sunny"
+popup/item_16/id = 19
+popup/item_17/text = "Malhalla_Darkness"
+popup/item_17/id = 22
+popup/item_18/text = "Prologue_Rainy"
+popup/item_18/id = 17
+popup/item_19/text = "Prologue_Sunny"
+popup/item_19/id = 18
+popup/item_20/text = "Prologue_Stormy"
+popup/item_20/id = 20
+popup/item_21/text = "Prologue_Cloudy"
+popup/item_21/id = 21
+popup/item_22/text = "GreenMist"
+popup/item_22/id = 5
+popup/item_23/text = "IllWind"
+popup/item_23/id = 6
+popup/item_24/text = "PostMalhallaDarkness"
+popup/item_24/id = 7
+popup/item_25/text = "PurpleMist"
+popup/item_25/id = 23
+popup/item_26/text = "MalhallaLight"
+popup/item_26/id = 26
+popup/item_27/text = "KhrumbulDunBaseAttack"
+popup/item_27/id = 27
+popup/item_28/text = "PostFinalBattleDarkness"
+popup/item_28/id = 28
+popup/item_29/text = "DestroyedDeitreeMist"
+popup/item_29/id = 29
+popup/item_30/text = "FurrowfieldFinalSceneSunny"
+popup/item_30/id = 30
+
+[node name="SimpleWeatherSelect" type="OptionButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1114.0
+offset_top = 16.0
+offset_right = 1414.0
+offset_bottom = 55.0
+selected = 0
+item_count = 31
+popup/item_0/text = "Weather"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "Sunny"
+popup/item_1/id = 1
+popup/item_2/text = "Cloudy"
+popup/item_2/id = 2
+popup/item_3/text = "Rainy"
+popup/item_3/id = 3
+popup/item_4/text = "Snowy"
+popup/item_4/id = 4
+popup/item_5/text = "Stormy"
+popup/item_5/id = 11
+popup/item_6/text = "Furrowfield_Sunny"
+popup/item_6/id = 8
+popup/item_7/text = "Furrowfield_Cloudy"
+popup/item_7/id = 9
+popup/item_8/text = "Furrowfield_Rainy"
+popup/item_8/id = 10
+popup/item_9/text = "KhrumbulDun_Sunny"
+popup/item_9/id = 12
+popup/item_10/text = "Moonbrooke_Sunny"
+popup/item_10/id = 24
+popup/item_11/text = "Moonbrooke_PartlyCloudy"
+popup/item_11/id = 13
+popup/item_12/text = "Moonbrooke_Cloudy"
+popup/item_12/id = 14
+popup/item_13/text = "Moonbrooke_Rainy"
+popup/item_13/id = 15
+popup/item_14/text = "Moonbrooke_Snowy"
+popup/item_14/id = 16
+popup/item_15/text = "Moonbrooke_Stormy"
+popup/item_15/id = 25
+popup/item_16/text = "Malhalla_Sunny"
+popup/item_16/id = 19
+popup/item_17/text = "Malhalla_Darkness"
+popup/item_17/id = 22
+popup/item_18/text = "Prologue_Rainy"
+popup/item_18/id = 17
+popup/item_19/text = "Prologue_Sunny"
+popup/item_19/id = 18
+popup/item_20/text = "Prologue_Stormy"
+popup/item_20/id = 20
+popup/item_21/text = "Prologue_Cloudy"
+popup/item_21/id = 21
+popup/item_22/text = "GreenMist"
+popup/item_22/id = 5
+popup/item_23/text = "IllWind"
+popup/item_23/id = 6
+popup/item_24/text = "PostMalhallaDarkness"
+popup/item_24/id = 7
+popup/item_25/text = "PurpleMist"
+popup/item_25/id = 23
+popup/item_26/text = "MalhallaLight"
+popup/item_26/id = 26
+popup/item_27/text = "KhrumbulDunBaseAttack"
+popup/item_27/id = 27
+popup/item_28/text = "PostFinalBattleDarkness"
+popup/item_28/id = 28
+popup/item_29/text = "DestroyedDeitreeMist"
+popup/item_29/id = 29
+popup/item_30/text = "FurrowfieldFinalSceneSunny"
+popup/item_30/id = 30
+
+[node name="FileDialog" type="FileDialog" parent="."]
+mode_overrides_title = false
+access = 2
+filters = PackedStringArray("")
+use_native_dialog = true
+
+[node name="UnsavedChangesWindow" type="Window" parent="."]
+title = "Alert!"
+position = Vector2i(125, 216)
+size = Vector2i(330, 145)
+visible = false
+exclusive = true
+force_native = true
+
+[node name="ColorRect" type="ColorRect" parent="UnsavedChangesWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UnsavedChangesWindow"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Separator1" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveButton" type="Button" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="Separator2" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DontSaveButton" type="Button" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+text = "Don't Save"
+
+[node name="Separator3" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CancelButton" type="Button" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Separator4" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="UnsavedChangesWindow"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_right = 132.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You have unsaved changes.
+What would you like to do?"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 621.0
+offset_top = 24.0
+offset_right = 729.0
+offset_bottom = 76.0
+text = "Bag"
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 463.0
+offset_top = 31.0
+offset_right = 608.0
+offset_bottom = 78.0
+text = "Appearance"
+
+[node name="Button3" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 769.0
+offset_top = 97.0
+offset_right = 872.0
+offset_bottom = 127.0
+text = "Residents"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 726.0
+offset_top = 281.0
+offset_right = 1546.0
+offset_bottom = 913.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_01ce4")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="ResidentPreviewTest" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 815.0
+offset_top = 199.0
+offset_right = 1066.0
+offset_bottom = 498.0
+
+[node name="HairB" type="TextureRect" parent="ResidentPreviewTest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_s4at1")
+
+[node name="Body" type="TextureRect" parent="ResidentPreviewTest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_igwea")
+
+[node name="Face" type="TextureRect" parent="ResidentPreviewTest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -95.0
+offset_right = 50.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_010tf")
+
+[node name="HairF" type="TextureRect" parent="ResidentPreviewTest"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -95.0
+offset_right = 50.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_4clea")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = 128.0
+offset_right = 922.0
+offset_bottom = 567.0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HotbarInventoryContainer" type="GridContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+columns = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BagInventoryContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 15
+
+[node name="Control" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 838.0
+offset_top = 137.0
+offset_right = 1141.0
+offset_bottom = 581.0
+metadata/_edit_group_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="Button" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Button2" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button3" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button4" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button5" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button6" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button7" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button8" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button9" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button10" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button11" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button12" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button13" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button14" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button15" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button16" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button17" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button18" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button19" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button20" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button21" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button22" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button23" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button24" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button25" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button26" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button27" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button28" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Window" type="Window" parent="."]
+position = Vector2i(15, 86)
+size = Vector2i(1105, 530)
+
+[node name="Voxel Test" parent="Window" instance=ExtResource("11_4kpch")]
+
+[connection signal="id_pressed" from="MenuBar/File" to="." method="_On_File_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="MenuBar/File/SaveSingleFileMenu" to="." method="_On_SaveSingleFile_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="MenuBar/File/SaveAsSingleFileMenu" to="." method="_On_SaveAsSingleFile_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="MenuBar/File/ExportMenu" to="." method="_On_Export_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="MenuBar/File/ImportMenu" to="." method="_On_Import_PopupMenu_IdPressed"]
+[connection signal="value_changed" from="GratitudeBox" to="." method="_On_Gratitude_SpinBox_ValueChanged"]
+[connection signal="item_selected" from="ComplexWeatherSelect" to="." method="_On_Weather_OptionButton_ItemSelected"]
+[connection signal="item_selected" from="SimpleWeatherSelect" to="." method="_On_Weather_OptionButton_ItemSelected"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_On_FileDialog_FileSelected"]
+[connection signal="file_selected" from="FileDialog" to="." method="_On_FileDialog_FileSelected"]
+[connection signal="close_requested" from="UnsavedChangesWindow" to="." method="_On_UnsavedChanges_Window_Cancel_Button_Pressed"]
+[connection signal="pressed" from="UnsavedChangesWindow/HBoxContainer/SaveButton" to="." method="_On_UnsavedChanges_Window_Save_Button_Pressed"]
+[connection signal="pressed" from="UnsavedChangesWindow/HBoxContainer/DontSaveButton" to="." method="_On_UnsavedChanges_Window_DontSave_Button_Pressed"]
+[connection signal="pressed" from="UnsavedChangesWindow/HBoxContainer/CancelButton" to="." method="_On_UnsavedChanges_Window_Cancel_Button_Pressed"]
+[connection signal="pressed" from="Button" to="." method="_On_Bag_Button_Pressed"]

@@ -1,0 +1,31 @@
+IoA: Sea Lv: 31.5 Height LV: 96
+FF: Sea 31.5 height: 96
+KD: 65.5, 96
+MB: 19.5, 96
+SK: 11.5, 96
+MH: 0-1?, 96
+AI: 31.5, 96
+
+Buildertopia
+Soggy: 31.5, 96
+Blossom: 31.5, 96
+Sunny: 65.5, 96
+Iridescent: 11.5, 96
+Rimey: 31.5, 96
+Laguna: 31.5, 96
+Unholy: 31.5, 96
+Defiled: 31.5, 96
+Coral: 73.5, 96
+
+Explorer's Shores:
+Soggy: 31.5, 96
+Blossom: 31.5, 96
+Sunny: 65.5, 96
+Iridescent: 11.5, 96
+Rimey: 31.5, 96
+Laguna: 31.5, 96
+Unholy: 31.5, 96
+Defiled: 31.5, 96
+Coral: 73.5, 96
+Bamboo: 31.5, 96
+Gurgling: 73.5, 96

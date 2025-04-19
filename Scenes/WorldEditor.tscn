@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://si68n61gn1cn"]
+
+[ext_resource type="Texture2D" uid="uid://b5wcgwa3elvlc" path="res://Graphics/blocks.png" id="1_djn2n"]
+[ext_resource type="VoxelBlockyLibrary" uid="uid://ds0n7xj6hqhdx" path="res://Resources/Voxel Library.tres" id="1_ec1xm"]
+[ext_resource type="Script" uid="uid://da6gt5x2hlsns" path="res://Scenes/WorldEditorScene.cs" id="1_kqags"]
+[ext_resource type="Script" uid="uid://bgg687qn5fg8" path="res://Nodes/CameraController.cs" id="4_drl5t"]
+[ext_resource type="Script" uid="uid://c8d5ejfxksjcm" path="res://Nodes/FPSLabel.cs" id="6_rkejf"]
+
+[sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_yg1cn"]
+library = ExtResource("1_ec1xm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq1al"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_djn2n")
+texture_filter = 0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amqqt"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1jypa"]
+sky_material = SubResource("ProceduralSkyMaterial_amqqt")
+
+[sub_resource type="Environment" id="Environment_nmm71"]
+background_mode = 2
+sky = SubResource("Sky_1jypa")
+tonemap_mode = 2
+
+[sub_resource type="TextMesh" id="TextMesh_5ep8s"]
+text = "Center
+|
+V"
+
+[node name="WorldEditor" type="Node3D"]
+script = ExtResource("1_kqags")
+
+[node name="VoxelTerrain" type="VoxelTerrain" parent="."]
+mesher = SubResource("VoxelMesherBlocky_yg1cn")
+cast_shadow = 0
+bounds = AABB(-5.36871e+08, -16, -5.36871e+08, 1.07374e+09, 144, 1.07374e+09)
+generate_collisions = false
+material_override = SubResource("StandardMaterial3D_sq1al")
+run_stream_in_editor = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmm71")
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_VoxelTerrain")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 989.679, 82.67, 989.679)
+current = true
+script = ExtResource("4_drl5t")
+Speed = 20.0
+MaxSpeedMultiplier = 4.0
+MouseSensitivity = 0.2
+_VoxelTerrain = NodePath("../VoxelTerrain")
+
+[node name="VoxelViewer" type="VoxelViewer" parent="Camera3D"]
+view_distance = 88888
+
+[node name="Debug" type="Node" parent="."]
+
+[node name="FPSLabel" type="Label" parent="Debug"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 60.0
+offset_bottom = 38.0
+text = "FPS: 0"
+script = ExtResource("6_rkejf")
+
+[node name="Button" type="Button" parent="Debug"]
+visible = false
+offset_left = 886.0
+offset_top = 558.0
+offset_right = 1117.0
+offset_bottom = 607.0
+text = "click me"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Debug"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644735, 0)
+mesh = SubResource("TextMesh_5ep8s")
+skeleton = NodePath("../..")
+
+[connection signal="pressed" from="Debug/Button" to="." method="_on_button_pressed"]

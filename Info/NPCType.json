@@ -1,0 +1,8045 @@
+[
+	{
+		"Type": 1,
+		"Name": "Malroth",
+		"Icon": "npc_malroth",
+		"Hair": 3,
+		"Face": 3,
+		"Body": 50,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 2,
+		"Name": "Bonanzo",
+		"Icon": "npc_bonanzo",
+		"Hair": 4,
+		"Face": 4,
+		"Body": 52,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 3,
+		"Name": "Pastor's Pal",
+		"Icon": "monster_prestidigitator",
+		"Image": "monster_prestidigitator",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 4,
+		"Name": "Rosie",
+		"Icon": "npc_rosie",
+		"Hair": 21,
+		"Face": 30,
+		"Body": 109,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 5,
+		"Name": "Captain Brownbeard",
+		"Icon": "",
+		"Hair": 5,
+		"Face": 5,
+		"Body": 54,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 6,
+		"Name": "Perry",
+		"Icon": "npc_perry",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 107,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 7,
+		"Name": "Wrigley",
+		"Icon": "npc_wrigley",
+		"Image": "TODO",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 8,
+		"Icon": "animal_dog1_adult",
+		"Image": "animal_dog1_adult",
+		"AppearOnRegister": true,
+		"IsAnimal": true,
+		"IsMonster": false,
+		"Note": "Furrowfield Retriever"
+	},
+	{
+		"Note": "TODO 9-12"
+	},
+	{
+		"Type": 13,
+		"Icon": "npc_rosie",
+		"Hair": 21,
+		"Face": 30,
+		"Body": 109,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false,
+		"Note": "Unused Rosie variant?"
+	},
+	{
+		"Type": 14,
+		"Name": "Lulu",
+		"Icon": "npc_lulu",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 139,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 15,
+		"Name": "*",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 16,
+		"Name": "*",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 17,
+		"Name": "Cat",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 18,
+		"Name": "Cow",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 19,
+		"Name": "Chicken",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 20,
+		"Name": "Sheep",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 21,
+		"Name": "Kitten",
+		"Note": "Not Used?"
+	},
+	{
+		"Type": 23,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 24,
+		"Name": "Saffron",
+		"Icon": "npc_saffron",
+		"Hair": 19,
+		"Face": 18,
+		"Body": 87,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 25,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 26,
+		"Name": "Lillian",
+		"Icon": "npc_lillian",
+		"Hair": 35,
+		"Face": 27,
+		"Body": 127,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 27,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 28,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 29,
+		"Name": "Brainy Badboon",
+		"Icon": "monster_brainybadboon",
+		"Image": "monster_brainybadboon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 30,
+		"Name": "Test: Pet",
+		"Icon": "animal_dog1_adult",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": true,
+		"IsAnimal": "TODO",
+		"IsMonster": false
+	},
+	{
+		"Type": 31,
+		"Name": "Test: Livestock",
+		"Icon": "animal_chicken_adult",
+		"Image": "animal_chicken_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 32,
+		"Name": "Text: Monster",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 34,
+		"Name": "Pastor Al",
+		"Icon": "monster_magus",
+		"Image": "monster_magus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 35,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 36,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 37,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 38,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 39,
+		"Name": "Orc",
+		"Icon": "monster_orc",
+		"Image": "monster_orc",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 40,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 41,
+		"Name": "Rough Rancher",
+		"Icon": "npc_generic_farmer06",
+		"Hair": 26,
+		"Face": 15,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 42,
+		"Name": "Avid Agriculturist",
+		"Icon": "npc_generic_farmer04",
+		"Hair": 26,
+		"Face": 14,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 43,
+		"Name": "Fervent Farmer",
+		"Icon": "npc_generic_farmer01",
+		"Hair": 27,
+		"Face": 19,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 44,
+		"Name": "Slime",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 45,
+		"Name": "Orc",
+		"Icon": "monster_orc",
+		"Image": "monster_orc",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 46,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 47,
+		"Name": "Blonde Bloke",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 13,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 48,
+		"Name": "Temp Base Male 1",
+		"Icon": "npc_malroth",
+		"Hair": 14,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 49,
+		"Name": "Temp Base Male 2",
+		"Icon": "npc_perry",
+		"Hair": 14,
+		"Face": 12,
+		"Body": 144,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 50,
+		"Name": "Temp Base Male 3",
+		"Icon": "npc_bonanzo",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 51,
+		"Name": "Temp Base Female 1",
+		"Icon": "npc_rosie",
+		"Hair": 21,
+		"Face": 30,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 52,
+		"Name": "Temp Base Female 2",
+		"Icon": "npc_esther",
+		"Hair": 38,
+		"Face": 16,
+		"Body": 136,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 53,
+		"Name": "Temp Base Female 3",
+		"Icon": "npc_babs(TODO)",
+		"Hair": 10,
+		"Face": 8,
+		"Body": 68,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 54,
+		"Name": "Malroth",
+		"Icon": "monster_malroth",
+		"Image": "monster_malroth",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 55,
+		"Name": "Malroth",
+		"Icon": "npc_malroth",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 56,
+		"Name": "Milosch",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Malroth's arm"
+	},
+	{
+		"Type": 57,
+		"Name": "Britney",
+		"Icon": "npc_britney",
+		"Hair": 25,
+		"Face": 16,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 58,
+		"Name": "Inquisitive Visitor",
+		"Icon": "npc_unknown",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 59,
+		"Name": "Clayton",
+		"Icon": "npc_clayton",
+		"Hair": 14,
+		"Face": 13,
+		"Body": 107,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 60,
+		"Name": "Test Townie 1",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 61,
+		"Name": "Test Townie 2",
+		"Icon": "",
+		"Hair": 19,
+		"Face": 18,
+		"Body": 91,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 62,
+		"Name": "Test Townie 3",
+		"Icon": "",
+		"Hair": 40,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 64,
+		"Name": "Drazo",
+		"Icon": "monster_treevil",
+		"Image": "monster_treevil",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Dark macarbour"
+	},
+	{
+		"Type": 65,
+		"Name": "Drazy",
+		"Icon": "monster_treevil",
+		"Image": "monster_treevil",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Dark macarbour"
+	},
+	{
+		"Type": 66,
+		"Name": "Slaris",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Dark bewarewolf"
+	},
+	{
+		"Type": 67,
+		"Name": "Virtuous Villager",
+		"Icon": "npc_generic_elder01",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 68,
+		"Name": "Reliable Resident",
+		"Icon": "npc_generic_villager07",
+		"Hair": 20,
+		"Face": 17,
+		"Body": 88,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 69,
+		"Name": "Civil Citizen",
+		"Icon": "npc_generic_elder02",
+		"Hair": 33,
+		"Face": 25,
+		"Body": 119,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 70,
+		"Name": "Innkeeper",
+		"Icon": "",
+		"Hair": 5,
+		"Face": 5,
+		"Body": 54,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 71,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 72,
+		"Name": "Temp Male Merchant",
+		"Icon": "",
+		"Hair": 22,
+		"Face": 12,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 73,
+		"Name": "Ghostly Guest",
+		"Icon": "monster_ghost",
+		"Image": "monster_ghost",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 74,
+		"Name": "Chief Inspector",
+		"Icon": "monster_magus",
+		"Image": "monster_magus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 75,
+		"Name": "Cat",
+		"Icon": "animal_cat1_adult",
+		"Image": "animal_cat1_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 76,
+		"Name": "Ex-Con",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 77,
+		"Name": "Ex-Con",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 78,
+		"Name": "Ex-Con",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 13,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 82,
+		"Name": "Temp Toughie",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 83,
+		"Name": "Prisoner",
+		"Icon": "",
+		"Hair": 14,
+		"Face": 14,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 84,
+		"Name": "Prisoner",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 85,
+		"Name": "Prisoner",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 13,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 86,
+		"Name": "Prisoner",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 87,
+		"Name": "Prisoner",
+		"Icon": "",
+		"Hair": 14,
+		"Face": 14,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 88,
+		"Name": "Prisoner",
+		"Icon": "",
+		"Hair": 14,
+		"Face": 14,
+		"Body": 78,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 89,
+		"Name": "Molly",
+		"Icon": "npc_molly",
+		"Hair": 6,
+		"Face": 6,
+		"Body": 164,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 90,
+		"Name": "Splodger",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 91,
+		"Name": "Smashley",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hammerhood",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 92,
+		"Name": "Gottfried",
+		"Icon": "monster_walkingcorpse",
+		"Image": "monster_walkingcorpse",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 93,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 94,
+		"Name": "Guard",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 95,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 96,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 97,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 98,
+		"Name": "Warden",
+		"Icon": "monster_wrecktor",
+		"Image": "monster_wrecktor",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 99,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 100,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 101,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 102,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 105,
+		"Name": "Den",
+		"Icon": "npc_den",
+		"Hair": 7,
+		"Face": 7,
+		"Body": 62,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 106,
+		"Name": "Magrog",
+		"Icon": "npc_magrog",
+		"Hair": 37,
+		"Face": 9,
+		"Body": 69,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 107,
+		"Name": "Serge",
+		"Icon": "npc_serge",
+		"Hair": 16,
+		"Face": 12,
+		"Body": 162,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 108,
+		"Name": "Clobbert",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hammerhood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 109,
+		"Name": "Kubacho",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 110,
+		"Name": "Dougie",
+		"Icon": "npc_dougie",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 111,
+		"Name": "Babs",
+		"Icon": "npc_babs (TODO)",
+		"Hair": 10,
+		"Face": 8,
+		"Body": 68,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 112,
+		"Name": "Bruppo",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 113,
+		"Name": "Relube",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 114,
+		"Name": "Anessa",
+		"Icon": "",
+		"Hair": 19,
+		"Face": 19,
+		"Body": 88,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false,
+		"Note": "Not the real Anessa"
+	},
+	{
+		"Type": 115,
+		"Name": "Samson",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 14,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 116,
+		"Name": "Digby",
+		"Icon": "npc_digby",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 117,
+		"Name": "Goldirox",
+		"Icon": "monster_stonegolem (TODO)",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 118,
+		"Name": "Bonnie",
+		"Icon": "npc_bonnie",
+		"Hair": 34,
+		"Face": 26,
+		"Body": 123,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 119,
+		"Name": "Beefy Bloke",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 32,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 120,
+		"Name": "Captain Whitebones",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 121,
+		"Name": "Ship: Sailor 1",
+		"Icon": "monster_magus",
+		"Image": "monster_magus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 122,
+		"Name": "Ship: Sailor 2",
+		"Icon": "monster_magus",
+		"Image": "monster_magus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 123,
+		"Name": "Ship: Sailor 3",
+		"Icon": "monster_magus",
+		"Image": "monster_magus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 124,
+		"Name": "Ship: Soldier 1",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 125,
+		"Name": "Ship: Soldier 2",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 126,
+		"Name": "Ship: Soldier 3",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 127,
+		"Name": "Ship: Bard",
+		"Icon": "monster_wrecktor",
+		"Image": "monster_wrecktor",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 128,
+		"Name": "Ship: Passenger 1",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 129,
+		"Name": "Ship: Passenger 2",
+		"Icon": "monster_dracky",
+		"Image": "monster_dracky",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 130,
+		"Name": "Ship: Passenger 3",
+		"Icon": "monster_spirit",
+		"Image": "monster_spirit",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 131,
+		"Name": "Ship: Passenger 4",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 132,
+		"Name": "Ship: Passenger 5",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 133,
+		"Name": "Ship: Passenger 6",
+		"Icon": "monster_drohldrone",
+		"Image": "monster_drohldrone",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 134,
+		"Name": "Ship: Passenger 7",
+		"Icon": "monster_spirit",
+		"Image": "monster_spirit",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 135,
+		"Name": "Ship: Passenger 8",
+		"Icon": "monster_spirit",
+		"Image": "monster_spirit",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 136,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 137,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 138,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 139,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 140,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 141,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 142,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 143,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 144,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 145,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 146,
+		"Name": "Dirty Rat",
+		"Icon": "monster_dirtyrat",
+		"Image": "monster_dirtyrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 148,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 149,
+		"Name": "Ratscal",
+		"Icon": "monster_ratscal",
+		"Image": "monster_ratscal",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 150,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 151,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 152,
+		"Name": "Receptionist",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 153,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 154,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 155,
+		"Name": "Mighty Meathead",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 156,
+		"Name": "Hulking Hunk",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 157,
+		"Name": "Tanned Toughie",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 158,
+		"Name": "Big Beefcake",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 159,
+		"Name": "Macho Chap",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 32,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 160,
+		"Name": "Swole Soul",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 161,
+		"Name": "Strapping Specimen",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 32,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 162,
+		"Name": "Jacked Jock",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 32,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 163,
+		"Name": "Fit Fellow",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 164,
+		"Name": "Khrumbul-Dun: Memo 10",
+		"Icon": "npc_dougie",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 165,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 166,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 167,
+		"Name": "Ratscal",
+		"Icon": "monster_ratscal",
+		"Image": "monster_ratscal",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 168,
+		"Name": "Racing Ace",
+		"Icon": "monster_greatsabrecat",
+		"Image": "monster_greatsabrecat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 169,
+		"Name": "Slime",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 170,
+		"Name": "Fat Rat",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hammerhood",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 171,
+		"Name": "Healslime",
+		"Icon": "monster_healslime",
+		"Image": "monster_healslime",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 172,
+		"Name": "Chimaera",
+		"Icon": "monster_chimaera",
+		"Image": "monster_chimaera",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 173,
+		"Name": "Killing Machine",
+		"Icon": "monster_killingmachine",
+		"Image": "monster_killingmachine",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 174,
+		"Name": "Walking Corpse",
+		"Icon": "monster_walkingcorpse",
+		"Image": "monster_walkingcorpse",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 175,
+		"Name": "Golem",
+		"Icon": "monster_golem",
+		"Image": "monster_golem",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 176,
+		"Name": "Liquid Metal Slime",
+		"Icon": "monster_liquidmetalslime",
+		"Image": "monster_liquidmetalslime",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 177,
+		"Name": "Great Sabrecat",
+		"Icon": "monster_greatsabrecat",
+		"Image": "monster_greatsabrecat",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 178,
+		"Name": "Muddy Hand",
+		"Icon": "monster_muddyhand",
+		"Image": "monster_muddyhand",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 179,
+		"Name": "Powie Yowie",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 180,
+		"Name": "Living Statue",
+		"Icon": "monster_livingstatue",
+		"Image": "monster_livingstatue",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 181,
+		"Name": "",
+		"Icon": "",
+		"Hair": 14,
+		"Face": 13,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 185,
+		"Name": "",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 15,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 186,
+		"Name": "",
+		"Icon": "npc_lulu",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 139,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 187,
+		"Name": "",
+		"Icon": "npc_crabberdabberdoo",
+		"Image": "npc_crabberdabberdoo",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 188,
+		"Name": "Medal King",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 140,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 189,
+		"Name": "",
+		"Icon": "npc_unknown",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO",
+		"Note": "i can't see them"
+	},
+	{
+		"Type": 191,
+		"Name": "Hunky He-Man",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 192,
+		"Name": "",
+		"Icon": "monster_morpheanmushroom",
+		"Image": "monster_morpheanmushroom",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 193,
+		"Name": "",
+		"Icon": "monster_funghoul",
+		"Image": "monster_funghoul",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 194,
+		"Name": "",
+		"Icon": "monster_funghoul",
+		"Image": "monster_funghoul",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 195,
+		"Name": "",
+		"Icon": "monster_funghoul",
+		"Image": "monster_funghoul",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 196,
+		"Name": "",
+		"Icon": "monster_funghoul",
+		"Image": "monster_funghoul",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 197,
+		"Name": "Shane",
+		"Icon": "monster_shaman",
+		"Image": "monster_shaman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 198,
+		"Name": "Ripped Roughneck",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 199,
+		"Name": "Powie Yowie",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 201,
+		"Name": "*",
+		"Icon": "monster_legerdeman",
+		"Image": "monster_legerdeman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 202,
+		"Name": "*",
+		"Icon": "monster_legerdeman",
+		"Image": "monster_legerdeman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 203,
+		"Name": "",
+		"Icon": "npc_dougie",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 204,
+		"Name": "",
+		"Icon": "npc_dougie",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 205,
+		"Name": "",
+		"Icon": "npc_dougie",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 206,
+		"Name": "",
+		"Icon": "npc_healslime",
+		"Image": "npc_healslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 207,
+		"Name": "",
+		"Icon": "npc_sheslime",
+		"Image": "npc_sheslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 208,
+		"Name": "",
+		"Icon": "npc_goodybag",
+		"Image": "npc_goodybag",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 209,
+		"Name": "",
+		"Icon": "npc_goodybag",
+		"Image": "npc_goodybag",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 210,
+		"Name": "",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 211,
+		"Name": "Toughie",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 212,
+		"Name": "Toughie",
+		"Icon": "TODO",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 213,
+		"Name": "Toughie",
+		"Icon": "TODO",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 214,
+		"Name": "Showy Showgirl",
+		"Icon": "npc_generic_dancer01",
+		"Hair": 64,
+		"Face": 18,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 215,
+		"Name": "Perky Performer",
+		"Icon": "npc_generic_dancer02",
+		"Hair": 66,
+		"Face": 16,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 216,
+		"Name": "Dazzling Dancer",
+		"Icon": "npc_generic_dancer03",
+		"Hair": 65,
+		"Face": 17,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 217,
+		"Name": "Ordelia",
+		"Icon": "npc_ordelia",
+		"Hair": 67,
+		"Face": 19,
+		"Body": 66,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 218,
+		"Name": "Jules",
+		"Icon": "monster_goodybag",
+		"Image": "monster_goodybag",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 219,
+		"Name": "",
+		"Icon": "monster_goodybag",
+		"Image": "monster_goodybag",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 220,
+		"Name": "Orc",
+		"Icon": "monster_orc",
+		"Image": "monster_orc",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 221,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 222,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 223,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 225,
+		"Name": "Madusa",
+		"Icon": "monster_madusa",
+		"Image": "monster_madusa",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 226,
+		"Name": "",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 227,
+		"Name": "",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 228,
+		"Name": "",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 231,
+		"Name": "Kitten",
+		"Icon": "animal_cat1_baby",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 232,
+		"Name": "Puppy",
+		"Icon": "animal_dog1_baby",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 233,
+		"Name": "Calf",
+		"Icon": "animal_cow_baby",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 234,
+		"Name": "Chick",
+		"Icon": "animal_chicken_baby",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 235,
+		"Name": "Lamb",
+		"Icon": "animal_sheep_baby",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 236,
+		"Name": "Temp: Large Male",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 237,
+		"Name": "Temp: Thin Male",
+		"Icon": "npc_clayton",
+		"Hair": 14,
+		"Face": 13,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 238,
+		"Name": "Temp: Large Female",
+		"Icon": "",
+		"Hair": 20,
+		"Face": 18,
+		"Body": 101,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 239,
+		"Name": "Temp: Thin Female",
+		"Icon": "",
+		"Hair": 14,
+		"Face": 15,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 240,
+		"Name": "Charlene",
+		"Icon": "",
+		"Hair": 19,
+		"Face": 18,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 241,
+		"Name": "Deadnaut",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 242,
+		"Name": "",
+		"Icon": "monster_manowar",
+		"Image": "monster_manowar",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 243,
+		"Name": "Deadnaut",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 244,
+		"Name": "Deadnaut",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 245,
+		"Name": "Skeleton",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 254,
+		"Name": "*",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 15,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 255,
+		"Name": "*",
+		"Icon": "TODO",
+		"Hair": 14,
+		"Face": 15,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 256,
+		"Name": "King",
+		"Icon": "npc_king",
+		"Hair": 12,
+		"Face": 10,
+		"Body": 71,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 257,
+		"Name": "Jeremiah",
+		"Icon": "npc_jeremiah",
+		"Hair": 43,
+		"Face": 29,
+		"Body": 140,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 258,
+		"Name": "Esther",
+		"Icon": "npc_esther",
+		"Hair": 38,
+		"Face": 16,
+		"Body": 136,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 259,
+		"Name": "Alvin",
+		"Icon": "npc_perry",
+		"Hair": 14,
+		"Face": 12,
+		"Body": 144,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 260,
+		"Name": "Tal",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 261,
+		"Name": "Warwick",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 262,
+		"Name": "Zara",
+		"Icon": "npc_zara",
+		"Hair": 20,
+		"Face": 16,
+		"Body": 146,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 263,
+		"Name": "Muscly Man",
+		"Icon": "npc_generic_miner02",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 148,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 264,
+		"Name": "Crafty Crofter",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 265,
+		"Name": "Haydin",
+		"Icon": "npc_haydin",
+		"Hair": 19,
+		"Face": 14,
+		"Body": 131,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 266,
+		"Name": "Carefree Commoner",
+		"Icon": "npc_generic_villager05",
+		"Hair": 18,
+		"Face": 17,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 267,
+		"Name": "Tireless Trader",
+		"Icon": "npc_generic_merchant02",
+		"Hair": 22,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 268,
+		"Name": "Joseph",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 14,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 269,
+		"Name": "Anessa",
+		"Icon": "npc_anessa",
+		"Hair": 13,
+		"Face": 34,
+		"Body": 73,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 270,
+		"Name": "Anne",
+		"Icon": "",
+		"Hair": 21,
+		"Face": 16,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 271,
+		"Name": "Doray",
+		"Icon": "",
+		"Hair": 21,
+		"Face": 18,
+		"Body": 146,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 272,
+		"Name": "Fiyere",
+		"Icon": "",
+		"Hair": 20,
+		"Face": 16,
+		"Body": 147,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 273,
+		"Name": "Clarissa",
+		"Icon": "",
+		"Hair": 33,
+		"Face": 25,
+		"Body": 143,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 274,
+		"Name": "Hans",
+		"Icon": "",
+		"Hair": 17,
+		"Face": 12,
+		"Body": 145,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 276,
+		"Name": "Cunning Cadet",
+		"Icon": "npc_generic_soldierb01",
+		"Hair": 24,
+		"Face": 12,
+		"Body": 103,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 277,
+		"Name": "Fierce Fighter",
+		"Icon": "npc_generic_soldierb02",
+		"Hair": 24,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 278,
+		"Name": "Fearless Footman",
+		"Icon": "npc_generic_soldierb03",
+		"Hair": 24,
+		"Face": 14,
+		"Body": 103,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 279,
+		"Name": "Timid Trooper",
+		"Icon": "npc_generic_soldierb04",
+		"Hair": 24,
+		"Face": 15,
+		"Body": 103,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 280,
+		"Name": "Eager Ensign",
+		"Icon": "npc_generic_soldierb05",
+		"Hair": 25,
+		"Face": 17,
+		"Body": 105,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 281,
+		"Name": "Stern Soldier",
+		"Icon": "npc_generic_soldierb06",
+		"Hair": 25,
+		"Face": 18,
+		"Body": 105,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 282,
+		"Name": "Skilled Swordsman",
+		"Icon": "npc_generic_soldierb07",
+		"Hair": 24,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 283,
+		"Name": "Raw Recruit",
+		"Icon": "npc_generic_soldierb08",
+		"Hair": 24,
+		"Face": 14,
+		"Body": 103,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 284,
+		"Name": "",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hammerhood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 285,
+		"Name": "Wily Warrior",
+		"Icon": "npc_generic_soldierb09",
+		"Hair": 25,
+		"Face": 16,
+		"Body": 105,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 286,
+		"Name": "Fervid Fencer",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO",
+		"Note": "Unselectable"
+	},
+	{
+		"Type": 287,
+		"Name": "",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hammerhood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 288,
+		"Name": "",
+		"Icon": "monster_bewarewolf",
+		"Image": "monster_bewarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 289,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 290,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 291,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 292,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 293,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 294,
+		"Name": "Bodkin Archer",
+		"Icon": "monster_bodkinarcher",
+		"Image": "monster_bodkinarcher",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 295,
+		"Name": "Townsperson",
+		"Icon": "npc_unknown",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false,
+		"Note": "Dismissable, probably default"
+	},
+	{
+		"Type": 296,
+		"Name": "Pet",
+		"Icon": "animal_dog1_adult",
+		"Image": "TODO",
+		"AppearOnRegister": true,
+		"IsAnimal": true,
+		"IsMonster": false,
+		"Note": "Dismissable"
+	},
+	{
+		"Type": 297,
+		"Name": "Farm Animal",
+		"Icon": "animal_chicken_adult",
+		"Image": "TODO",
+		"AppearOnRegister": true,
+		"IsAnimal": true,
+		"IsMonster": false,
+		"Note": "Dismissable"
+	},
+	{
+		"Type": 298,
+		"Name": "",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 299,
+		"Name": "Bold Barman",
+		"Icon": "npc_generic_bartender01",
+		"Hair": 17,
+		"Face": 13,
+		"Body": 141,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 300,
+		"Name": "Passionate Publican",
+		"Icon": "npc_generic_bartender02",
+		"Hair": 14,
+		"Face": 14,
+		"Body": 142,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 301,
+		"Name": "Brawny Brawler",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 302,
+		"Name": "*",
+		"Icon": "monster_healslime",
+		"Image": "monster_healslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 303,
+		"Name": "*",
+		"Icon": "monster_whackolyte",
+		"Image": "monster_whackolyte",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 304,
+		"Name": "*",
+		"Icon": "monster_whackolyte",
+		"Image": "monster_whackolyte",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 305,
+		"Name": "Stout Sort",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 306,
+		"Name": "Flexing Fellow",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 307,
+		"Name": "Burly Blighter",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 32,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 308,
+		"Name": "Potent Pitman",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 309,
+		"Name": "Buff Bro",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 311,
+		"Name": "Gentle Giant",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 312,
+		"Name": "",
+		"Icon": "npc_esther",
+		"Hair": 38,
+		"Face": 16,
+		"Body": 136,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 313,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 314,
+		"Name": "",
+		"Icon": "",
+		"Hair": 17,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 315,
+		"Name": "",
+		"Icon": "npc_generic_merchant02",
+		"Hair": 22,
+		"Face": 12,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 316,
+		"Name": "",
+		"Icon": "npc_grimlin",
+		"Image": "npc_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 317,
+		"Name": "",
+		"Icon": "npc_killingmachine",
+		"Image": "npc_killingmachine",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 318,
+		"Name": "",
+		"Icon": "npc_spikedhare",
+		"Image": "npc_spikedhare",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 319,
+		"Name": "",
+		"Icon": "npc_hocuschimaera",
+		"Image": "npc_hocuschimaera",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 320,
+		"Name": "",
+		"Icon": "npc_ravenlunatic",
+		"Image": "npc_ravenlunatic",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 321,
+		"Name": "",
+		"Icon": "npc_hammerhood",
+		"Image": "npc_hammerhood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 322,
+		"Name": "",
+		"Icon": "npc_gremlin",
+		"Image": "npc_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 324,
+		"Name": "",
+		"Icon": "npc_malroth",
+		"Hair": 14,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 325,
+		"Name": "",
+		"Icon": "npc_malroth",
+		"Hair": 14,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 326,
+		"Name": "",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 13,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 327,
+		"Name": "",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 13,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 328,
+		"Name": "",
+		"Icon": "",
+		"Hair": 26,
+		"Face": 15,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 329,
+		"Name": "",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 330,
+		"Name": "",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 331,
+		"Name": "",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 332,
+		"Name": "",
+		"Icon": "",
+		"Hair": 19,
+		"Face": 17,
+		"Body": 88,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 333,
+		"Name": "",
+		"Icon": "",
+		"Hair": 27,
+		"Face": 19,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 334,
+		"Name": "",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hammerhood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 335,
+		"Name": "Ambitious Agrarian",
+		"Icon": "npc_generic_farmer02",
+		"Hair": 26,
+		"Face": 12,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 336,
+		"Name": "Reliable Rancher",
+		"Icon": "npc_generic_farmer03",
+		"Hair": 26,
+		"Face": 14,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 337,
+		"Name": "Friendly Farmhand",
+		"Icon": "npc_generic_farmer05",
+		"Hair": 27,
+		"Face": 17,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 338,
+		"Name": "Capable Cultivator",
+		"Icon": "npc_generic_farmer07",
+		"Hair": 27,
+		"Face": 16,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 339,
+		"Name": "",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 340,
+		"Name": "",
+		"Icon": "npc_malroth",
+		"Hair": 14,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 341,
+		"Name": "",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 13,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 342,
+		"Name": "",
+		"Icon": "",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Copper Goldirox"
+	},
+	{
+		"Type": 343,
+		"Name": "",
+		"Icon": "",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Silver Goldirox"
+	},
+	{
+		"Type": 344,
+		"Name": "",
+		"Icon": "monster_goldgolem",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 345,
+		"Name": "Manic Miner",
+		"Icon": "npc_generic_miner01",
+		"Hair": 37,
+		"Face": 31,
+		"Body": 160,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 346,
+		"Name": "Great Sabrecub",
+		"Icon": "monster_greatsabrecub",
+		"Image": "monster_greatsabrecub",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 347,
+		"Name": "Test Songstress",
+		"Icon": "",
+		"Hair": 39,
+		"Face": 16,
+		"Body": 138,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 348,
+		"Name": "Hairy Hermit",
+		"Icon": "monster_hammerhood",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 352,
+		"Name": "",
+		"Icon": "monster_madusa",
+		"Image": "monster_madusa",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Small with big hitbox"
+	},
+	{
+		"Type": 355,
+		"Name": "Rendarak Cyclops",
+		"Icon": "monster_cyclops",
+		"Image": "monster_cyclops",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 356,
+		"Name": "Rendarak Gigantes",
+		"Icon": "monster_gigantes",
+		"Image": "monster_gigantes",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 360,
+		"Name": "",
+		"Icon": "monster_bewarewolf",
+		"Image": "monster_bewarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 364,
+		"Name": "Motivated Man-at-arms",
+		"Icon": "npc_generic_soldierb12",
+		"Hair": 24,
+		"Face": 15,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 365,
+		"Name": "Competent Conscript",
+		"Icon": "npc_generic_soldierb10",
+		"Hair": 24,
+		"Face": 14,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 366,
+		"Name": "",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 367,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 368,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 369,
+		"Name": "Brave Battler",
+		"Icon": "npc_generic_soldierb11",
+		"Hair": 25,
+		"Face": 17,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 370,
+		"Name": "Helpful Healer",
+		"Icon": "npc_generic_soldierg01",
+		"Hair": 61,
+		"Face": 12,
+		"Body": 145,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 371,
+		"Name": "Merry Medic",
+		"Icon": "npc_generic_soldierg02",
+		"Hair": 63,
+		"Face": 17,
+		"Body": 147,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 372,
+		"Name": "Noble Knight",
+		"Icon": "npc_generic_soldierr01",
+		"Hair": 60,
+		"Face": 12,
+		"Body": 144,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 373,
+		"Name": "Proud Paladin",
+		"Icon": "npc_generic_soldierr02",
+		"Hair": 60,
+		"Face": 13,
+		"Body": 144,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 375,
+		"Name": "",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 377,
+		"Name": "",
+		"Icon": "monster_hargon",
+		"Image": "monster_hargon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 378,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "monster_malroth",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Not red eyed"
+	},
+	{
+		"Type": 380,
+		"Name": "Cat 2",
+		"Icon": "animal_cat2_adult",
+		"Image": "animal_cat2_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 381,
+		"Name": "Cat 3",
+		"Icon": "animal_cat3_adult",
+		"Image": "animal_cat3_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 382,
+		"Name": "Cat 4",
+		"Icon": "animal_cat4_adult",
+		"Image": "animal_cat4_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 383,
+		"Name": "Cat 5",
+		"Icon": "animal_cat5_adult",
+		"Image": "animal_cat5_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 384,
+		"Name": "Kitten 2",
+		"Icon": "animal_cat2_baby",
+		"Image": "animal_cat2_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 385,
+		"Name": "Kitten 3",
+		"Icon": "animal_cat3_baby",
+		"Image": "animal_cat3_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 386,
+		"Name": "Kitten 4",
+		"Icon": "animal_cat4_baby",
+		"Image": "animal_cat4_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 387,
+		"Name": "Kitten 5",
+		"Icon": "animal_cat5_baby",
+		"Image": "animal_cat5_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 388,
+		"Name": "Dog 2",
+		"Icon": "animal_dog2_adult",
+		"Image": "animal_dog2_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 389,
+		"Name": "Dog 3",
+		"Icon": "animal_dog3_adult",
+		"Image": "animal_dog3_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 390,
+		"Name": "Dog 4",
+		"Icon": "animal_dog4_adult",
+		"Image": "animal_dog4_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 391,
+		"Name": "Dog 5",
+		"Icon": "animal_dog5_adult",
+		"Image": "animal_dog5_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 392,
+		"Name": "Puppy 2",
+		"Icon": "animal_dog2_baby",
+		"Image": "animal_dog2_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 393,
+		"Name": "Puppy 3",
+		"Icon": "animal_dog3_baby",
+		"Image": "animal_dog3_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 394,
+		"Name": "Puppy 4",
+		"Icon": "animal_dog4_baby",
+		"Image": "animal_dog4_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 395,
+		"Name": "Puppy 5",
+		"Icon": "animal_dog5_baby",
+		"Image": "animal_dog5_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 396,
+		"Name": "",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 397,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 398,
+		"Name": "Cow",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 399,
+		"Name": "Cow",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 400,
+		"Name": "Cow",
+		"Icon": "monster_hoodlum",
+		"Image": "monster_hoodlum",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 401,
+		"Name": "Cow",
+		"Icon": "monster_hoodlum",
+		"Image": "monster_hoodlum",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 402,
+		"Name": "Cow",
+		"Icon": "monster_hoodlum",
+		"Image": "monster_hoodlum",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 403,
+		"Name": "Cow",
+		"Icon": "monster_prestidigitator",
+		"Image": "monster_prestidigitator",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 404,
+		"Name": "Cow",
+		"Icon": "monster_prestidigitator",
+		"Image": "monster_prestidigitator",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 405,
+		"Name": "",
+		"Icon": "monster_seaslime",
+		"Image": "monster_seaslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 406,
+		"Name": "*",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 407,
+		"Name": "",
+		"Icon": "monster_hood",
+		"Image": "monster_hood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 408,
+		"Name": "Dogchin",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 409,
+		"Name": "Ibuki",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 410,
+		"Name": "Maygetz",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 411,
+		"Name": "Dalbon",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 412,
+		"Name": "Whitey",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 417,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 418,
+		"Name": "",
+		"Icon": "npc_perry",
+		"Hair": 17,
+		"Face": 13,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 419,
+		"Name": "",
+		"Icon": "monster_legerdeman",
+		"Image": "monster_legerdeman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 420,
+		"Name": "",
+		"Icon": "monster_ironant",
+		"Image": "monster_ironant",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 421,
+		"Name": "",
+		"Icon": "npc_bonanzo",
+		"Image": "monster_batmandrill",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Batmandrill"
+	},
+	{
+		"Type": 422,
+		"Name": "",
+		"Icon": "monster_badboon",
+		"Image": "monster_badboon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 423,
+		"Name": "",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 424,
+		"Name": "",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 425,
+		"Name": "",
+		"Icon": "monster_prestidigitator",
+		"Image": "monster_prestidigitator",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 426,
+		"Name": "",
+		"Icon": "monster_prestidigitator",
+		"Image": "monster_prestidigitator",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 427,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 428,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 429,
+		"Name": "",
+		"Icon": "monster_dracky",
+		"Image": "monster_dracky",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 430,
+		"Name": "",
+		"Icon": "npc_malroth",
+		"Hair": 14,
+		"Face": 15,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false,
+		"Note": "fucking huge"
+	},
+	{
+		"Type": 431,
+		"Name": "",
+		"Icon": "npc_malroth",
+		"Hair": 22,
+		"Face": 14,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false,
+		"Note": "fucking huge"
+	},
+	{
+		"Type": 432,
+		"Name": "",
+		"Icon": "npc_molly2",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 433,
+		"Name": "",
+		"Icon": "npc_molly2",
+		"Hair": 33,
+		"Face": 25,
+		"Body": 119,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 434,
+		"Name": "",
+		"Icon": "npc_perry",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 435,
+		"Name": "",
+		"Icon": "npc_rosie",
+		"Hair": 19,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 436,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 437,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 438,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 439,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 440,
+		"Name": "",
+		"Icon": "npc_perry",
+		"Hair": 24,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 441,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 442,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 443,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 444,
+		"Name": "Cow",
+		"Icon": "animal_cow_baby",
+		"Image": "animal_cow_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 445,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 446,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 447,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 448,
+		"Name": "Cow",
+		"Icon": "animal_cow_adult",
+		"Image": "animal_cow_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 449,
+		"Name": "",
+		"Icon": "npc_bonanzo",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 450,
+		"Name": "",
+		"Icon": "npc_bonanzo",
+		"Hair": 16,
+		"Face": 13,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 451,
+		"Name": "Spectator",
+		"Icon": "npc_lulu",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 139,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 452,
+		"Name": "Spectator",
+		"Icon": "npc_gerome",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 453,
+		"Name": "Spectator",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 454,
+		"Name": "Spectator",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 455,
+		"Name": "Spectator",
+		"Icon": "monster_healslime",
+		"Image": "monster_healslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 456,
+		"Name": "Spectator",
+		"Icon": "monster_healslime",
+		"Image": "monster_healslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 457,
+		"Name": "*",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 458,
+		"Name": "*",
+		"Icon": "monster_treevil",
+		"Image": "monster_treevil",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 459,
+		"Name": "*",
+		"Icon": "monster_madmole",
+		"Image": "monster_madmole",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 460,
+		"Name": "*",
+		"Icon": "npc_doggirl",
+		"Hair": 39,
+		"Face": 18,
+		"Body": 138,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 461,
+		"Name": "Part-time Plougher",
+		"Icon": "npc_generic_farmer08",
+		"Hair": 26,
+		"Face": 13,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 462,
+		"Name": "Intrepid Townsperson",
+		"Icon": "npc_generic_villager01",
+		"Hair": 16,
+		"Face": 14,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 463,
+		"Name": "Fanciful Farmer",
+		"Icon": "npc_generic_farmer09",
+		"Hair": 27,
+		"Face": 18,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 464,
+		"Name": "Magnanimous Merchant",
+		"Icon": "npc_generic_villager02",
+		"Hair": 20,
+		"Face": 17,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 465,
+		"Name": "Respectful Resident",
+		"Icon": "npc_generic_villager03",
+		"Hair": 17,
+		"Face": 15,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 466,
+		"Name": "Slick Shopkeeper",
+		"Icon": "npc_generic_merchant01",
+		"Hair": 22,
+		"Face": 12,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 467,
+		"Name": "Delightful Dweller",
+		"Icon": "npc_generic_villager04",
+		"Hair": 20,
+		"Face": 16,
+		"Body": 88,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 468,
+		"Name": "Dreamy Dancer",
+		"Icon": "npc_generic_dancer04",
+		"Hair": 65,
+		"Face": 18,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 471,
+		"Name": "Trusting Townsperson",
+		"Icon": "npc_generic_villager06",
+		"Hair": 14,
+		"Face": 13,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 472,
+		"Name": "",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 473,
+		"Name": "",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 474,
+		"Name": "",
+		"Icon": "monster_sheslime",
+		"Image": "monster_sheslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 475,
+		"Name": "",
+		"Icon": "monster_walkingcorpse",
+		"Image": "monster_walkingcorpse",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 476,
+		"Name": "",
+		"Icon": "monster_walkingcorpse",
+		"Image": "monster_walkingcorpse",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 477,
+		"Name": "Marlon",
+		"Icon": "monster_crabid",
+		"Image": "monster_crabid",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Big as hell"
+	},
+	{
+		"Type": 478,
+		"Name": "Nero",
+		"Icon": "monster_crabid",
+		"Image": "monster_crabid",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 479,
+		"Name": "",
+		"Icon": "monster_crabid",
+		"Image": "monster_crabid",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 480,
+		"Name": "",
+		"Icon": "monster_crabid",
+		"Image": "monster_crabid",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 481,
+		"Name": "",
+		"Icon": "monster_crabid",
+		"Image": "monster_crabid",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 483,
+		"Name": "Memo",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 499,
+		"Name": "Gremlin",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 500,
+		"Name": "Deadnaut",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 501,
+		"Name": "Gremlin",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 503,
+		"Name": "Caretaker",
+		"Icon": "monster_troll",
+		"Image": "monster_troll",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 504,
+		"Name": "Badboon",
+		"Icon": "monster_badboon",
+		"Image": "monster_badboon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 505,
+		"Name": "Badboon",
+		"Icon": "monster_badboon",
+		"Image": "monster_badboon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 506,
+		"Name": "Deadnaut",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "fucking huge"
+	},
+	{
+		"Type": 512,
+		"Name": "Arisplotle",
+		"Icon": "monster_metalslime",
+		"Image": "monster_metalslime",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 513,
+		"Name": "N04H",
+		"Icon": "monster_killingmachine",
+		"Image": "monster_n04h",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 514,
+		"Name": "Griswold",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 515,
+		"Name": "Chasmonaut",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 516,
+		"Name": "Chasmonaut",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 517,
+		"Name": "Hellen",
+		"Icon": "monster_whackolyte",
+		"Image": "monster_whackolyte",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 518,
+		"Name": "Zebadee",
+		"Icon": "monster_sorcerer",
+		"Image": "monster_sorcerer",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 519,
+		"Name": "Gremville",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 520,
+		"Name": "Grimlin D",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 521,
+		"Name": "Grimlin A",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 522,
+		"Name": "Grimlin B",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 523,
+		"Name": "Grimlin C",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 524,
+		"Name": "Captain Whitebones",
+		"Icon": "monster_deadnaut",
+		"Image": "monster_deadnaut",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 525,
+		"Name": "Slime A",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 526,
+		"Name": "Slime B",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 527,
+		"Name": "Drackson",
+		"Icon": "monster_dracky",
+		"Image": "monster_dracky",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 528,
+		"Name": "Silvapithecus A",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 529,
+		"Name": "Badboon",
+		"Icon": "monster_badboon",
+		"Image": "monster_badboon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 530,
+		"Name": "Hood",
+		"Icon": "monster_hood",
+		"Image": "monster_hood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 531,
+		"Name": "Rockbomb",
+		"Icon": "monster_rockbomb",
+		"Image": "monster_rockbomb",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 532,
+		"Name": "Silvapithecus B",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 533,
+		"Name": "Adamn",
+		"Icon": "monster_archdemon",
+		"Image": "monster_archdemon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 534,
+		"Name": "Gargoyle A",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 541,
+		"Name": "Hargon",
+		"Icon": "monster_hargon",
+		"Image": "monster_hargon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 542,
+		"Name": "Malroth",
+		"Icon": "monster_malroth",
+		"Image": "monster_malroth",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 543,
+		"Name": "",
+		"Icon": "",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 544,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 545,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 546,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 547,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 548,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 549,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 550,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 551,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 552,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 553,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 554,
+		"Name": "",
+		"Icon": "npc_rosie",
+		"Hair": 21,
+		"Face": 30,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 555,
+		"Name": "",
+		"Icon": "npc_bonanzo",
+		"Hair": 4,
+		"Face": 4,
+		"Body": 52,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 556,
+		"Name": "",
+		"Icon": "npc_perry",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 557,
+		"Name": "",
+		"Icon": "npc_britney",
+		"Hair": 25,
+		"Face": 16,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 558,
+		"Name": "",
+		"Icon": "npc_den",
+		"Hair": 7,
+		"Face": 7,
+		"Body": 62,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 559,
+		"Name": "",
+		"Icon": "npc_magrog",
+		"Hair": 37,
+		"Face": 9,
+		"Body": 69,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 560,
+		"Name": "",
+		"Icon": "npc_babsTODO",
+		"Hair": 10,
+		"Face": 8,
+		"Body": 68,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 561,
+		"Name": "",
+		"Icon": "npc_king",
+		"Hair": 12,
+		"Face": 10,
+		"Body": 71,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 562,
+		"Name": "",
+		"Icon": "npc_jeremiah",
+		"Hair": 43,
+		"Face": 29,
+		"Body": 140,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 563,
+		"Name": "",
+		"Icon": "npc_esther",
+		"Hair": 38,
+		"Face": 16,
+		"Body": 136,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 565,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Arm"
+	},
+	{
+		"Type": 566,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Arm"
+	},
+	{
+		"Type": 567,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Arm"
+	},
+	{
+		"Type": 568,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 569,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 570,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 571,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 572,
+		"Name": "",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 573,
+		"Name": "",
+		"Icon": "npc_lillian",
+		"Hair": 35,
+		"Face": 27,
+		"Body": 127,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 574,
+		"Name": "",
+		"Icon": "npc_digby",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 575,
+		"Name": "",
+		"Icon": "npc_dougie",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 576,
+		"Name": "",
+		"Icon": "npc_anessa",
+		"Hair": 13,
+		"Face": 34,
+		"Body": 73,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 577,
+		"Name": "",
+		"Icon": "npc_ordelia TODO this is specifically pre-bunny ordelia",
+		"Hair": 67,
+		"Face": 19,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 578,
+		"Name": "Slime C",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 579,
+		"Name": "Slime D",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 580,
+		"Name": "Grimlin E",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 581,
+		"Name": "Gargoyle D",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 582,
+		"Name": "Badboon",
+		"Icon": "monster_badboon",
+		"Image": "monster_badboon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 583,
+		"Name": "Chasmonaut",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 584,
+		"Name": "Mean Spirit",
+		"Icon": "monster_meanspirit",
+		"Image": "monster_meanspirit",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 585,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 586,
+		"Name": "",
+		"Icon": "monster_spikedhare",
+		"Image": "monster_spikedhare",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 587,
+		"Name": "",
+		"Icon": "monster_spikedhare",
+		"Image": "monster_spikedhare",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 588,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 589,
+		"Name": "",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 590,
+		"Name": "",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 591,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 592,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 593,
+		"Name": "",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 594,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 595,
+		"Name": "",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 596,
+		"Name": "",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 597,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 598,
+		"Name": "",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 599,
+		"Name": "",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 600,
+		"Name": "",
+		"Icon": "monster_scarewolf",
+		"Image": "monster_scarewolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 601,
+		"Name": "",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 602,
+		"Name": "",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 603,
+		"Name": "",
+		"Icon": "monster_slime",
+		"Image": "monster_slime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 604,
+		"Name": "",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 605,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 606,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 607,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 608,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 609,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 610,
+		"Name": "",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 611,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 612,
+		"Name": "",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 613,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 614,
+		"Name": "",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 615,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 616,
+		"Name": "",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 617,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 618,
+		"Name": "",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 619,
+		"Name": "",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 620,
+		"Name": "",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 621,
+		"Name": "",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 622,
+		"Name": "",
+		"Icon": "npc_generic_miner01",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 623,
+		"Name": "",
+		"Icon": "monster_troll",
+		"Image": "monster_troll",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 624,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 625,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 626,
+		"Name": "",
+		"Icon": "monster_headhunter",
+		"Image": "monster_headhunter",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 627,
+		"Name": "",
+		"Icon": "monster_headhunter",
+		"Image": "monster_headhunter",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 628,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 629,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 630,
+		"Name": "",
+		"Icon": "monster_sorcerer",
+		"Image": "monster_sorcerer",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 631,
+		"Name": "",
+		"Icon": "monster_sorcerer",
+		"Image": "monster_sorcerer",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 632,
+		"Name": "",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 633,
+		"Name": "",
+		"Icon": "monster_bosstroll",
+		"Image": "monster_bosstroll",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 634,
+		"Name": "",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 635,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 636,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 637,
+		"Name": "",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 638,
+		"Name": "Fake Machine 1",
+		"Icon": "monster_killingmachine",
+		"Image": "monster_n04h",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 639,
+		"Name": "Fake Machine 2",
+		"Icon": "monster_killingmachine",
+		"Image": "monster_n04h",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 640,
+		"Name": "Doughty Defender",
+		"Icon": "npc_generic_soldierr03",
+		"Hair": 62,
+		"Face": 16,
+		"Body": 146,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 641,
+		"Name": "Gallant Guardian",
+		"Icon": "npc_generic_soldierr04",
+		"Hair": 62,
+		"Face": 18,
+		"Body": 146,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 642,
+		"Name": "",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 12,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 643,
+		"Name": "",
+		"Icon": "",
+		"Hair": 15,
+		"Face": 14,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 644,
+		"Name": "",
+		"Icon": "",
+		"Hair": 14,
+		"Face": 13,
+		"Body": 76,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 645,
+		"Name": "",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 646,
+		"Name": "",
+		"Icon": "",
+		"Hair": 87,
+		"Face": 18,
+		"Body": 19,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 647,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 648,
+		"Name": "Batmandrill",
+		"Icon": "monster_batmandrill",
+		"Image": "monster_batmandrill",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Tiny"
+	},
+	{
+		"Type": 649,
+		"Name": "Cosmic Chimaera",
+		"Icon": "monster_cosmicchimaera",
+		"Image": "monster_cosmicchimaera",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Huge"
+	},
+	{
+		"Type": 650,
+		"Name": "Archdemon",
+		"Icon": "monster_archdemon",
+		"Image": "monster_archdemon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 651,
+		"Name": "Air Force Soldier 1",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 652,
+		"Name": "Air Force Soldier 2",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 653,
+		"Name": "Transformed Hargonaut",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 654,
+		"Name": "Transformed Skeleton Soldier 1",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 655,
+		"Name": "Transformed Skeleton Soldier 2",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 656,
+		"Name": "Ice Tower Gremlin",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 657,
+		"Name": "Warwick",
+		"Icon": "monster_silvapithecus",
+		"Image": "monster_silvapithecus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 658,
+		"Name": "Ghost",
+		"Icon": "monster_spirit",
+		"Image": "monster_spirit",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 659,
+		"Name": "Fake Rendarak King",
+		"Icon": "",
+		"Hair": 12,
+		"Face": 10,
+		"Body": 71,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 660,
+		"Name": "Wrecktor",
+		"Icon": "monster_wrecktor",
+		"Image": "monster_wrecktor",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 661,
+		"Name": "Wrecktor's Retainer 1",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 662,
+		"Name": "Wrecktor's Retainer 2",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 663,
+		"Name": "Wrecktor's Retainer 3",
+		"Icon": "monster_knightabhorrent",
+		"Image": "monster_knightabhorrent",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 664,
+		"Name": "Wrecktor's Retainer 4",
+		"Icon": "monster_knightabhorrent",
+		"Image": "monster_knightabhorrent",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 665,
+		"Name": "Wrecktor's Retainer 5",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 666,
+		"Name": "Wrecktor's Retainer 6",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 667,
+		"Name": "Wrecktor's Retainer 7",
+		"Icon": "monster_vismager",
+		"Image": "monster_vismager",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 668,
+		"Name": "Wounded Moonahan Soldier",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 669,
+		"Name": "Gerome",
+		"Icon": "npc_gerome",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 105,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 670,
+		"Name": "Rendarak Dog",
+		"Icon": "animal_dog1_adult",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 671,
+		"Name": "Rendarak Item Shop",
+		"Icon": "",
+		"Hair": 22,
+		"Face": 13,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 672,
+		"Name": "Rendarak Inn",
+		"Icon": "",
+		"Hair": 22,
+		"Face": 12,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 673,
+		"Name": "Rendarak Guard",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 14,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 674,
+		"Name": "Rendarak Red-Clothed Male",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 13,
+		"Body": 75,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 675,
+		"Name": "Rendarak Female",
+		"Icon": "",
+		"Hair": 19,
+		"Face": 17,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 676,
+		"Name": "Rendarak 1st Floor Soldier",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 12,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 677,
+		"Name": "Mariella",
+		"Icon": "",
+		"Hair": 64,
+		"Face": 16,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 678,
+		"Name": "Rendarak 2nd Floor Soldier",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 679,
+		"Name": "Rendarak Throne Room Right",
+		"Icon": "",
+		"Hair": 66,
+		"Face": 17,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 680,
+		"Name": "Rendarak Throne Room Left",
+		"Icon": "",
+		"Hair": 65,
+		"Face": 18,
+		"Body": 66,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 681,
+		"Name": "Rendarak Merchant",
+		"Icon": "",
+		"Hair": 22,
+		"Face": 14,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 682,
+		"Name": "Rendarak Teleportal Gramps",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 683,
+		"Name": "Rendarak Nun",
+		"Icon": "",
+		"Hair": 38,
+		"Face": 16,
+		"Body": 136,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 684,
+		"Name": "Rendarak Bell Seller",
+		"Icon": "",
+		"Hair": 22,
+		"Face": 15,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 685,
+		"Name": "Rendarak Church Nun",
+		"Icon": "",
+		"Hair": 38,
+		"Face": 19,
+		"Body": 136,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 686,
+		"Name": "Rendarak Treasure Soldier",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 15,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 687,
+		"Name": "Rendarak Treasure Female",
+		"Icon": "",
+		"Hair": 18,
+		"Face": 16,
+		"Body": 87,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 688,
+		"Name": "Rendarak Underground Soldier",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 14,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 689,
+		"Name": "Atlas",
+		"Icon": "monster_atlas",
+		"Image": "monster_atlas",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 690,
+		"Name": "Hargonaut 1",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 691,
+		"Name": "Hargonaut 2",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 692,
+		"Name": "Hargonaut 3",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 693,
+		"Name": "Hargonaut 4",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 694,
+		"Name": "Hargonaut 5",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 695,
+		"Name": "Hargonaut 6",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 696,
+		"Name": "Hargonaut 7",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 697,
+		"Name": "Hargonaut 8",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 698,
+		"Name": "Hargonaut 9",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 699,
+		"Name": "Hargonaut 10",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 700,
+		"Name": "Hargon",
+		"Icon": "monster_hargon",
+		"Image": "monster_hargon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Model doesn't show in nameplate"
+	},
+	{
+		"Type": 701,
+		"Name": "Moonahan Enemy 1",
+		"Icon": "monster_killingmachine",
+		"Image": "monster_killingmachine",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 702,
+		"Name": "Moonahan Enemy 2",
+		"Icon": "monster_powieyowie",
+		"Image": "monster_powieyowie",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 703,
+		"Name": "Moonahan Enemy 3",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 705,
+		"Name": "",
+		"Icon": "",
+		"Hair": 20,
+		"Face": 17,
+		"Body": 88,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 706,
+		"Name": "",
+		"Icon": "",
+		"Hair": 22,
+		"Face": 14,
+		"Body": 99,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 707,
+		"Name": "",
+		"Icon": "",
+		"Hair": 23,
+		"Face": 17,
+		"Body": 101,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 708,
+		"Name": "",
+		"Icon": "",
+		"Hair": 24,
+		"Face": 13,
+		"Body": 103,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 709,
+		"Name": "",
+		"Icon": "",
+		"Hair": 25,
+		"Face": 16,
+		"Body": 105,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 710,
+		"Name": "",
+		"Icon": "",
+		"Hair": 60,
+		"Face": 12,
+		"Body": 144,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 711,
+		"Name": "",
+		"Icon": "",
+		"Hair": 63,
+		"Face": 18,
+		"Body": 147,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 712,
+		"Name": "",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 14,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 713,
+		"Name": "",
+		"Icon": "",
+		"Hair": 38,
+		"Face": 17,
+		"Body": 136,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 714,
+		"Name": "",
+		"Icon": "",
+		"Hair": 37,
+		"Face": 24,
+		"Body": 115,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 715,
+		"Name": "",
+		"Icon": "",
+		"Hair": 33,
+		"Face": 25,
+		"Body": 119,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 716,
+		"Name": "",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 12,
+		"Body": 107,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 717,
+		"Name": "",
+		"Icon": "",
+		"Hair": 16,
+		"Face": 12,
+		"Body": 109,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 718,
+		"Name": "",
+		"Icon": "",
+		"Hair": 34,
+		"Face": 26,
+		"Body": 123,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 719,
+		"Name": "",
+		"Icon": "",
+		"Hair": 35,
+		"Face": 27,
+		"Body": 127,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 721,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 722,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 723,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 724,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 725,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 726,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 727,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 728,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 729,
+		"Name": "",
+		"Icon": "TODO",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": "TODO",
+		"IsAnimal": "TODO",
+		"IsMonster": "TODO"
+	},
+	{
+		"Type": 730,
+		"Name": "",
+		"Icon": "monster_rockbomb",
+		"Image": "monster_rockbomb",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 731,
+		"Name": "Gigantes",
+		"Icon": "monster_gigantes",
+		"Image": "monster_gigantes",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 732,
+		"Name": "Healix",
+		"Icon": "monster_healslime",
+		"Image": "monster_healslime",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 733,
+		"Name": "Fat Rat",
+		"Icon": "monster_fatrat",
+		"Image": "monster_fatrat",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 734,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 735,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 736,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 737,
+		"Name": "Dragon Force Leader",
+		"Icon": "monster_reddragon",
+		"Image": "monster_reddragon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 738,
+		"Name": "Dragon Force Dragon 1",
+		"Icon": "monster_greendragon",
+		"Image": "monster_greendragon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 739,
+		"Name": "Dragon Force Dragon 2",
+		"Icon": "monster_greendragon",
+		"Image": "monster_greendragon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 740,
+		"Name": "Dragon Force Axesaurus",
+		"Icon": "monster_axesaurus",
+		"Image": "monster_axesaurus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 741,
+		"Name": "Dragon Force Tyrantosaurus",
+		"Icon": "monster_tyrantosaurus",
+		"Image": "monster_tyrantosaurus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 742,
+		"Name": "Dragon Force Dragon 3",
+		"Icon": "monster_greendragon",
+		"Image": "monster_greendragon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 743,
+		"Name": "Dragon Force Dragon 4",
+		"Icon": "monster_greendragon",
+		"Image": "monster_greendragon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 744,
+		"Name": "Dragon Force Axesaurus 2",
+		"Icon": "monster_axesaurus",
+		"Image": "monster_axesaurus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 745,
+		"Name": "Dragon Force Tyrantosaurus 2",
+		"Icon": "monster_tyrantosaurus",
+		"Image": "monster_tyrantosaurus",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 746,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "monster_malroth",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Eyes red but not glowing"
+	},
+	{
+		"Type": 747,
+		"Name": "Poison Swap Casualty 1",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 748,
+		"Name": "Poison Swap Casualty 2",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 749,
+		"Name": "Poison Swap Casualty 3",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 750,
+		"Name": "Poison Swap Casualty 4",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 754,
+		"Name": "Cosmic Chimaera",
+		"Icon": "monster_cosmicchimaera",
+		"Image": "monster_cosmicchimaera",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Huge"
+	},
+	{
+		"Type": 755,
+		"Name": "Abandoned Machine",
+		"Icon": "monster_killingmachine",
+		"Image": "monster_n04h",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 756,
+		"Name": "Hairy Hermit",
+		"Icon": "monster_hammerhood",
+		"Image": "monster_hairyhermit",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 757,
+		"Name": "Black Hood",
+		"Icon": "monster_hood",
+		"Image": "monster_hood",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 758,
+		"Name": "Attacking Arm (Ship)",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 759,
+		"Name": "Dummy PC",
+		"Icon": "",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 760,
+		"Name": "Shadow Fiend 1",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 761,
+		"Name": "Shadow Fiend 2",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 762,
+		"Name": "Shadow Fiend 3",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 763,
+		"Name": "Shadow Fiend 4",
+		"Icon": "monster_tearwolf",
+		"Image": "monster_tearwolf",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 764,
+		"Name": "Gargoyle B",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 765,
+		"Name": "Grimlin F",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 766,
+		"Name": "Gargoyle C",
+		"Icon": "monster_gargoyle",
+		"Image": "monster_gargoyle",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 767,
+		"Name": "Arm of Destruction",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 769,
+		"Name": "Hairy Hermit",
+		"Icon": "TODO",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 770,
+		"Name": "",
+		"Icon": "animal_dog1_adult",
+		"Image": "animal_dog1_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 771,
+		"Name": "",
+		"Icon": "animal_dog2_adult",
+		"Image": "animal_dog2_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 772,
+		"Name": "",
+		"Icon": "animal_dog3_adult",
+		"Image": "animal_dog3_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 773,
+		"Name": "",
+		"Icon": "animal_dog4_adult",
+		"Image": "animal_dog4_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 774,
+		"Name": "",
+		"Icon": "animal_dog5_adult",
+		"Image": "animal_dog5_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 775,
+		"Name": "",
+		"Icon": "animal_dog1_baby",
+		"Image": "animal_dog1_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 776,
+		"Name": "",
+		"Icon": "animal_dog2_baby",
+		"Image": "animal_dog2_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 777,
+		"Name": "",
+		"Icon": "animal_dog3_baby",
+		"Image": "animal_dog3_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 778,
+		"Name": "",
+		"Icon": "animal_dog4_baby",
+		"Image": "animal_dog4_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 779,
+		"Name": "",
+		"Icon": "animal_dog5_baby",
+		"Image": "animal_dog5_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 780,
+		"Name": "",
+		"Icon": "animal_cat1_adult",
+		"Image": "animal_cat1_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 781,
+		"Name": "",
+		"Icon": "animal_cat2_adult",
+		"Image": "animal_cat2_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 782,
+		"Name": "",
+		"Icon": "animal_cat3_adult",
+		"Image": "animal_cat3_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 783,
+		"Name": "",
+		"Icon": "animal_cat4_adult",
+		"Image": "animal_cat4_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 784,
+		"Name": "",
+		"Icon": "animal_cat5_adult",
+		"Image": "animal_cat5_adult",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 785,
+		"Name": "",
+		"Icon": "animal_cat1_baby",
+		"Image": "animal_cat1_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 786,
+		"Name": "",
+		"Icon": "animal_cat2_baby",
+		"Image": "animal_cat2_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 787,
+		"Name": "",
+		"Icon": "animal_cat3_baby",
+		"Image": "animal_cat3_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 788,
+		"Name": "",
+		"Icon": "animal_cat4_baby",
+		"Image": "animal_cat4_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 789,
+		"Name": "",
+		"Icon": "animal_cat5_baby",
+		"Image": "animal_cat5_baby",
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 790,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 791,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 792,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 793,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 794,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 796,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 797,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 798,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 799,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 800,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 801,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 802,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 803,
+		"Name": "",
+		"Icon": "monster_berserker",
+		"Image": "monster_berserker",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 804,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 805,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 808,
+		"Name": "She-Slime",
+		"Icon": "monster_sheslime",
+		"Image": "monster_sheslime",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 809,
+		"Name": "Brownie",
+		"Icon": "monster_brownie",
+		"Image": "monster_brownie",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 810,
+		"Name": "Hocus Chimaera",
+		"Icon": "monster_hocuschimaera",
+		"Image": "monster_hocuschimaera",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 811,
+		"Name": "Cosmic Chimaera",
+		"Icon": "monster_cosmicchimaera",
+		"Image": "monster_cosmicchimaera",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 812,
+		"Name": "Hunter Mech",
+		"Icon": "monster_huntermech",
+		"Image": "monster_huntermech",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 813,
+		"Name": "Corpse Corporal",
+		"Icon": "monster_corpsecorporal",
+		"Image": "monster_corpsecorporal",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 814,
+		"Name": "Ghoul",
+		"Icon": "monster_ghoul",
+		"Image": "monster_ghoul",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 815,
+		"Name": "Stone Golem",
+		"Icon": "monster_stonegolem",
+		"Image": "monster_stonegolem",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 816,
+		"Name": "Gold Golem",
+		"Icon": "monster_goldgolem",
+		"Image": "monster_goldgolem",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 817,
+		"Name": "Bloody Hand",
+		"Icon": "monster_bloodyhand",
+		"Image": "monster_bloodyhand",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 818,
+		"Name": "Stone Guardian",
+		"Icon": "monster_stoneguardian",
+		"Image": "monster_stoneguardian",
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 819,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 820,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 821,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 822,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 823,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 824,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 825,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 826,
+		"Name": "",
+		"Icon": "monster_headhunter",
+		"Image": "monster_headhunter",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 827,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 828,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 829,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 830,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 831,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 832,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 833,
+		"Name": "",
+		"Icon": "monster_headhunter",
+		"Image": "monster_headhunter",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 834,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 835,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 836,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 837,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 838,
+		"Name": "",
+		"Icon": "monster_headhunter",
+		"Image": "monster_headhunter",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 839,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 840,
+		"Name": "",
+		"Icon": "monster_skeletonsoldier",
+		"Image": "monster_skeletonsoldier",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 841,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Arm"
+	},
+	{
+		"Type": 842,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "TODO",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true,
+		"Note": "Arm"
+	},
+	{
+		"Type": 843,
+		"Name": "",
+		"Icon": "monster_malroth",
+		"Image": "monster_malroth",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 845,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 846,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 847,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 848,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 849,
+		"Name": "Guard",
+		"Icon": "monster_skeleton",
+		"Image": "monster_skeleton",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 854,
+		"Name": "",
+		"Icon": "monster_whackolyte",
+		"Image": "monster_whackolyte",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 855,
+		"Name": "",
+		"Icon": "monster_shaman",
+		"Image": "monster_shaman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 856,
+		"Name": "",
+		"Icon": "monster_archdemon",
+		"Image": "monster_archdemon",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 857,
+		"Name": "",
+		"Icon": "monster_knightaberrant",
+		"Image": "monster_knightaberrant",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 858,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 859,
+		"Name": "",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 860,
+		"Name": "",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 861,
+		"Name": "",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 862,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 863,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 864,
+		"Name": "",
+		"Icon": "monster_gremlin",
+		"Image": "monster_gremlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 865,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 866,
+		"Name": "",
+		"Icon": "monster_knightaberrant",
+		"Image": "monster_knightaberrant",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 867,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 868,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 869,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 870,
+		"Name": "",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 871,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 872,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 873,
+		"Name": "",
+		"Icon": "monster_knightaberrant",
+		"Image": "monster_knightaberrant",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 874,
+		"Name": "",
+		"Icon": "monster_knightaberrant",
+		"Image": "monster_knightaberrant",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 875,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 876,
+		"Name": "",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 877,
+		"Name": "",
+		"Icon": "monster_grimlin",
+		"Image": "monster_grimlin",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 878,
+		"Name": "",
+		"Icon": "monster_dracky",
+		"Image": "monster_dracky",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 879,
+		"Name": "",
+		"Icon": "monster_chasmonaut",
+		"Image": "monster_chasmonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 880,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 881,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 882,
+		"Name": "",
+		"Icon": "monster_hargonaut",
+		"Image": "monster_hargonaut",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 883,
+		"Name": "",
+		"Icon": "monster_hawkman",
+		"Image": "monster_hawkman",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 884,
+		"Name": "",
+		"Icon": "monster_hocuschimaera",
+		"Image": "monster_hocuschimaera",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 885,
+		"Name": "",
+		"Icon": "monster_hocuschimaera",
+		"Image": "monster_hocuschimaera",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 886,
+		"Name": "Malroth",
+		"Icon": "npc_malroth",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 887,
+		"Name": "",
+		"Icon": "npc_troll",
+		"Image": "npc_troll",
+		"AppearOnRegister": false,
+		"IsAnimal": false,
+		"IsMonster": true
+	},
+	{
+		"Type": 889,
+		"Name": "Gillian",
+		"Icon": "npc_gillian",
+		"Hair": 86,
+		"Face": 11,
+		"Body": 178,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 890,
+		"Name": "Finn",
+		"Icon": "npc_finn",
+		"Hair": 37,
+		"Face": 28,
+		"Body": 132,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 895,
+		"Name": "Malroth",
+		"Icon": "npc_malroth",
+		"Hair": -1,
+		"Face": -1,
+		"Body": -1,
+		"AppearOnRegister": true,
+		"IsAnimal": false,
+		"IsMonster": false
+	},
+	{
+		"Type": 950,
+		"Name": "",
+		"Icon": "fish_goldfish",
+		"Image": "fish_goldfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 951,
+		"Name": "",
+		"Icon": "fish_angelfish",
+		"Image": "fish_angelfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 952,
+		"Name": "",
+		"Icon": "fish_bluebetta",
+		"Image": "fish_bluebetta"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 953,
+		"Name": "",
+		"Icon": "fish_redbetta",
+		"Image": "fish_redbetta"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 954,
+		"Name": "",
+		"Icon": "fish_neontetra",
+		"Image": "fish_neontetra"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 955,
+		"Name": "",
+		"Icon": "fish_piranha",
+		"Image": "fish_piranha"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 956,
+		"Name": "",
+		"Icon": "fish_lemontail",
+		"Image": "fish_lemontail"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 957,
+		"Name": "",
+		"Icon": "fish_rainbowtrout",
+		"Image": "fish_rainbowtrout"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 958,
+		"Name": "",
+		"Icon": "fish_bass",
+		"Image": "fish_bass"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 959,
+		"Name": "",
+		"Icon": "fish_carp",
+		"Image": "fish_carp"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 960,
+		"Name": "",
+		"Icon": "fish_colourfulcarp",
+		"Image": "fish_colourfulcarp"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 961,
+		"Name": "",
+		"Icon": "fish_salmon",
+		"Image": "fish_salmon"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 962,
+		"Name": "",
+		"Icon": "fish_laketrout",
+		"Image": "fish_laketrout"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 963,
+		"Name": "",
+		"Icon": "fish_stripysalmon",
+		"Image": "fish_stripysalmon"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 964,
+		"Name": "",
+		"Icon": "fish_kingsalmon",
+		"Image": "fish_kingsalmon"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 965,
+		"Name": "",
+		"Icon": "fish_arowana",
+		"Image": "fish_arowana"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 966,
+		"Name": "",
+		"Icon": "fish_clownfish",
+		"Image": "fish_clownfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 967,
+		"Name": "",
+		"Icon": "fish_pinkqueen",
+		"Image": "fish_pinkqueen"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 968,
+		"Name": "",
+		"Icon": "fish_bluequeen",
+		"Image": "fish_bluequeen"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 969,
+		"Name": "",
+		"Icon": "fish_bluetang",
+		"Image": "fish_bluetang"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 970,
+		"Name": "",
+		"Icon": "fish_stripedbeakfish",
+		"Image": "fish_stripedbeakfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 971,
+		"Name": "",
+		"Icon": "fish_redsnapper",
+		"Image": "fish_redsnapper"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 972,
+		"Name": "",
+		"Icon": "fish_mackerel",
+		"Image": "fish_mackerel"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 973,
+		"Name": "",
+		"Icon": "fish_tuna",
+		"Image": "fish_tuna"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 974,
+		"Name": "",
+		"Icon": "fish_rockfish",
+		"Image": "fish_rockfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 975,
+		"Name": "",
+		"Icon": "fish_flounder",
+		"Image": "fish_flounder"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 976,
+		"Name": "",
+		"Icon": "fish_halibut",
+		"Image": "fish_halibut"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 977,
+		"Name": "",
+		"Icon": "fish_blowfish",
+		"Image": "fish_blowfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 978,
+		"Name": "",
+		"Icon": "fish_seahorse",
+		"Image": "fish_seahorse"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 979,
+		"Name": "",
+		"Icon": "fish_squid",
+		"Image": "fish_squid"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 980,
+		"Name": "",
+		"Icon": "fish_jellyfish",
+		"Image": "fish_jellyfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 981,
+		"Name": "",
+		"Icon": "fish_sunfish",
+		"Image": "fish_sunfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 982,
+		"Name": "",
+		"Icon": "fish_moonfish",
+		"Image": "fish_moonfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 983,
+		"Name": "",
+		"Icon": "fish_humpheadwrasse",
+		"Image": "fish_humpheadwrasse"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 984,
+		"Name": "",
+		"Icon": "fish_anglerfish",
+		"Image": "fish_anglerfish"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 985,
+		"Name": "",
+		"Icon": "fish_marlin",
+		"Image": "fish_marlin"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 986,
+		"Name": "",
+		"Icon": "fish_whaleshark",
+		"Image": "fish_whaleshark"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 987,
+		"Name": "",
+		"Icon": "fish_mantaray",
+		"Image": "fish_mantaray"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 988,
+		"Name": "",
+		"Icon": "fish_nautilus",
+		"Image": "fish_nautilus"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	},
+	{
+		"Type": 989,
+		"Name": "",
+		"Icon": "fish_coelacanth",
+		"Image": "fish_coelacanth"
+		"AppearOnRegister": false,
+		"IsAnimal": true,
+		"IsMonster": false
+	}
+]

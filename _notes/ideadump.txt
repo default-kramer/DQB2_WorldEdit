@@ -1,0 +1,43 @@
+I'll of course have to rework the file menu for DQB1
+
+I wonder if it'd be a good idea to create a task class to handle editing actions
+^ Probably not necessary. Just have every action that edits save data be put into an undo list
+
+What do residents need to do? Let's think.
+There's appearance. We can lump all those attributes into one.
+There will be a LineEdit node for Name. This will probably have a placeholder showing the default name. If the user types something in, it will set the use custom name flag to true. If the line is empty, it will be set to false.
+A sex selector. Check to see if monsters have sexes?
+There will be two item icons, one for weapon and one for armour.
+There will be a selector for message types.
+There will also be a selector for voice types with a sound preview.
+There will additionally be another panel that holds the resident's inventory. Should this panel be part of the main editor, or another popup?
+Unsure of what to do with the types. Obviously needs to be editable. But what values...?
+Idea: selector like this
+v Type:
+Human
+Dog
+Cat
+Slime
+etc.
+Oh, also find the death flag!!
+Probably, the main residents will not be editable unless in advanced mode.
+Also, implement advanced mode.
+But for advanced mode I'll need to create a list of type descriptions. Or well.. nah, not really. I can just allow the user to input a numerical type.
+
+Bag Editor... Well it's pretty simple actually... You just have a bunch of slots, click on one, and select a new item.
+
+Hey, what about general equipment? Not armour, just like pot and trowel, check to see if that's stored anywhere 
+
+Another thing I need to figure out is where builderpedia entries are stored. Probably a bit field somewhere.
+For the item gallery, probably a big grid of items. Grayed out when not unlocked. And a big button to toggle them all on or off.
+For the other ones, probably pretty much the same.
+Then something to do with the recipes. Not sure how those work, but definitely need to do something about unlocking them in the editor.
+Then something as well for infinite supplies.
+
+Of course there's also a player panel for player editing. Edit name, level, exp, hp, attack, defence, hunger, sex, stamina (?), equipment, cosmetics, appearance.
+
+Aaand... Add a new panel window for resident editing... And for credits and stuff
+
+EVENTUALLY I'll probably repaint all the panels and such.
+
+And hey, if you're reading this... Get your finance's together for the new year

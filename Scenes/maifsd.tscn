@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://n7kn0w4fkg24"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 495.0
+offset_bottom = 412.0
+current_tab = 0
+drag_to_rearrange_enabled = true
+tabs_rearrange_group = 2
+metadata/_edit_group_ = true
+
+[node name="Container" type="Container" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Container2" type="Container" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Container3" type="Container" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Container4" type="Container" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="TabContainer2" type="TabContainer" parent="."]
+layout_mode = 2
+offset_left = 624.0
+offset_top = 153.0
+offset_right = 1083.0
+offset_bottom = 537.0
+current_tab = 0
+drag_to_rearrange_enabled = true
+tabs_rearrange_group = 2
+metadata/_edit_group_ = true
+
+[node name="Container" type="Container" parent="TabContainer2"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Container2" type="Container" parent="TabContainer2"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Container3" type="Container" parent="TabContainer2"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Container4" type="Container" parent="TabContainer2"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3

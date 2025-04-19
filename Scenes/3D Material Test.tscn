@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpohtmwxgjdsn"]
+
+[ext_resource type="Texture2D" uid="uid://cu3kwyddrfbeb" path="res://Graphics/Texture_4.png" id="1_kqn4f"]
+[ext_resource type="Texture2D" uid="uid://d2h3f2oj5p7pj" path="res://Graphics/Texture_5.png" id="2_cpmlp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roc6e"]
+albedo_texture = ExtResource("1_kqn4f")
+normal_enabled = true
+normal_texture = ExtResource("2_cpmlp")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l4030"]
+material = SubResource("StandardMaterial3D_roc6e")
+
+[node name="3dMaterialTest" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_l4030")
