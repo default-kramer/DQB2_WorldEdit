@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://si68n61gn1cn"]
+[gd_scene load_steps=14 format=3 uid="uid://si68n61gn1cn"]
 
 [ext_resource type="Texture2D" uid="uid://b5wcgwa3elvlc" path="res://Graphics/blocks.png" id="1_djn2n"]
 [ext_resource type="VoxelBlockyLibrary" uid="uid://ds0n7xj6hqhdx" path="res://Resources/Voxel Library.tres" id="1_ec1xm"]
 [ext_resource type="Script" uid="uid://da6gt5x2hlsns" path="res://Scenes/WorldEditorScene.cs" id="1_kqags"]
 [ext_resource type="Script" uid="uid://bgg687qn5fg8" path="res://Nodes/CameraController.cs" id="4_drl5t"]
+[ext_resource type="Theme" uid="uid://nd34kb5d40qb" path="res://Resources/DQB_Theme.tres" id="5_reqmc"]
 [ext_resource type="Script" uid="uid://c8d5ejfxksjcm" path="res://Nodes/FPSLabel.cs" id="6_rkejf"]
+[ext_resource type="Texture2D" uid="uid://b44a5on8vq3cx" path="res://Graphics/crosshair.png" id="7_sgdhm"]
+[ext_resource type="Script" uid="uid://cef171jih3wvg" path="res://Scenes/PositionLabel.cs" id="8_o1mxb"]
 
 [sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_yg1cn"]
 library = ExtResource("1_ec1xm")
@@ -26,15 +29,11 @@ background_mode = 2
 sky = SubResource("Sky_1jypa")
 tonemap_mode = 2
 
-[sub_resource type="TextMesh" id="TextMesh_5ep8s"]
-text = "Center
-|
-V"
-
 [node name="WorldEditor" type="Node3D"]
 script = ExtResource("1_kqags")
 
 [node name="VoxelTerrain" type="VoxelTerrain" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1024, 0, -1024)
 mesher = SubResource("VoxelMesherBlocky_yg1cn")
 cast_shadow = 0
 bounds = AABB(-5.36871e+08, -16, -5.36871e+08, 1.07374e+09, 144, 1.07374e+09)
@@ -48,39 +47,94 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nmm71")
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_VoxelTerrain")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 989.679, 82.67, 989.679)
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_VoxelTerrain", "PointedVoxelLabel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96, 0)
 current = true
 script = ExtResource("4_drl5t")
 Speed = 20.0
 MaxSpeedMultiplier = 4.0
 MouseSensitivity = 0.2
 _VoxelTerrain = NodePath("../VoxelTerrain")
+PointedVoxelLabel = NodePath("../HUD/DebugInfo/PointedVoxelLabel")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="Camera3D"]
 view_distance = 88888
 
-[node name="Debug" type="Node" parent="."]
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_reqmc")
 
-[node name="FPSLabel" type="Label" parent="Debug"]
+[node name="FPSLabel" type="Label" parent="HUD"]
 offset_left = 15.0
 offset_top = 15.0
-offset_right = 60.0
-offset_bottom = 38.0
+offset_right = 72.0
+offset_bottom = 41.0
+theme = ExtResource("5_reqmc")
+theme_override_constants/outline_size = 5
 text = "FPS: 0"
 script = ExtResource("6_rkejf")
 
-[node name="Button" type="Button" parent="Debug"]
-visible = false
-offset_left = 886.0
-offset_top = 558.0
-offset_right = 1117.0
-offset_bottom = 607.0
-text = "click me"
+[node name="DebugInfo" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Debug"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.644735, 0)
-mesh = SubResource("TextMesh_5ep8s")
-skeleton = NodePath("../..")
+[node name="WorldPositionLabel" type="Label" parent="HUD/DebugInfo" node_paths=PackedStringArray("Target")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -219.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 41.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 5
+text = "Camera position: %s"
+horizontal_alignment = 2
+script = ExtResource("8_o1mxb")
+DisplayText = "Camera position: %s"
+Target = NodePath("../../../Camera3D")
 
-[connection signal="pressed" from="Debug/Button" to="." method="_on_button_pressed"]
+[node name="PointedVoxelLabel" type="Label" parent="HUD/DebugInfo"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -259.0
+offset_top = 42.0
+offset_right = -15.0
+offset_bottom = 114.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 5
+text = "Targeted block: None
+X: 0, Y: 0, Z: 0
+Chunk: 0, Layer: 0, Tile: 0"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_sgdhm")
+stretch_mode = 3
+
+[node name="NPCSpriteLayer" type="Node3D" parent="."]

@@ -209,6 +209,11 @@ namespace DQBEdit
             public byte RoomFanciness { get => SaveData.GetByte(Address + 264); set => SaveData.SetByte(Address + 264, value); }
             public byte RoomAmbience { get => SaveData.GetByte(Address + 265); set => SaveData.SetByte(Address + 265, value); }
 
+            // TEST
+            public float PositionX { get => SaveData.GetSingle(Address + 0x60 - 4); set => SaveData.SetSingle(Address + 0x60 - 4, value); }
+            public float PositionY { get => SaveData.GetSingle(Address + 0x60); set => SaveData.SetSingle(Address + 0x60, value); }
+            public float PositionZ { get => SaveData.GetSingle(Address + 0x60 + 4); set => SaveData.SetSingle(Address + 0x60 + 4, value); }
+
             public Resident(CommonData saveData, int id)
             {
                 SaveData = saveData;

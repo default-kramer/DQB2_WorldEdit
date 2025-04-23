@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="DQB2_WorldEdit"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/native_dialogs/plugin.cfg")
+
 [input]
 
 camera_left={

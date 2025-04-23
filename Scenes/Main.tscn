@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d5ygrv1j2owh"]
+[gd_scene load_steps=23 format=3 uid="uid://d5ygrv1j2owh"]
 
 [ext_resource type="Theme" uid="uid://nd34kb5d40qb" path="res://Resources/DQB_Theme.tres" id="1_sua2j"]
 [ext_resource type="Script" uid="uid://dmw4aaodejfmb" path="res://Nodes/AutoSubmenu.cs" id="2_50glp"]
@@ -11,6 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://cr2637peckkoi" path="res://villagerscreenshots/hair/1f.png" id="10_4clea"]
 [ext_resource type="PackedScene" uid="uid://mgvg4mys85bh" path="res://Nodes/ItemButton.tscn" id="10_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://si68n61gn1cn" path="res://Scenes/WorldEditor.tscn" id="11_4kpch"]
+[ext_resource type="Texture2D" uid="uid://cnks23rw2onjo" path="res://Graphics/isle01_name.png" id="12_hwpts"]
+[ext_resource type="Texture2D" uid="uid://db4ty5u050bin" path="res://Graphics/isle02_name.png" id="13_jyqft"]
+[ext_resource type="Texture2D" uid="uid://l350gocejqd1" path="res://Graphics/isle03_name.png" id="14_3tgeq"]
+[ext_resource type="Texture2D" uid="uid://d1akl4xbsxnfb" path="res://Graphics/isle04_name.png" id="15_c4ay3"]
+[ext_resource type="Texture2D" uid="uid://d3pqkfewcaxyy" path="res://Graphics/isle05_name.png" id="16_aht7i"]
+[ext_resource type="Texture2D" uid="uid://cgkl26mngsnpt" path="res://Graphics/isle09_name.png" id="17_5jffn"]
+[ext_resource type="Texture2D" uid="uid://ek2blfk8ve4w" path="res://Graphics/isle10_name.png" id="18_kpo4j"]
+[ext_resource type="Texture2D" uid="uid://dk7rmyu4e8ql3" path="res://Graphics/isle12_name.png" id="19_4n42c"]
+[ext_resource type="Texture2D" uid="uid://dqynicrjie5qv" path="res://Graphics/isle13_name.png" id="20_c5snn"]
+[ext_resource type="Texture2D" uid="uid://m262m6fqh6kg" path="res://Graphics/isle14_name.png" id="21_xvtyr"]
+[ext_resource type="Texture2D" uid="uid://brjf0gy2vxrue" path="res://Graphics/isle16_name.png" id="22_u7mjy"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -23,46 +34,17 @@ theme = ExtResource("1_sua2j")
 script = ExtResource("2_vy5pj")
 metadata/_edit_lock_ = true
 
-[node name="Debug" type="PopupMenu" parent="."]
-size = Vector2i(215, 112)
-theme = ExtResource("1_sua2j")
-allow_search = false
-item_count = 8
-item_0/text = "Voice Test"
-item_0/id = 0
-item_1/text = "MessageType Test"
-item_1/id = 3
-item_2/text = "Item Test"
-item_2/id = 5
-item_3/text = "Generic Name Test"
-item_3/id = 4
-item_4/text = "Voice Check"
-item_4/id = 1
-item_5/text = "Check Residents"
-item_5/id = 2
-item_6/text = "Item Sorting Test"
-item_6/id = 6
-item_7/text = "tilled soil test"
-item_7/id = 7
-
-[node name="Test" type="PopupMenu" parent="."]
-
-[node name="Settings" type="PopupMenu" parent="."]
-size = Vector2i(189, 100)
-item_count = 1
-item_0/text = "Advanced Mode"
-item_0/checkable = 1
-item_0/id = 0
-
-[node name="MenuBar" type="MenuBar" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 331.0
 offset_bottom = 30.0
-grow_horizontal = 2
+
+[node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
+layout_mode = 2
 theme = ExtResource("1_sua2j")
 
-[node name="File" type="PopupMenu" parent="MenuBar"]
+[node name="FileMenu" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+title = "File"
 size = Vector2i(259, 302)
 theme = ExtResource("1_sua2j")
 allow_search = false
@@ -94,7 +76,7 @@ item_11/id = 8
 item_12/text = "Quit"
 item_12/id = 9
 
-[node name="SaveSingleFileMenu" type="PopupMenu" parent="MenuBar/File"]
+[node name="SaveSingleFileMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -107,7 +89,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 5
 
-[node name="SaveAsSingleFileMenu" type="PopupMenu" parent="MenuBar/File"]
+[node name="SaveAsSingleFileMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -120,7 +102,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 6
 
-[node name="ExportMenu" type="PopupMenu" parent="MenuBar/File"]
+[node name="ExportMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -133,7 +115,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 8
 
-[node name="ImportMenu" type="PopupMenu" parent="MenuBar/File"]
+[node name="ImportMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -146,18 +128,37 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 9
 
+[node name="SettingsMenu" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+title = "Settings"
+size = Vector2i(189, 100)
+item_count = 3
+item_0/text = "Advanced Mode (TODO)"
+item_0/checkable = 1
+item_0/id = 0
+item_1/text = "Show FPS"
+item_1/checkable = 1
+item_1/checked = true
+item_1/id = 1
+item_2/text = "Show Debug Info"
+item_2/checkable = 1
+item_2/checked = true
+item_2/id = 2
+
+[node name="AboutButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "About
+"
+
 [node name="GratitudeIcon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(736, 103)
+position = Vector2(634, 50)
 texture = ExtResource("5_krhx3")
 
 [node name="GratitudeBox" type="SpinBox" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 834.0
-offset_top = 63.0
-offset_right = 922.0
-offset_bottom = 93.0
+offset_left = 672.0
+offset_top = 32.0
+offset_right = 760.0
+offset_bottom = 62.0
 theme = ExtResource("1_sua2j")
 max_value = 99999.0
 rounded = true
@@ -173,12 +174,11 @@ offset_bottom = 104.0
 max_value = 1200.0
 
 [node name="ComplexWeatherSelect" type="OptionButton" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 106.0
-offset_top = 80.0
-offset_right = 406.0
-offset_bottom = 119.0
+offset_left = 272.0
+offset_top = 36.0
+offset_right = 572.0
+offset_bottom = 66.0
 selected = 0
 item_count = 31
 popup/item_0/text = "Weather"
@@ -246,12 +246,11 @@ popup/item_30/text = "FurrowfieldFinalSceneSunny"
 popup/item_30/id = 30
 
 [node name="SimpleWeatherSelect" type="OptionButton" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 1114.0
-offset_top = 16.0
-offset_right = 1414.0
-offset_bottom = 55.0
+offset_left = 1251.0
+offset_top = 88.0
+offset_right = 1551.0
+offset_bottom = 127.0
 selected = 0
 item_count = 31
 popup/item_0/text = "Weather"
@@ -681,16 +680,109 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Window" type="Window" parent="."]
-position = Vector2i(15, 86)
-size = Vector2i(1105, 530)
+position = Vector2i(10, 106)
+size = Vector2i(1120, 535)
 
 [node name="Voxel Test" parent="Window" instance=ExtResource("11_4kpch")]
 
-[connection signal="id_pressed" from="MenuBar/File" to="." method="_On_File_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="MenuBar/File/SaveSingleFileMenu" to="." method="_On_SaveSingleFile_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="MenuBar/File/SaveAsSingleFileMenu" to="." method="_On_SaveAsSingleFile_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="MenuBar/File/ExportMenu" to="." method="_On_Export_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="MenuBar/File/ImportMenu" to="." method="_On_Import_PopupMenu_IdPressed"]
+[node name="AboutDialog" type="NativeAcceptDialog" parent="."]
+title = "About"
+dialog_text = "DQB World Edit v0.1
+
+Created by playinful
+
+Programming help from Sapphire645 and default.kramer
+
+Special thanks to Mugafo and turtle-insect
+
+Created in Godot Engine v4.4 using Zylann's Voxel Tools
+Native Dialogs plugin by Teggy"
+dialog_icon = 0
+
+[node name="IslandSelectorButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 36.0
+offset_right = 255.0
+offset_bottom = 66.0
+selected = 0
+item_count = 12
+popup/item_0/text = "---"
+popup/item_0/id = 0
+popup/item_1/text = "Isle of Awakening"
+popup/item_1/id = 1
+popup/item_2/text = "Furrowfield"
+popup/item_2/id = 2
+popup/item_3/text = "Khrumbul-Dun"
+popup/item_3/id = 3
+popup/item_4/text = "Moonbrooke"
+popup/item_4/id = 4
+popup/item_5/text = "Skelkatraz"
+popup/item_5/id = 10
+popup/item_6/text = "Malhalla"
+popup/item_6/id = 5
+popup/item_7/text = "Angler's Isle"
+popup/item_7/id = 9
+popup/item_8/text = "Buildertopia"
+popup/item_8/id = 12
+popup/item_9/text = "Buildertopia Beta"
+popup/item_9/id = 13
+popup/item_10/text = "Buildertopia Gamma"
+popup/item_10/id = 16
+popup/item_11/text = "Battle Atoll"
+popup/item_11/id = 14
+
+[node name="Isle01Name" type="Sprite2D" parent="."]
+position = Vector2(1799, 183)
+texture = ExtResource("12_hwpts")
+
+[node name="Isle02Name" type="Sprite2D" parent="."]
+position = Vector2(1751, 315)
+texture = ExtResource("13_jyqft")
+
+[node name="Isle03Name" type="Sprite2D" parent="."]
+position = Vector2(1787, 439)
+texture = ExtResource("14_3tgeq")
+
+[node name="Isle04Name" type="Sprite2D" parent="."]
+position = Vector2(1768, 557)
+texture = ExtResource("15_c4ay3")
+
+[node name="Isle05Name" type="Sprite2D" parent="."]
+position = Vector2(1704, 703)
+texture = ExtResource("16_aht7i")
+
+[node name="Isle09Name" type="Sprite2D" parent="."]
+position = Vector2(2591, 329)
+texture = ExtResource("17_5jffn")
+
+[node name="Isle10Name" type="Sprite2D" parent="."]
+position = Vector2(2578, 195)
+texture = ExtResource("18_kpo4j")
+
+[node name="Isle12Name" type="Sprite2D" parent="."]
+position = Vector2(2562, 445)
+texture = ExtResource("19_4n42c")
+
+[node name="Isle13Name" type="Sprite2D" parent="."]
+position = Vector2(2567, 572)
+texture = ExtResource("20_c5snn")
+
+[node name="Isle14Name" type="Sprite2D" parent="."]
+position = Vector2(2178, 855)
+texture = ExtResource("21_xvtyr")
+
+[node name="Isle16Name" type="Sprite2D" parent="."]
+position = Vector2(2569, 705)
+texture = ExtResource("22_u7mjy")
+
+[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu" to="." method="_On_File_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/SaveSingleFileMenu" to="." method="_On_SaveSingleFile_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/SaveAsSingleFileMenu" to="." method="_On_SaveAsSingleFile_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/ExportMenu" to="." method="_On_Export_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/ImportMenu" to="." method="_On_Import_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="HBoxContainer/MenuBar/SettingsMenu" to="." method="_On_Settings_PopupMenu_IdPressed"]
+[connection signal="pressed" from="HBoxContainer/AboutButton" to="AboutDialog" method="show"]
 [connection signal="value_changed" from="GratitudeBox" to="." method="_On_Gratitude_SpinBox_ValueChanged"]
 [connection signal="item_selected" from="ComplexWeatherSelect" to="." method="_On_Weather_OptionButton_ItemSelected"]
 [connection signal="item_selected" from="SimpleWeatherSelect" to="." method="_On_Weather_OptionButton_ItemSelected"]

@@ -30,6 +30,8 @@ namespace DQBEdit.Scenes
 		private PopupMenu _Edit_PopupMenu;
 		private PopupMenu _Settings_PopupMenu;
 
+		private OptionButton _IslandSelectorButton;
+
 		private SpinBox _Gratitude_SpinBox;
 		private SpinBox _Time_SpinBox;
 		private OptionButton _Weather_OptionButton;
@@ -89,13 +91,16 @@ namespace DQBEdit.Scenes
 
 			_UnsavedChanges_Window = GetNode<Window>("UnsavedChangesWindow");
 
-			_File_PopupMenu = GetNode<PopupMenu>("MenuBar/File");
-			_File_SaveSingleFile_PopupMenu = GetNode<PopupMenu>("MenuBar/File/SaveSingleFileMenu");
-			_File_SaveAsSingleFile_PopupMenu = GetNode<PopupMenu>("MenuBar/File/SaveAsSingleFileMenu");
-			_File_Export_PopupMenu = GetNode<PopupMenu>("MenuBar/File/ExportMenu");
-			_File_Import_PopupMenu = GetNode<PopupMenu>("MenuBar/File/ImportMenu");
+			_File_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu");
+			_File_SaveSingleFile_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/SaveSingleFileMenu");
+			_File_SaveAsSingleFile_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/SaveAsSingleFileMenu");
+			_File_Export_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/ExportMenu");
+			_File_Import_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/ImportMenu");
 			//_Edit_PopupMenu = GetNode<PopupMenu>("MenuBar/Debug");
-			//_Settings_PopupMenu = GetNode<PopupMenu>("TODO");
+
+			_Settings_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/SettingsMenu");
+
+			_IslandSelectorButton = GetNode<OptionButton>("IslandSelectorButton");
 
 			_Gratitude_SpinBox = GetNode<SpinBox>("GratitudeBox");
 			_Time_SpinBox = GetNode<SpinBox>("TimeBox");
@@ -119,6 +124,21 @@ namespace DQBEdit.Scenes
 
 		public void UpdateLoadedData()
 		{
+			if (!string.IsNullOrEmpty(WorkingDirectory))
+			{
+				_IslandSelectorButton.Disabled = false;
+				for (int idx = 1; idx < _IslandSelectorButton.ItemCount; idx++)
+				{
+					int id = _IslandSelectorButton.GetItemId(idx);
+					_IslandSelectorButton.SetItemDisabled(idx, !File.Exists(Path.Combine(WorkingDirectory, $"STGDAT{id:D2}.BIN")));
+				}
+			}
+			else
+			{
+				_IslandSelectorButton.Select(0);
+				_IslandSelectorButton.Disabled = true;
+			}
+
 			if (StageData.HasInstance)
 			{
 				_Gratitude_SpinBox.SetValueNoSignal(StageData.Instance.Gratitude);
@@ -215,6 +235,7 @@ namespace DQBEdit.Scenes
 			{
 				UpdateLoadedData();
 				UpdateMenuButtons();
+				_WorldEditorScene.CreateNPCSprites(CommonData.Instance);
 				return true;
 			}
 			if (StageData.TryLoadAndSet(path) is not null)
@@ -269,7 +290,6 @@ namespace DQBEdit.Scenes
 		// Callback methods
 		public void _On_File_PopupMenu_IdPressed(int id)
 		{
-			GD.Print($"You selected {id}");
 			switch(id)
 			{
 				case 0: // Open Folder...
@@ -395,6 +415,25 @@ namespace DQBEdit.Scenes
 			_FileDialog.PopupCentered();
 		}
 
+		public void _On_Settings_PopupMenu_IdPressed(int id)
+		{
+			switch (id)
+			{
+				case 0: // Advanced Mode
+					break;
+				case 1: // Show FPS
+					bool showFps = !_Settings_PopupMenu.IsItemChecked(1);
+					_Settings_PopupMenu.SetItemChecked(1, showFps);
+					_WorldEditorScene.ChangeFPSDisplay(showFps);
+					break;
+				case 2: // Show Debug Info
+					bool showDebugInfo = !_Settings_PopupMenu.IsItemChecked(2);
+					_Settings_PopupMenu.SetItemChecked(2, showDebugInfo);
+					_WorldEditorScene.ChangeDebugInfoDisplay(showDebugInfo);
+					break;
+			}
+		}
+
 		public void _On_FileDialog_FileSelected(string path)
 		{
 			switch (_FileDialogState)
@@ -439,16 +478,7 @@ namespace DQBEdit.Scenes
 					break;
 			}
 		}
-		public void _On_Gratitude_SpinBox_ValueChanged(float value)
-		{
-			if (StageData.HasInstance)
-				StageData.Instance.Gratitude = (int)value;
-		}
-		public void _On_Weather_OptionButton_ItemSelected(int index)
-		{
-			StageData.Instance.Weather = (byte)index;
-		}
-
+		
 		public void _On_UnsavedChanges_Window_Save_Button_Pressed()
 		{
 			_UnsavedChanges_Window.Hide();
@@ -468,6 +498,16 @@ namespace DQBEdit.Scenes
 		{
 			_UnsavedChanges_Window.Hide();
 			WantsToQuit = false;
+		}
+
+		public void _On_Gratitude_SpinBox_ValueChanged(float value)
+		{
+			if (StageData.HasInstance)
+				StageData.Instance.Gratitude = (int)value;
+		}
+		public void _On_Weather_OptionButton_ItemSelected(int index)
+		{
+			StageData.Instance.Weather = (byte)index;
 		}
 
 		public void _On_Bag_Button_Pressed()
@@ -509,7 +549,6 @@ namespace DQBEdit.Scenes
 		}
 		public void _On_BagInventory_Container_ButtonPressed(int id)
 		{
-			GD.Print(id);
 			_TargetedInventoryItem = id;
 			_TargetingHotbar = false;
 		}

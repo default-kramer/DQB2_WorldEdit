@@ -1,3 +1,4 @@
+using DQBEdit.Info;
 using Godot;
 using System;
 
@@ -17,6 +18,8 @@ namespace DQBEdit.Nodes
 
 		[Export] VoxelTerrain _VoxelTerrain;
 		private VoxelTool _VoxelTool;
+
+		[Export] Label PointedVoxelLabel { get; set; }
 
 		private bool _CursorCaptured;
 
@@ -58,6 +61,27 @@ namespace DQBEdit.Nodes
 		}
         public override void _PhysicsProcess(double delta)
         {
+			if (PointedVoxelLabel is not null)
+			{
+				VoxelRaycastResult result = GetPointedVoxel();
+				if (result is not null)// && result.Position.Y >= 0)
+				{
+					Vector3I friendlyPos = result.Position + new Vector3I(1024, 0, 1024);
+					Vector3I indexPos = StageData.Instance.EuclidPosToIndex(result.Position);
+					StageData.BlockInstance block = StageData.Instance.GetBlockAtIndex(indexPos);
+					PointedVoxelLabel.Text = 
+						$"Targeted block: {(block is not null ? BlockInfo.Get(block.BlockID).Name + $" [{block.BlockID}]" : "UNKNOWN")}\n" +
+						$"X: {friendlyPos.X}, Y: {friendlyPos.Y}, Z: {friendlyPos.Z}\n" +
+						$"Chunk: {indexPos.X}, Layer: {indexPos.Y}, Tile: {indexPos.Z}\n" +
+						$"Placed by Builder: {block.PlayerPlaced}" +
+						$"\nShape: {block.Chisel}";
+				}
+				else
+				{
+					PointedVoxelLabel.Text = "Targeted block: None";
+				}
+			}
+
 			return;
 
 			if (Input.IsActionJustPressed("ui_accept"))
@@ -126,6 +150,14 @@ namespace DQBEdit.Nodes
 					SpeedMultiplier = MinSpeedMultiplier;
 			}
         }
+
+		public VoxelRaycastResult GetPointedVoxel()
+		{
+			Vector3 origin = GlobalTransform.Origin;
+			Vector3 forward = -Transform.Basis.Z.Normalized();
+			VoxelRaycastResult hit = _VoxelTool.Raycast(origin, forward, 4096);
+			return hit;
+		}
 
 		public void CaptureCursor()
 		{

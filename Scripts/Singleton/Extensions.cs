@@ -29,5 +29,13 @@ namespace DQBEdit
         {
             return node.Visible = !node.Visible;
         }
+
+        public static void QueueFreeAllChildren(this Node node)
+        {
+            foreach (Node child in node.GetChildren())
+            {
+                child.QueueFree();
+            }
+        }
     }
 }

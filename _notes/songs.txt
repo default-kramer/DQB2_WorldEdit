@@ -1,0 +1,84 @@
+Item Name	Song Title	Original Game	Description
+'A Warrior's Journey'	The Warrior Conquers Alone	Dragon Quest IV	Sheet music of a memorable marching melody.
+'Overture March'	Overture	Dragon Quest	Sheet music of an morale-boosting march.
+			
+	Prologue	Dragon Quest III	
+	Love Song	Dragon Quest II	
+	Inviting Village	Dragon Quest VI	
+'Ghost Ship'	The Phantom Ship	Dragon Quest III	Sheet music of an scary sea shanty.
+'Lonely Village'	Sad Village	Dragon Quest V	Sheet music of a despondent ditty.
+			
+'Legendary Castle'	Château	Dragon Quest II	Sheet music to accompany a crowded castle courtyard.
+'Wanderer's Theme'	Through the Fields	Dragon Quest VI	Sheet music to welcome a weary wayfarer.
+'Into the Aegean Sea'	Sailing	Dragon Quest III	Sheet music of a refreshing seafaring rhapsody.
+'A Merchant's Journey'	Weapons Merchant Torneko	Dragon Quest IV	Sheet music for pleasing patrons and pushing up profits.
+'Shadows in the Darkness'	Monsters in the Dungeon	Dragon Quest V	Sheet music of a spooky serenade.
+'Never-ending Journey'	A Lonely Youth	Dragon Quest II	Sheet music of ceasless serenade.
+'Pinnacle of Evil'	Devil's Tower	Dragon Quest II	Sheet music of a fiendish fugue.
+'Into the Blue Sky'	Heavenly Flight	Dragon Quest III	Sheet music of a soaring serenade.
+'Conflict'	Deathfight	Dragon Quest II	Sheet music of a rousing rhapsody.
+			
+'Facing the Immortal Foe'	Demon Combat	Dragon Quest V	Sheet music of an intimidating melody.
+'Dicing with Death'	Dead or Alive	Dragon Quest II	Sheet music of an intimidating melody.
+'Requiem'	Requiem	Dragon Quest II	
+			
+'Queen of the Heavens'	Travelling Alone	Dragon Quest V	
+	Level Up			
+	Small Fanfare		
+	Battle Victory		
+	Annihilation		
+	Item Discovery		
+	New Goal		
+	Inn		
+	Curse		
+	Blueprint Cleared		
+	Rendarak Revealed		
+	Adventure Begins		
+	New Mission		
+	Comrades		
+	Echo Flute 1		
+	Echo Flute 2		
+	Echo Flute 3		
+	Medium Fanfare		
+	Big Fanfare		
+			
+	Boss Fanfare		
+'Coliseum Bleachers'	Colosseum Stand	Dragon Quest IV	
+'Backstage at the Coliseum'	Colosseum Back Stage	Dragon Quest IV	
+'Premonition of Destruction'	Suspense	Dragon Quest V	
+'Shrine Theme' Small Shrine	Dragon Quest III	Sheet music that elicits holy harmonies.
+'Shining City'	Town	Dragon Quest V	Sheet music for appreciating stunning skylines.
+'Folk Dance'	Folk Dance	Dragon Quest VI	
+'Tower Theme'	Tower	Dragon Quest III	
+'Battle for Honour'	Battle for the Glory	Dragon Quest IV	
+'Open Oceans'	Beyond the Waves	Dragon Quest II	Sheet music of a swashbuckling symphony.
+			
+'Bustling Streets'	Town	Dragon Quest II	Sheet music for threading through the throngs.
+'Slumbering'	Jipang	Dragon Quest III	Sheet music of a soft, sleep-inducing song.
+			
+'Boogie-Woogie Bar'	Boogie-Woogie	Dragon Quest III	Sheet music that makes you want jump up and jig.
+'Passionate Dance'	Gypsy's Dance	Dragon Quest IV	Sheet music for sultry staring and fiery footwork.
+'Perilous Passage'	Fright in Dungeon	Dragon Quest II	
+'Street Corner'	Melody in an Ancient Town	Dragon Quest V	Sheet music that's perfect for people watching.
+'Town Theme'	Village	Dragon Quest III	
+			
+			
+			
+'Determination'	Brave Fight	Dragon Quest VI	
+			
+	My Road My Journey	Dragon Quest II	
+'Ancient Ruins'	Pyramid	Dragon Quest III	Sheet music that evokes visions of times gone by.
+'To Play with Passion'	Melody of Love	Dragon Quest V	Sheet music for getting caught up in the emotion.
+'Foolish Fiend'	Goofy Monsters	Dragon Quest V	
+'Daytime Palace'	Menuet	Dragon Quest IV	Sheet music for kings and queens at court.
+'Night-Time Palace'	Menuet (Night)	Dragon Quest IV	Sheet music for royal residences and sleeping sovereigns.
+'Flying Carpet'	Magic Carpet	Dragon Quest V	
+'Soaring Spirit'	Pegasus	Dragon Quest VI	Sheet music that can lift even the most melancholy mood.
+			
+'Paradise'	Paradise	Dragon Quest VII	Sheet music that's usually only used in Utopia.
+			
+			
+			
+			
+	Saint	Dragon Quest V	
+'The Sphinx'	Sphinx	Dragon Quest VII	

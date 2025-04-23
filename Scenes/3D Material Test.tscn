@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpohtmwxgjdsn"]
+[gd_scene load_steps=6 format=3 uid="uid://dpohtmwxgjdsn"]
 
 [ext_resource type="Texture2D" uid="uid://cu3kwyddrfbeb" path="res://Graphics/Texture_4.png" id="1_kqn4f"]
 [ext_resource type="Texture2D" uid="uid://d2h3f2oj5p7pj" path="res://Graphics/Texture_5.png" id="2_cpmlp"]
+[ext_resource type="Texture2D" uid="uid://tv6urqwdnwmk" path="res://Graphics/Resident/monster_hellnino.png" id="3_18d7f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roc6e"]
 albedo_texture = ExtResource("1_kqn4f")
@@ -15,3 +16,8 @@ material = SubResource("StandardMaterial3D_roc6e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_l4030")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.418865, 0)
+billboard = 1
+texture = ExtResource("3_18d7f")

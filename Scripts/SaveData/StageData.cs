@@ -150,7 +150,7 @@ namespace DQBEdit
         
         public Vector3I EuclidPosToIndex(Vector3I position)
         {
-            position += new Vector3I(1024, 0, 1024); // Centers the grid at 0,0,0. Consider removing if problems arise.
+            //position += new Vector3I(1024, 0, 1024); // Centers the grid at 0,0,0. Consider removing if problems arise.
             if (position.X < 0 || position.Y < 0 || position.Z < 0)
                 return -Vector3I.One;
 
@@ -270,7 +270,7 @@ namespace DQBEdit
                 if (playerPlaced is not null)
                     block.PlayerPlaced = (bool)playerPlaced;
                 if (chisel is not null)
-                    block.Chisel = (byte)chisel;
+                    block.Chisel = (BlockInstance.ChiselType)chisel;
             }
             public void SetLayer(int layer, ushort block)
             {
@@ -295,7 +295,7 @@ namespace DQBEdit
 
             public ushort BlockID { get => (ushort)SaveData.GetNumberBitwise(Address, 0, 11); set => SaveData.SetNumberBitwise(Address, 0, 11, value); }
             public bool PlayerPlaced { get => SaveData.GetBit(Address + 1, 3); set => SaveData.SetBit(Address + 1, 3, value); }
-            public byte Chisel { get => (byte)SaveData.GetNumberBitwise(Address + 1, 4, 4); set => SaveData.SetNumberBitwise(Address + 1, 4, 4, value); }
+            public ChiselType Chisel { get => (ChiselType)SaveData.GetNumberBitwise(Address + 1, 4, 4); set => SaveData.SetNumberBitwise(Address + 1, 4, 4, (byte)value); }
 
             public BlockInstance(StageData saveData, int address)
             {
@@ -303,7 +303,7 @@ namespace DQBEdit
                 Address = address;
             }
 
-            public enum ChiselType : int
+            public enum ChiselType : byte
             {
                 FullBlock = 0,
                 DiagonalNorth = 1,

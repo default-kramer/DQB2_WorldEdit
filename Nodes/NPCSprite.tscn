@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cstxeedhnt2f3"]
+
+[ext_resource type="Script" uid="uid://dsc7lx6tw0x6r" path="res://Nodes/NPCSprite.cs" id="1_fc2s8"]
+[ext_resource type="Texture2D" uid="uid://t3p6x1vqx3c7" path="res://Graphics/Resident.png" id="2_fc2s8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fc2s8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc2s8"]
+billboard_mode = 1
+grow_amount = 0.213
+
+[node name="NPCSprite" type="Node3D"]
+script = ExtResource("1_fc2s8")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+gi_mode = 0
+pixel_size = 0.001
+billboard = 1
+fixed_size = true
+texture = ExtResource("2_fc2s8")
+hframes = 30
+vframes = 30
+frame = 80
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+pixel_size = 0.001
+offset = Vector2(0, 90)
+billboard = 1
+fixed_size = true
+text = "NPC"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 1, -8.74228e-08, 0, 8.74228e-08, 1, 0, 0.5, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("SphereMesh_fc2s8")
+surface_material_override/0 = SubResource("StandardMaterial3D_fc2s8")

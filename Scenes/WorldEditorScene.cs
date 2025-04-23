@@ -1,4 +1,5 @@
 using DQBEdit.Info;
+using DQBEdit.Nodes;
 using Godot;
 using System;
 
@@ -9,6 +10,10 @@ namespace DQBEdit.Scenes
 	{
 		private VoxelTerrain _VoxelTerrain;
 
+		private FPSLabel _FPSLabel;
+		private CanvasItem _DebugInfoContainer;
+		private Node3D _NPCSpriteLayer;
+
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -17,6 +22,9 @@ namespace DQBEdit.Scenes
 		private void _OnReadyVariables()
 		{
 			_VoxelTerrain = GetNode<VoxelTerrain>("VoxelTerrain");
+			_FPSLabel = GetNode<FPSLabel>("HUD/FPSLabel");
+			_DebugInfoContainer = GetNode<CanvasItem>("HUD/DebugInfo");
+			_NPCSpriteLayer = GetNode<Node3D>("NPCSpriteLayer");
 		}
 
 		public void LoadWorld(StageData stageData)
@@ -25,58 +33,76 @@ namespace DQBEdit.Scenes
             {
                 DQB2StageData = stageData
             };
+			if (CommonData.Instance is not null && CommonData.Instance.IsLoaded)
+				CreateNPCSprites(CommonData.Instance);
 		}
 		public void UnloadWorld()
 		{
 			_VoxelTerrain.Stream = null;
+			DestroyNPCSprites();
 		}
 
-		/*public void _on_button_pressed()
+		public void ChangeFPSDisplay(bool show)
 		{
-			GetViewport().GuiReleaseFocus();
+			_FPSLabel.Visible = show;
+		}
+		public void ChangeDebugInfoDisplay(bool show)
+		{
+			_DebugInfoContainer.Visible = show;
+		}
+		public void ChangeNPCDisplay(bool show)
+		{
+			_NPCSpriteLayer.Visible = show;
+		}
 
-			if (!lol)
+		public void CreateNPCSprite(CommonData.Resident resident)
+		{
+			/*
+			Sprite3D sprite3D = new Sprite3D();
+			GetNode("NPCSpriteLayer").AddChild(sprite3D);
+			sprite3D.Texture = ResourceLoader.Load<Texture2D>("res://Graphics/Resident/monster_hammerhood.png");
+			sprite3D.Billboard = BaseMaterial3D.BillboardModeEnum.Enabled;
+			sprite3D.FixedSize = true;
+			sprite3D.PixelSize = 0.001f;
+			sprite3D.Position = new Vector3(resident.PositionX, resident.PositionY + 0.5f, resident.PositionZ);
+
+			Label3D label3D = new Label3D();
+			label3D.Text = resident.GetDisplayName();
+			sprite3D.AddChild(label3D);
+			label3D.Position += Vector3.Up;
+			label3D.Billboard = BaseMaterial3D.BillboardModeEnum.Enabled;
+			label3D.FixedSize = true;
+			label3D.PixelSize = 0.001f;
+			*/
+			NPCSprite npcSprite = ResourceLoader.Load<PackedScene>("res://Nodes/NPCSprite.tscn").Instantiate<NPCSprite>();
+			npcSprite.SetNPC(resident);
+			npcSprite.Position = new Vector3(resident.PositionX, resident.PositionY, resident.PositionZ);
+			_NPCSpriteLayer.AddChild(npcSprite);
+		}
+		public void CreateNPCSprites(CommonData commonData)
+		{
+			if (StageData.Instance is null || !StageData.Instance.IsLoaded)
+				return;
+
+			DestroyNPCSprites();
+			foreach (CommonData.Resident resident in commonData.Residents)
 			{
-				GD.Print("Loading stage data...");
-
-				StageData.TryLoadAndSet("C:/Users/walke/Documents/My Games/DRAGON QUEST BUILDERS II/Steam/76561198437040801/SD/B00/STGDAT01.BIN");
-
-                //TestVoxelStreamScript script = ResourceLoader.Load<TestVoxelStreamScript>("res://Resources/new_voxel_stream_script.tres");
-                TestVoxelStreamScript script = new()
-                {
-                    DQB2StageData = StageData.Instance
-                };
-                GetNode<VoxelTerrain>("VoxelTerrain").Stream = script;
-
-				GD.Print("Stage data loaded.");
-			}
-			else
-			{
-				//GetNode<VoxelTerrain>("VoxelTerrain").Stream = null;
-				((TestVoxelStreamScript)GetNode<VoxelTerrain>("VoxelTerrain").Stream).DQB2StageData = null;
-				GD.Print("Unset voxel terrain stream.");
-			}
-
-			lol = !lol;
-
-			//VoxelTerrain voxelTerrain = GetNode<VoxelTerrain>("VoxelTerrain");
-			//voxelTerrain.AutomaticLoadingEnabled = false;
-			
-			//VoxelTool voxelTool = voxelTerrain.GetVoxelTool();
-			//voxelTool.SetVoxel(Vector3I.Zero, 3);
-			//voxelTool.Channel = VoxelBuffer.ChannelId.ChannelType;
-
-			/*foreach (StageData.Chunk chunk in StageData.Instance.Chunks)
-			{
-				foreach ((Vector3I vec, ushort block) in chunk.GetBlocksAndEuclidPos())
+				if (resident.CurrentIsland == StageData.Instance.IslandID)
 				{
-					BlockInfo blockInfo = BlockInfo.Get(block);
-					voxelTool.Value = blockInfo.VoxelID;
-					voxelTool.DoPoint(vec);
+					CreateNPCSprite(resident);
 				}
 			}
-
-			return;
-		}*/
+			foreach (CommonData.Resident resident in commonData.ImportantResidents)
+			{
+				if (resident.CurrentIsland == StageData.Instance.IslandID)
+				{
+					CreateNPCSprite(resident);
+				}
+			}
+		}
+		public void DestroyNPCSprites()
+		{
+			GetNode("NPCSpriteLayer").QueueFreeAllChildren();
+		}
 	}
 }
