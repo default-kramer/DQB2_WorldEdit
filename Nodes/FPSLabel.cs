@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
     public partial class FPSLabel : Label
     {

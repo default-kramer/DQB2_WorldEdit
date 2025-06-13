@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
 	public partial class ItemSelectPanel : PanelContainer
 	{

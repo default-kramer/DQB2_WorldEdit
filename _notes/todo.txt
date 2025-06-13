@@ -1,6 +1,27 @@
-these are duplicates:
-witchgrassy earth
-obsidian
-Castle Wall Midsection
-Sanguine Cinders
-Scales
+weather selection
+name editing
+clothes editing
+inventory editing
+npc editing
+npcs editable on map
+liquids
+props showing on map
+map editing
+time editor
+file select
+sign editor
+chest editor
+slope edges tool
+replace all instances of decoration with prop
+middle click block select
+Make tools their own object
+Chisel Tool
+Fill Tool
+Replace 
+Decorations deleter
+Buildable Area Extender 
+Raise/Lower Entire Island Tool
+
+Biome Brush
+ - Convert Existing props toggle
+ - Place new props toggle

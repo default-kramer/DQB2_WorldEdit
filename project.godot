@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="DQB2_WorldEdit"
+config/name="Eye of Rubiss"
+config/version="Indev 5-25-2025"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 config/icon="res://icon.svg"

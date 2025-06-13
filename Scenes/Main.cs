@@ -3,11 +3,12 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using DQBEdit.Nodes;
-using DQBEdit.Info;
+using EyeOfRubiss.Nodes;
+using EyeOfRubiss.Info;
 
-namespace DQBEdit.Scenes
+namespace EyeOfRubiss.Scenes
 {
+	/// <summary> The project's main scene. </summary>
 	public partial class Main : Control
 	{
 		// TODO add backup functionality
@@ -16,31 +17,23 @@ namespace DQBEdit.Scenes
 		// TODO monster, animal, fish screenshots
 		// TODO CMNDAT and SCSHDAT are CompressionLevel.Fastest, STGDAT is CompressionLevel.Optimal -- See if this has effect?
 		//   Hacky-ass solution: if _Header.Length == StageData.HeaderLength
+
+		/// References to scene elements
 		private WorldEditorScene _WorldEditorScene;
-
 		private FileDialog _FileDialog;
-
 		private Window _UnsavedChanges_Window;
-
 		private PopupMenu _File_PopupMenu;
 		private PopupMenu _File_SaveSingleFile_PopupMenu;
 		private PopupMenu _File_SaveAsSingleFile_PopupMenu;
 		private PopupMenu _File_Export_PopupMenu;
 		private PopupMenu _File_Import_PopupMenu;
-		private PopupMenu _Edit_PopupMenu;
 		private PopupMenu _Settings_PopupMenu;
-
-		private OptionButton _IslandSelectorButton;
-
+		private OptionButton _IslandSelector_Button;
 		private SpinBox _Gratitude_SpinBox;
 		private SpinBox _Time_SpinBox;
 		private OptionButton _Weather_OptionButton;
 
-		private Control _Bag_Panel;
-		private ButtonSelectorContainer _HotbarInventory_Container;
-		private ButtonSelectorContainer _BagInventory_Container;
-		private ButtonSelectorContainer _ChooseAnItem_Container;
-
+		/// <summary> Enum repreresenting the state of the FileDialog. </summary>
 		private enum FileDialogStateEnum
 		{
 			Unknown,
@@ -57,14 +50,10 @@ namespace DQBEdit.Scenes
 			ImportSTGDAT,
 			ImportSCSHDAT
 		}
+		/// <summary> Current state of the FileDialog. Handles how the FileDialog should behave. </summary>
 		private FileDialogStateEnum _FileDialogState = FileDialogStateEnum.Unknown;
 
-		private bool _TargetingHotbar = false;
-		private int _TargetedInventoryItem = -1;
-
 		public string WorkingDirectory { get; set; } = null;
-
-		private SaveFileInfo[] PreloadedFileData { get; set; } = new SaveFileInfo[3];
 
 		private bool WantsToQuit = false;
 
@@ -78,38 +67,28 @@ namespace DQBEdit.Scenes
 			_InitializeFileDialogPath();
 			UpdateLoadedData();
 			UpdateMenuButtons();
-
-			string[] accounts = GetDQB2SteamAccountPaths();
-			if (accounts.Length == 1)
-				PreloadDQB2Save(accounts[0]);
-	   	}
+		}
 		private void _OnReadyVariables()
 		{
-			_WorldEditorScene = GetNode<WorldEditorScene>("Window/Voxel Test");
+			_WorldEditorScene = GetNode<WorldEditorScene>("WorldEditorContainer/SubViewport/WorldEditor");
 
-			_FileDialog = GetNode<FileDialog>("FileDialog");
+			_FileDialog = GetNode<FileDialog>("Popups/FileDialog");
 
-			_UnsavedChanges_Window = GetNode<Window>("UnsavedChangesWindow");
+			_UnsavedChanges_Window = GetNode<Window>("Popups/UnsavedChangesWindow");
 
-			_File_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu");
-			_File_SaveSingleFile_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/SaveSingleFileMenu");
-			_File_SaveAsSingleFile_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/SaveAsSingleFileMenu");
-			_File_Export_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/ExportMenu");
-			_File_Import_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/FileMenu/ImportMenu");
-			//_Edit_PopupMenu = GetNode<PopupMenu>("MenuBar/Debug");
+			_File_PopupMenu = GetNode<PopupMenu>("Toolbar/HBoxContainer/MenuBar/FileMenu");
+			_File_SaveSingleFile_PopupMenu = GetNode<PopupMenu>("Toolbar/HBoxContainer/MenuBar/FileMenu/SaveSingleFileMenu");
+			_File_SaveAsSingleFile_PopupMenu = GetNode<PopupMenu>("Toolbar/HBoxContainer/MenuBar/FileMenu/SaveAsSingleFileMenu");
+			_File_Export_PopupMenu = GetNode<PopupMenu>("Toolbar/HBoxContainer/MenuBar/FileMenu/ExportMenu");
+			_File_Import_PopupMenu = GetNode<PopupMenu>("Toolbar/HBoxContainer/MenuBar/FileMenu/ImportMenu");
 
-			_Settings_PopupMenu = GetNode<PopupMenu>("HBoxContainer/MenuBar/SettingsMenu");
+			_Settings_PopupMenu = GetNode<PopupMenu>("Toolbar/HBoxContainer/MenuBar/SettingsMenu");
 
-			_IslandSelectorButton = GetNode<OptionButton>("IslandSelectorButton");
+			_IslandSelector_Button = GetNode<OptionButton>("Toolbar/IslandSelectorButton");
 
-			_Gratitude_SpinBox = GetNode<SpinBox>("GratitudeBox");
-			_Time_SpinBox = GetNode<SpinBox>("TimeBox");
-			_Weather_OptionButton = GetNode<OptionButton>("ComplexWeatherSelect");
-
-			_Bag_Panel = GetNode<Panel>("Panel");
-			//_HotbarInventory_Container = GetNode<ButtonSelectorContainer>("Panel/VBoxContainer/HotbarInventoryContainer");
-			//_BagInventory_Container = GetNode<ButtonSelectorContainer>("Panel/VBoxContainer/ScrollContainer/BagInventoryContainer");
-			//_ChooseAnItem_Container = GetNode<ButtonSelectorContainer>("Control/ScrollContainer/GridContainer");
+			_Gratitude_SpinBox = GetNode<SpinBox>("Toolbar/GratitudeBox");
+			_Time_SpinBox = GetNode<SpinBox>("Toolbar/TimeBox");
+			_Weather_OptionButton = GetNode<OptionButton>("Toolbar/ComplexWeatherSelect");
 		}
 		private void _InitializeFileDialogPath()
 		{
@@ -126,20 +105,20 @@ namespace DQBEdit.Scenes
 		{
 			if (!string.IsNullOrEmpty(WorkingDirectory))
 			{
-				_IslandSelectorButton.Disabled = false;
-				for (int idx = 1; idx < _IslandSelectorButton.ItemCount; idx++)
+				_IslandSelector_Button.Disabled = false;
+				for (int idx = 1; idx < _IslandSelector_Button.ItemCount; idx++)
 				{
-					int id = _IslandSelectorButton.GetItemId(idx);
-					_IslandSelectorButton.SetItemDisabled(idx, !File.Exists(Path.Combine(WorkingDirectory, $"STGDAT{id:D2}.BIN")));
+					int id = _IslandSelector_Button.GetItemId(idx);
+					_IslandSelector_Button.SetItemDisabled(idx, !File.Exists(Path.Combine(WorkingDirectory, $"STGDAT{id:D2}.BIN")));
 				}
 			}
 			else
 			{
-				_IslandSelectorButton.Select(0);
-				_IslandSelectorButton.Disabled = true;
+				_IslandSelector_Button.Select(0);
+				_IslandSelector_Button.Disabled = true;
 			}
 
-			if (StageData.HasInstance)
+			if (StageData.HasInstance())
 			{
 				_Gratitude_SpinBox.SetValueNoSignal(StageData.Instance.Gratitude);
 				_Gratitude_SpinBox.Editable = true;
@@ -168,21 +147,21 @@ namespace DQBEdit.Scenes
 			_File_PopupMenu.SetItemDisabled(9, !AnyIsLoaded()); // Import
 			_File_PopupMenu.SetItemDisabled(11, !AnyIsLoaded()); // Close
 
-			_File_SaveSingleFile_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance);
-			_File_SaveSingleFile_PopupMenu.SetItemDisabled(1, !StageData.HasInstance);
-			_File_SaveSingleFile_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance);
+			_File_SaveSingleFile_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance());
+			_File_SaveSingleFile_PopupMenu.SetItemDisabled(1, !StageData.HasInstance());
+			_File_SaveSingleFile_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance());
 
-			_File_SaveAsSingleFile_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance);
-			_File_SaveAsSingleFile_PopupMenu.SetItemDisabled(1, !StageData.HasInstance);
-			_File_SaveAsSingleFile_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance);
+			_File_SaveAsSingleFile_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance());
+			_File_SaveAsSingleFile_PopupMenu.SetItemDisabled(1, !StageData.HasInstance());
+			_File_SaveAsSingleFile_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance());
 
-			_File_Export_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance);
-			_File_Export_PopupMenu.SetItemDisabled(1, !StageData.HasInstance);
-			_File_Export_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance);
+			_File_Export_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance());
+			_File_Export_PopupMenu.SetItemDisabled(1, !StageData.HasInstance());
+			_File_Export_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance());
 
-			_File_Import_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance);
-			_File_Import_PopupMenu.SetItemDisabled(1, !StageData.HasInstance);
-			_File_Import_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance);
+			_File_Import_PopupMenu.SetItemDisabled(0, !CommonData.HasInstance());
+			_File_Import_PopupMenu.SetItemDisabled(1, !StageData.HasInstance());
+			_File_Import_PopupMenu.SetItemDisabled(2, !ScreenshotData.HasInstance());
 		}
 
 		public static void SaveAll()
@@ -201,7 +180,7 @@ namespace DQBEdit.Scenes
 
 		public bool TryCloseFile()
 		{
-			if ((CommonData.HasInstance && CommonData.Instance.UnsavedChanges) || (StageData.HasInstance && StageData.Instance.UnsavedChanges) || (ScreenshotData.HasInstance && ScreenshotData.Instance.UnsavedChanges))
+			if ((CommonData.HasInstance() && CommonData.Instance.UnsavedChanges) || (StageData.HasInstance() && StageData.Instance.UnsavedChanges) || (ScreenshotData.HasInstance() && ScreenshotData.Instance.UnsavedChanges))
 			{
 				_UnsavedChanges_Window.PopupCentered();
 				return false;
@@ -235,7 +214,7 @@ namespace DQBEdit.Scenes
 			{
 				UpdateLoadedData();
 				UpdateMenuButtons();
-				_WorldEditorScene.CreateNPCSprites(CommonData.Instance);
+				_WorldEditorScene.CreateResidents(CommonData.Instance);
 				return true;
 			}
 			if (StageData.TryLoadAndSet(path) is not null)
@@ -270,27 +249,13 @@ namespace DQBEdit.Scenes
 		}
 		public static bool AnyIsLoaded()
 		{
-			return CommonData.HasInstance || StageData.HasInstance || ScreenshotData.HasInstance;
-		}
-
-		public void PreloadDQB2Save(string path)
-		{
-			path = Path.Join(path, "SD");
-			if (!Directory.Exists(path))
-				return;
-
-			for (int i = 0; i < PreloadedFileData.Length; i++)
-			{
-				CommonData commonData = CommonData.QuickLoad(Path.Combine(path, $"B{i:D2}", "CMNDAT.BIN"));
-				if (commonData is not null)
-					PreloadedFileData[i] = new SaveFileInfo(commonData);
-			}
+			return CommonData.HasInstance() || StageData.HasInstance() || ScreenshotData.HasInstance();
 		}
 
 		// Callback methods
 		public void _On_File_PopupMenu_IdPressed(int id)
 		{
-			switch(id)
+			switch (id)
 			{
 				case 0: // Open Folder...
 					_FileDialog.FileMode = FileDialog.FileModeEnum.OpenDir;
@@ -478,7 +443,7 @@ namespace DQBEdit.Scenes
 					break;
 			}
 		}
-		
+
 		public void _On_UnsavedChanges_Window_Save_Button_Pressed()
 		{
 			_UnsavedChanges_Window.Hide();
@@ -502,7 +467,7 @@ namespace DQBEdit.Scenes
 
 		public void _On_Gratitude_SpinBox_ValueChanged(float value)
 		{
-			if (StageData.HasInstance)
+			if (StageData.HasInstance())
 				StageData.Instance.Gratitude = (int)value;
 		}
 		public void _On_Weather_OptionButton_ItemSelected(int index)
@@ -510,89 +475,11 @@ namespace DQBEdit.Scenes
 			StageData.Instance.Weather = (byte)index;
 		}
 
-		public void _On_Bag_Button_Pressed()
-		{
-			if (_Bag_Panel.Visible)
-			{
-				_Bag_Panel.Hide();
-				return;
-			}
-			else _Bag_Panel.Show();
-
-			if (CommonData.HasInstance && _HotbarInventory_Container.GetChildCount() == 0 && _BagInventory_Container.GetChildCount() == 0 && _ChooseAnItem_Container.GetChildCount() == 0)
-			{
-				foreach (Item item in CommonData.Instance.HotbarInventory)
-				{
-					Button newbutton = new Button();
-					newbutton.Text = item.GetInfo().Name + $" (x{item.Count})";
-					newbutton.AutowrapMode = TextServer.AutowrapMode.Arbitrary;
-					newbutton.SizeFlagsHorizontal = SizeFlags.ExpandFill;
-					_HotbarInventory_Container.AddButton(newbutton);
-				}
-				foreach (Item item in CommonData.Instance.BagInventory)
-				{
-					Button newbutton = new Button();
-					newbutton.Text = item.GetInfo().Name + $" (x{item.Count})";
-					newbutton.AutowrapMode = TextServer.AutowrapMode.Arbitrary;
-					newbutton.SizeFlagsHorizontal = SizeFlags.ExpandFill;
-					_BagInventory_Container.AddButton(newbutton);
-				}
-				foreach (ItemInfo item in ItemInfo.GetAll())
-				{
-					Button newbutton = new Button();
-					newbutton.Text = item.Name;
-					newbutton.AutowrapMode = TextServer.AutowrapMode.Arbitrary;
-					newbutton.SizeFlagsHorizontal = SizeFlags.ExpandFill;
-					_ChooseAnItem_Container.AddButton(newbutton, item.ID);
-				}
-			}
-		}
-		public void _On_BagInventory_Container_ButtonPressed(int id)
-		{
-			_TargetedInventoryItem = id;
-			_TargetingHotbar = false;
-		}
-		public void _On_ChooseAnItem_Container_ButtonPressed(int id)
-		{
-			if (_TargetedInventoryItem < 0)
-				return;
-
-			if (!_TargetingHotbar)
-			{
-				Item selectedItem = CommonData.Instance.BagInventory[_TargetedInventoryItem];
-				selectedItem.ItemID = (ushort)id;
-				Button itemButton = _BagInventory_Container.GetChild<Button>(_TargetedInventoryItem);
-				if (id == 0)
-					selectedItem.Count = 0;
-				else
-					selectedItem.Count = 1;
-				itemButton.Text = selectedItem.GetInfo().Name + $" (x{selectedItem.Count})";
-			}
-		}
-
 		public void _On_Root_CloseRequested()
 		{
 			WantsToQuit = true;
 			if (TryCloseFile())
 				GetTree().Quit();
-		}
-
-		private struct SaveFileInfo
-		{
-			public string PlayerName { get; set; }
-			public bool PlayerGender { get; set; }
-			public byte ToIsland { get; set; }
-			public DateTime LastSaveTime { get; set; }
-			public Image Thumbnail { get; set; }
-
-			public SaveFileInfo(CommonData data)
-			{
-				PlayerName = data.PlayerName;
-				PlayerGender = data.PlayerGender;
-				ToIsland = data.ToIsland;
-				LastSaveTime = data.LastSaveTime;
-				Thumbnail = data.GetThumbnail();
-			}
 		}
 	}
 }

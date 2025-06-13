@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
     public partial class NPCSprite : Node3D
     {
@@ -18,8 +18,8 @@ namespace DQBEdit.Nodes
         }
         private void _OnReadyVariables()
         {
-            _Sprite = GetNode<Sprite3D>("Sprite3D");
-            _Label = GetNode<Label3D>("Label3D");
+            _Sprite = GetNode<Sprite3D>("Character/Sprite3D");
+            _Label = GetNode<Label3D>("Character/Label3D");
         }
 
         public void SetNPC(CommonData.Resident resident)

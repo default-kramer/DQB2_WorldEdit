@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://si68n61gn1cn"]
+[gd_scene load_steps=18 format=3 uid="uid://si68n61gn1cn"]
 
 [ext_resource type="Texture2D" uid="uid://b5wcgwa3elvlc" path="res://Graphics/blocks.png" id="1_djn2n"]
 [ext_resource type="VoxelBlockyLibrary" uid="uid://ds0n7xj6hqhdx" path="res://Resources/Voxel Library.tres" id="1_ec1xm"]
@@ -8,14 +8,7 @@
 [ext_resource type="Script" uid="uid://c8d5ejfxksjcm" path="res://Nodes/FPSLabel.cs" id="6_rkejf"]
 [ext_resource type="Texture2D" uid="uid://b44a5on8vq3cx" path="res://Graphics/crosshair.png" id="7_sgdhm"]
 [ext_resource type="Script" uid="uid://cef171jih3wvg" path="res://Scenes/PositionLabel.cs" id="8_o1mxb"]
-
-[sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_yg1cn"]
-library = ExtResource("1_ec1xm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq1al"]
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_djn2n")
-texture_filter = 0
+[ext_resource type="Script" uid="uid://b8l5wycxi2gqt" path="res://Nodes/StatusLabel.cs" id="9_33hxh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_amqqt"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -29,8 +22,59 @@ background_mode = 2
 sky = SubResource("Sky_1jypa")
 tonemap_mode = 2
 
+[sub_resource type="VoxelMesherBlocky" id="VoxelMesherBlocky_yg1cn"]
+library = ExtResource("1_ec1xm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq1al"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_djn2n")
+texture_filter = 0
+
+[sub_resource type="Animation" id="Animation_33hxh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o1mxb"]
+resource_name = "fadeout"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfxig"]
+_data = {
+&"RESET": SubResource("Animation_33hxh"),
+&"fadeout": SubResource("Animation_o1mxb")
+}
+
 [node name="WorldEditor" type="Node3D"]
 script = ExtResource("1_kqags")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmm71")
 
 [node name="VoxelTerrain" type="VoxelTerrain" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1024, 0, -1024)
@@ -41,21 +85,17 @@ generate_collisions = false
 material_override = SubResource("StandardMaterial3D_sq1al")
 run_stream_in_editor = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+[node name="ResidentLayer" type="Node3D" parent="."]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nmm71")
+[node name="ObjectLayer" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("_VoxelTerrain", "PointedVoxelLabel")]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 96, 0)
 current = true
 script = ExtResource("4_drl5t")
 Speed = 20.0
 MaxSpeedMultiplier = 4.0
 MouseSensitivity = 0.2
-_VoxelTerrain = NodePath("../VoxelTerrain")
-PointedVoxelLabel = NodePath("../HUD/DebugInfo/PointedVoxelLabel")
 
 [node name="VoxelViewer" type="VoxelViewer" parent="Camera3D"]
 view_distance = 88888
@@ -70,6 +110,7 @@ grow_vertical = 2
 theme = ExtResource("5_reqmc")
 
 [node name="FPSLabel" type="Label" parent="HUD"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 15.0
 offset_right = 72.0
@@ -137,4 +178,21 @@ grow_vertical = 2
 texture = ExtResource("7_sgdhm")
 stretch_mode = 3
 
-[node name="NPCSpriteLayer" type="Node3D" parent="."]
+[node name="StatusLabel" type="Label" parent="HUD"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -36.0
+offset_right = 236.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_constants/outline_size = 5
+text = "This is the status bar."
+script = ExtResource("9_33hxh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/StatusLabel"]
+libraries = {
+&"": SubResource("AnimationLibrary_qfxig")
+}

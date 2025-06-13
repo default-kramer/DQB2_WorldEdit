@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 // TODO
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
     public partial class TimeRange : Godot.Range
     {

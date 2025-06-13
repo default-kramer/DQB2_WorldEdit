@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Threading.Channels;
 
-namespace DQBEdit
+namespace EyeOfRubiss
 {
     public partial class VoxelGeneratorTest : VoxelGeneratorScript
     {

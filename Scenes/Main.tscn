@@ -1,27 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://d5ygrv1j2owh"]
+[gd_scene load_steps=7 format=3 uid="uid://d5ygrv1j2owh"]
 
 [ext_resource type="Theme" uid="uid://nd34kb5d40qb" path="res://Resources/DQB_Theme.tres" id="1_sua2j"]
 [ext_resource type="Script" uid="uid://dmw4aaodejfmb" path="res://Nodes/AutoSubmenu.cs" id="2_50glp"]
 [ext_resource type="Script" uid="uid://o1l3wpft1cmb" path="res://Scenes/Main.cs" id="2_vy5pj"]
-[ext_resource type="Texture2D" uid="uid://bbb02kcnsh46o" path="res://Graphics/gratitude_icon.png" id="5_krhx3"]
-[ext_resource type="Texture2D" uid="uid://cu28pcctmgf18" path="res://Graphics/NinePatchRect.png" id="7_01ce4"]
-[ext_resource type="Texture2D" uid="uid://b7erpavyy88qa" path="res://villagerscreenshots/hair/1b.png" id="7_s4at1"]
-[ext_resource type="Texture2D" uid="uid://dvftt8ir3g2r6" path="res://villagerscreenshots/face/1.png" id="8_010tf"]
-[ext_resource type="Texture2D" uid="uid://b3pl50nh0blma" path="res://villagerscreenshots/body/1.png" id="9_igwea"]
-[ext_resource type="Texture2D" uid="uid://cr2637peckkoi" path="res://villagerscreenshots/hair/1f.png" id="10_4clea"]
-[ext_resource type="PackedScene" uid="uid://mgvg4mys85bh" path="res://Nodes/ItemButton.tscn" id="10_bmxlf"]
+[ext_resource type="ButtonGroup" uid="uid://iilnu3cspndh" path="res://Resources/ToolSelectorButtonGroup.tres" id="4_v1gob"]
+[ext_resource type="Script" uid="uid://dq2xt80fukn22" path="res://Nodes/BlockSelector.cs" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://si68n61gn1cn" path="res://Scenes/WorldEditor.tscn" id="11_4kpch"]
-[ext_resource type="Texture2D" uid="uid://cnks23rw2onjo" path="res://Graphics/isle01_name.png" id="12_hwpts"]
-[ext_resource type="Texture2D" uid="uid://db4ty5u050bin" path="res://Graphics/isle02_name.png" id="13_jyqft"]
-[ext_resource type="Texture2D" uid="uid://l350gocejqd1" path="res://Graphics/isle03_name.png" id="14_3tgeq"]
-[ext_resource type="Texture2D" uid="uid://d1akl4xbsxnfb" path="res://Graphics/isle04_name.png" id="15_c4ay3"]
-[ext_resource type="Texture2D" uid="uid://d3pqkfewcaxyy" path="res://Graphics/isle05_name.png" id="16_aht7i"]
-[ext_resource type="Texture2D" uid="uid://cgkl26mngsnpt" path="res://Graphics/isle09_name.png" id="17_5jffn"]
-[ext_resource type="Texture2D" uid="uid://ek2blfk8ve4w" path="res://Graphics/isle10_name.png" id="18_kpo4j"]
-[ext_resource type="Texture2D" uid="uid://dk7rmyu4e8ql3" path="res://Graphics/isle12_name.png" id="19_4n42c"]
-[ext_resource type="Texture2D" uid="uid://dqynicrjie5qv" path="res://Graphics/isle13_name.png" id="20_c5snn"]
-[ext_resource type="Texture2D" uid="uid://m262m6fqh6kg" path="res://Graphics/isle14_name.png" id="21_xvtyr"]
-[ext_resource type="Texture2D" uid="uid://brjf0gy2vxrue" path="res://Graphics/isle16_name.png" id="22_u7mjy"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -34,16 +18,24 @@ theme = ExtResource("1_sua2j")
 script = ExtResource("2_vy5pj")
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Toolbar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Toolbar"]
 layout_mode = 0
 offset_right = 331.0
 offset_bottom = 30.0
 
-[node name="MenuBar" type="MenuBar" parent="HBoxContainer"]
+[node name="MenuBar" type="MenuBar" parent="Toolbar/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_sua2j")
 
-[node name="FileMenu" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+[node name="FileMenu" type="PopupMenu" parent="Toolbar/HBoxContainer/MenuBar"]
 title = "File"
 size = Vector2i(259, 302)
 theme = ExtResource("1_sua2j")
@@ -76,7 +68,7 @@ item_11/id = 8
 item_12/text = "Quit"
 item_12/id = 9
 
-[node name="SaveSingleFileMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
+[node name="SaveSingleFileMenu" type="PopupMenu" parent="Toolbar/HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -89,7 +81,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 5
 
-[node name="SaveAsSingleFileMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
+[node name="SaveAsSingleFileMenu" type="PopupMenu" parent="Toolbar/HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -102,7 +94,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 6
 
-[node name="ExportMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
+[node name="ExportMenu" type="PopupMenu" parent="Toolbar/HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -115,7 +107,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 8
 
-[node name="ImportMenu" type="PopupMenu" parent="HBoxContainer/MenuBar/FileMenu"]
+[node name="ImportMenu" type="PopupMenu" parent="Toolbar/HBoxContainer/MenuBar/FileMenu"]
 auto_translate_mode = 1
 allow_search = false
 item_count = 3
@@ -128,7 +120,7 @@ item_2/id = 2
 script = ExtResource("2_50glp")
 SubmenuIndex = 9
 
-[node name="SettingsMenu" type="PopupMenu" parent="HBoxContainer/MenuBar"]
+[node name="SettingsMenu" type="PopupMenu" parent="Toolbar/HBoxContainer/MenuBar"]
 title = "Settings"
 size = Vector2i(189, 100)
 item_count = 3
@@ -144,41 +136,88 @@ item_2/checkable = 1
 item_2/checked = true
 item_2/id = 2
 
-[node name="AboutButton" type="Button" parent="HBoxContainer"]
+[node name="AboutButton" type="Button" parent="Toolbar/HBoxContainer"]
 layout_mode = 2
 text = "About
 "
 
-[node name="GratitudeIcon" type="Sprite2D" parent="."]
-position = Vector2(634, 50)
-texture = ExtResource("5_krhx3")
-
-[node name="GratitudeBox" type="SpinBox" parent="."]
+[node name="IslandSelectorButton" type="OptionButton" parent="Toolbar"]
 layout_mode = 0
-offset_left = 672.0
-offset_top = 32.0
-offset_right = 760.0
-offset_bottom = 62.0
-theme = ExtResource("1_sua2j")
-max_value = 99999.0
-rounded = true
-editable = false
-
-[node name="TimeBox" type="SpinBox" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 932.0
-offset_top = 74.0
-offset_right = 1130.0
-offset_bottom = 104.0
-max_value = 1200.0
-
-[node name="ComplexWeatherSelect" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 272.0
+offset_left = 2.0
 offset_top = 36.0
-offset_right = 572.0
+offset_right = 255.0
 offset_bottom = 66.0
+selected = 0
+item_count = 12
+popup/item_0/text = "---"
+popup/item_0/id = 0
+popup/item_1/text = "Isle of Awakening"
+popup/item_1/id = 1
+popup/item_2/text = "Furrowfield"
+popup/item_2/id = 2
+popup/item_3/text = "Khrumbul-Dun"
+popup/item_3/id = 3
+popup/item_4/text = "Moonbrooke"
+popup/item_4/id = 4
+popup/item_5/text = "Skelkatraz"
+popup/item_5/id = 10
+popup/item_6/text = "Malhalla"
+popup/item_6/id = 5
+popup/item_7/text = "Angler's Isle"
+popup/item_7/id = 9
+popup/item_8/text = "Buildertopia"
+popup/item_8/id = 12
+popup/item_9/text = "Buildertopia Beta"
+popup/item_9/id = 13
+popup/item_10/text = "Buildertopia Gamma"
+popup/item_10/id = 16
+popup/item_11/text = "Battle Atoll"
+popup/item_11/id = 14
+
+[node name="ToolSelector" type="HBoxContainer" parent="Toolbar"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 71.0
+offset_right = 470.0
+offset_bottom = 101.0
+
+[node name="Pencil" type="Button" parent="Toolbar/ToolSelector"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_v1gob")
+text = "Pencil"
+
+[node name="Swap" type="Button" parent="Toolbar/ToolSelector"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_v1gob")
+text = "Swap"
+
+[node name="Eraser" type="Button" parent="Toolbar/ToolSelector"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_v1gob")
+text = "Eraser"
+
+[node name="Bucket" type="Button" parent="Toolbar/ToolSelector"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_v1gob")
+text = "Bucket"
+
+[node name="Builderize" type="Button" parent="Toolbar/ToolSelector"]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("4_v1gob")
+text = "Builderize"
+
+[node name="ComplexWeatherSelect" type="OptionButton" parent="Toolbar"]
+layout_mode = 0
+offset_left = 1255.0
+offset_top = -121.0
+offset_right = 1555.0
+offset_bottom = -91.0
 selected = 0
 item_count = 31
 popup/item_0/text = "Weather"
@@ -245,7 +284,7 @@ popup/item_29/id = 29
 popup/item_30/text = "FurrowfieldFinalSceneSunny"
 popup/item_30/id = 30
 
-[node name="SimpleWeatherSelect" type="OptionButton" parent="."]
+[node name="SimpleWeatherSelect" type="OptionButton" parent="Toolbar"]
 layout_mode = 0
 offset_left = 1251.0
 offset_top = 88.0
@@ -317,13 +356,51 @@ popup/item_29/id = 29
 popup/item_30/text = "FurrowfieldFinalSceneSunny"
 popup/item_30/id = 30
 
-[node name="FileDialog" type="FileDialog" parent="."]
+[node name="TimeBox" type="SpinBox" parent="Toolbar"]
+layout_mode = 0
+offset_left = 1454.0
+offset_top = 185.0
+offset_right = 1652.0
+offset_bottom = 215.0
+max_value = 1200.0
+
+[node name="GratitudeBox" type="SpinBox" parent="Toolbar"]
+layout_mode = 0
+offset_left = 1221.0
+offset_top = 159.0
+offset_right = 1309.0
+offset_bottom = 189.0
+theme = ExtResource("1_sua2j")
+max_value = 99999.0
+rounded = true
+editable = false
+
+[node name="WorldEditorContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -534.0
+offset_right = 940.0
+grow_vertical = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="WorldEditorContainer"]
+handle_input_locally = false
+size = Vector2i(940, 534)
+render_target_update_mode = 4
+
+[node name="WorldEditor" parent="WorldEditorContainer/SubViewport" instance=ExtResource("11_4kpch")]
+
+[node name="Popups" type="Node" parent="."]
+
+[node name="FileDialog" type="FileDialog" parent="Popups"]
 mode_overrides_title = false
 access = 2
 filters = PackedStringArray("")
 use_native_dialog = true
 
-[node name="UnsavedChangesWindow" type="Window" parent="."]
+[node name="UnsavedChangesWindow" type="Window" parent="Popups"]
 title = "Alert!"
 position = Vector2i(125, 216)
 size = Vector2i(330, 145)
@@ -331,7 +408,7 @@ visible = false
 exclusive = true
 force_native = true
 
-[node name="ColorRect" type="ColorRect" parent="UnsavedChangesWindow"]
+[node name="ColorRect" type="ColorRect" parent="Popups/UnsavedChangesWindow"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -339,7 +416,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.25098, 0.25098, 0.25098, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UnsavedChangesWindow"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Popups/UnsavedChangesWindow"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -349,35 +426,35 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Separator1" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="Separator1" type="Control" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SaveButton" type="Button" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 text = "Save"
 
-[node name="Separator2" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="Separator2" type="Control" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DontSaveButton" type="Button" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="DontSaveButton" type="Button" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 text = "Don't Save"
 
-[node name="Separator3" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="Separator3" type="Control" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CancelButton" type="Button" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 text = "Cancel"
 
-[node name="Separator4" type="Control" parent="UnsavedChangesWindow/HBoxContainer"]
+[node name="Separator4" type="Control" parent="Popups/UnsavedChangesWindow/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="UnsavedChangesWindow"]
+[node name="Label" type="Label" parent="Popups/UnsavedChangesWindow"]
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -391,301 +468,7 @@ text = "You have unsaved changes.
 What would you like to do?"
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 621.0
-offset_top = 24.0
-offset_right = 729.0
-offset_bottom = 76.0
-text = "Bag"
-
-[node name="Button2" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 463.0
-offset_top = 31.0
-offset_right = 608.0
-offset_bottom = 78.0
-text = "Appearance"
-
-[node name="Button3" type="Button" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 769.0
-offset_top = 97.0
-offset_right = 872.0
-offset_bottom = 127.0
-text = "Residents"
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 726.0
-offset_top = 281.0
-offset_right = 1546.0
-offset_bottom = 913.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_01ce4")
-patch_margin_left = 48
-patch_margin_top = 48
-patch_margin_right = 48
-patch_margin_bottom = 48
-
-[node name="ResidentPreviewTest" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_left = 815.0
-offset_top = 199.0
-offset_right = 1066.0
-offset_bottom = 498.0
-
-[node name="HairB" type="TextureRect" parent="ResidentPreviewTest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_s4at1")
-
-[node name="Body" type="TextureRect" parent="ResidentPreviewTest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_igwea")
-
-[node name="Face" type="TextureRect" parent="ResidentPreviewTest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.5
-offset_top = -95.0
-offset_right = 50.5
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_010tf")
-
-[node name="HairF" type="TextureRect" parent="ResidentPreviewTest"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.5
-offset_top = -95.0
-offset_right = 50.5
-offset_bottom = 95.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("10_4clea")
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 14.0
-offset_top = 128.0
-offset_right = 922.0
-offset_bottom = 567.0
-metadata/_edit_group_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HotbarInventoryContainer" type="GridContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-columns = 15
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BagInventoryContainer" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 15
-
-[node name="Control" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 838.0
-offset_top = 137.0
-offset_right = 1141.0
-offset_bottom = 581.0
-metadata/_edit_group_ = true
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="GridContainer" type="GridContainer" parent="Control/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 4
-
-[node name="Button" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-
-[node name="Button2" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button3" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button4" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button5" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button6" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button7" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button8" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button9" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button10" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button11" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button12" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button13" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button14" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button15" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button16" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button17" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button18" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button19" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button20" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button21" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button22" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button23" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button24" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button25" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button26" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button27" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button28" parent="Control/ScrollContainer/GridContainer" instance=ExtResource("10_bmxlf")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Window" type="Window" parent="."]
-position = Vector2i(10, 106)
-size = Vector2i(1120, 535)
-
-[node name="Voxel Test" parent="Window" instance=ExtResource("11_4kpch")]
-
-[node name="AboutDialog" type="NativeAcceptDialog" parent="."]
+[node name="AboutDialog" type="NativeAcceptDialog" parent="Popups"]
 title = "About"
 dialog_text = "DQB World Edit v0.1
 
@@ -699,97 +482,58 @@ Created in Godot Engine v4.4 using Zylann's Voxel Tools
 Native Dialogs plugin by Teggy"
 dialog_icon = 0
 
-[node name="IslandSelectorButton" type="OptionButton" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -532.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control/ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+script = ExtResource("7_jw32o")
+
+[node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 2.0
-offset_top = 36.0
-offset_right = 255.0
-offset_bottom = 66.0
-selected = 0
-item_count = 12
-popup/item_0/text = "---"
-popup/item_0/id = 0
-popup/item_1/text = "Isle of Awakening"
-popup/item_1/id = 1
-popup/item_2/text = "Furrowfield"
-popup/item_2/id = 2
-popup/item_3/text = "Khrumbul-Dun"
-popup/item_3/id = 3
-popup/item_4/text = "Moonbrooke"
-popup/item_4/id = 4
-popup/item_5/text = "Skelkatraz"
-popup/item_5/id = 10
-popup/item_6/text = "Malhalla"
-popup/item_6/id = 5
-popup/item_7/text = "Angler's Isle"
-popup/item_7/id = 9
-popup/item_8/text = "Buildertopia"
-popup/item_8/id = 12
-popup/item_9/text = "Buildertopia Beta"
-popup/item_9/id = 13
-popup/item_10/text = "Buildertopia Gamma"
-popup/item_10/id = 16
-popup/item_11/text = "Battle Atoll"
-popup/item_11/id = 14
+offset_left = 521.0
+offset_top = 32.0
+offset_right = 771.0
+offset_bottom = 85.0
+text = "Refresh (Test)"
 
-[node name="Isle01Name" type="Sprite2D" parent="."]
-position = Vector2(1799, 183)
-texture = ExtResource("12_hwpts")
-
-[node name="Isle02Name" type="Sprite2D" parent="."]
-position = Vector2(1751, 315)
-texture = ExtResource("13_jyqft")
-
-[node name="Isle03Name" type="Sprite2D" parent="."]
-position = Vector2(1787, 439)
-texture = ExtResource("14_3tgeq")
-
-[node name="Isle04Name" type="Sprite2D" parent="."]
-position = Vector2(1768, 557)
-texture = ExtResource("15_c4ay3")
-
-[node name="Isle05Name" type="Sprite2D" parent="."]
-position = Vector2(1704, 703)
-texture = ExtResource("16_aht7i")
-
-[node name="Isle09Name" type="Sprite2D" parent="."]
-position = Vector2(2591, 329)
-texture = ExtResource("17_5jffn")
-
-[node name="Isle10Name" type="Sprite2D" parent="."]
-position = Vector2(2578, 195)
-texture = ExtResource("18_kpo4j")
-
-[node name="Isle12Name" type="Sprite2D" parent="."]
-position = Vector2(2562, 445)
-texture = ExtResource("19_4n42c")
-
-[node name="Isle13Name" type="Sprite2D" parent="."]
-position = Vector2(2567, 572)
-texture = ExtResource("20_c5snn")
-
-[node name="Isle14Name" type="Sprite2D" parent="."]
-position = Vector2(2178, 855)
-texture = ExtResource("21_xvtyr")
-
-[node name="Isle16Name" type="Sprite2D" parent="."]
-position = Vector2(2569, 705)
-texture = ExtResource("22_u7mjy")
-
-[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu" to="." method="_On_File_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/SaveSingleFileMenu" to="." method="_On_SaveSingleFile_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/SaveAsSingleFileMenu" to="." method="_On_SaveAsSingleFile_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/ExportMenu" to="." method="_On_Export_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="HBoxContainer/MenuBar/FileMenu/ImportMenu" to="." method="_On_Import_PopupMenu_IdPressed"]
-[connection signal="id_pressed" from="HBoxContainer/MenuBar/SettingsMenu" to="." method="_On_Settings_PopupMenu_IdPressed"]
-[connection signal="pressed" from="HBoxContainer/AboutButton" to="AboutDialog" method="show"]
-[connection signal="value_changed" from="GratitudeBox" to="." method="_On_Gratitude_SpinBox_ValueChanged"]
-[connection signal="item_selected" from="ComplexWeatherSelect" to="." method="_On_Weather_OptionButton_ItemSelected"]
-[connection signal="item_selected" from="SimpleWeatherSelect" to="." method="_On_Weather_OptionButton_ItemSelected"]
-[connection signal="dir_selected" from="FileDialog" to="." method="_On_FileDialog_FileSelected"]
-[connection signal="file_selected" from="FileDialog" to="." method="_On_FileDialog_FileSelected"]
-[connection signal="close_requested" from="UnsavedChangesWindow" to="." method="_On_UnsavedChanges_Window_Cancel_Button_Pressed"]
-[connection signal="pressed" from="UnsavedChangesWindow/HBoxContainer/SaveButton" to="." method="_On_UnsavedChanges_Window_Save_Button_Pressed"]
-[connection signal="pressed" from="UnsavedChangesWindow/HBoxContainer/DontSaveButton" to="." method="_On_UnsavedChanges_Window_DontSave_Button_Pressed"]
-[connection signal="pressed" from="UnsavedChangesWindow/HBoxContainer/CancelButton" to="." method="_On_UnsavedChanges_Window_Cancel_Button_Pressed"]
-[connection signal="pressed" from="Button" to="." method="_On_Bag_Button_Pressed"]
+[connection signal="id_pressed" from="Toolbar/HBoxContainer/MenuBar/FileMenu" to="." method="_On_File_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="Toolbar/HBoxContainer/MenuBar/FileMenu/SaveSingleFileMenu" to="." method="_On_SaveSingleFile_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="Toolbar/HBoxContainer/MenuBar/FileMenu/SaveAsSingleFileMenu" to="." method="_On_SaveAsSingleFile_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="Toolbar/HBoxContainer/MenuBar/FileMenu/ExportMenu" to="." method="_On_Export_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="Toolbar/HBoxContainer/MenuBar/FileMenu/ImportMenu" to="." method="_On_Import_PopupMenu_IdPressed"]
+[connection signal="id_pressed" from="Toolbar/HBoxContainer/MenuBar/SettingsMenu" to="." method="_On_Settings_PopupMenu_IdPressed"]
+[connection signal="pressed" from="Toolbar/HBoxContainer/AboutButton" to="Popups/AboutDialog" method="show"]
+[connection signal="pressed" from="Toolbar/ToolSelector/Pencil" to="WorldEditorContainer/SubViewport/WorldEditor" method="SetBrushPrimary" binds= [1]]
+[connection signal="pressed" from="Toolbar/ToolSelector/Swap" to="WorldEditorContainer/SubViewport/WorldEditor" method="SetBrushPrimary" binds= [3]]
+[connection signal="pressed" from="Toolbar/ToolSelector/Eraser" to="WorldEditorContainer/SubViewport/WorldEditor" method="SetBrushPrimary" binds= [0]]
+[connection signal="pressed" from="Toolbar/ToolSelector/Bucket" to="WorldEditorContainer/SubViewport/WorldEditor" method="SetBrushPrimary" binds= [2]]
+[connection signal="pressed" from="Toolbar/ToolSelector/Builderize" to="WorldEditorContainer/SubViewport/WorldEditor" method="SetBrushPrimary" binds= [4]]
+[connection signal="dir_selected" from="Popups/FileDialog" to="." method="_On_FileDialog_FileSelected"]
+[connection signal="file_selected" from="Popups/FileDialog" to="." method="_On_FileDialog_FileSelected"]
+[connection signal="close_requested" from="Popups/UnsavedChangesWindow" to="." method="_On_UnsavedChanges_Window_Cancel_Button_Pressed"]
+[connection signal="pressed" from="Popups/UnsavedChangesWindow/HBoxContainer/SaveButton" to="." method="_On_UnsavedChanges_Window_Save_Button_Pressed"]
+[connection signal="pressed" from="Popups/UnsavedChangesWindow/HBoxContainer/DontSaveButton" to="." method="_On_UnsavedChanges_Window_DontSave_Button_Pressed"]
+[connection signal="pressed" from="Popups/UnsavedChangesWindow/HBoxContainer/CancelButton" to="." method="_On_UnsavedChanges_Window_Cancel_Button_Pressed"]
+[connection signal="BlockSelected" from="Control/ScrollContainer/GridContainer" to="WorldEditorContainer/SubViewport/WorldEditor" method="SetBrushBlock"]
+[connection signal="pressed" from="Button" to="WorldEditorContainer/SubViewport/WorldEditor" method="Refresh"]

@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Reflection.Metadata;
 
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
 	public partial class ItemButton : Button
 	{
@@ -59,35 +59,35 @@ namespace DQBEdit.Nodes
 			{
 				case 1:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_WHITE);
+					Colour_ColorRect.Color = new Color(Constants.Colors.WHITE);
 					break;
 				case 2:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_BLACK);
+					Colour_ColorRect.Color = new Color(Constants.Colors.BLACK);
 					break;
 				case 3:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_PURPLE);
+					Colour_ColorRect.Color = new Color(Constants.Colors.PURPLE);
 					break;
 				case 4:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_PINK);
+					Colour_ColorRect.Color = new Color(Constants.Colors.PINK);
 					break;
 				case 5:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_RED);
+					Colour_ColorRect.Color = new Color(Constants.Colors.RED);
 					break;
 				case 6:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_GREEN);
+					Colour_ColorRect.Color = new Color(Constants.Colors.GREEN);
 					break;
 				case 7:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_YELLOW);
+					Colour_ColorRect.Color = new Color(Constants.Colors.YELLOW);
 					break;
 				case 8:
 					Colour_ColorRect.Show();
-					Colour_ColorRect.Color = new Color(Constants.COLOUR_BLUE);
+					Colour_ColorRect.Color = new Color(Constants.Colors.BLUE);
 					break;
 				default:
 					Colour_ColorRect.Hide();

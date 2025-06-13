@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
 	public partial class ButtonSelectorContainer : Container
 	{

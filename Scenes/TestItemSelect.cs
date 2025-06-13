@@ -1,10 +1,10 @@
 using Godot;
 using System;
-using DQBEdit.Nodes;
-using DQBEdit.Info;
+using EyeOfRubiss.Nodes;
+using EyeOfRubiss.Info;
 
 // TODO delete this
-namespace DQBEdit.Testing.Scenes
+namespace EyeOfRubiss.Testing.Scenes
 {
 	public partial class TestItemSelect : Control
 	{

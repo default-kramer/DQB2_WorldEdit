@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.ExceptionServices;
 
-namespace DQBEdit.Testing.Nodes
+namespace EyeOfRubiss.Testing.Nodes
 {
 	public partial class Debug : PopupMenu
 	{

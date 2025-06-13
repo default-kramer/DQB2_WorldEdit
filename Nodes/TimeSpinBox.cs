@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 // TODO delete this
-namespace DQBEdit.Nodes
+namespace EyeOfRubiss.Nodes
 {
 	public partial class TimeSpinBox : SpinBox
 	{

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace DQBEdit
+namespace EyeOfRubiss
 {
     public partial class VoxelTerrainEditor : VoxelTerrain
     {
