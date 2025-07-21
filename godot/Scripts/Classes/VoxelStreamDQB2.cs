@@ -1,3 +1,4 @@
+using Core;
 using DQBEdit.Info;
 using Godot;
 using System;
@@ -49,6 +50,7 @@ namespace DQBEdit
 						if (block is not null)
 						{
 							ulong voxelId = BlockInfo.Get(block.BlockID).VoxelID;
+							if (voxelId > 0) { voxelId = ClassLibTest.GetSand(); } // TESTING
 							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
 						}
 					}

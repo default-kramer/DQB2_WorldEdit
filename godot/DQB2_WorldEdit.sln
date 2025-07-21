@@ -1,12 +1,17 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DQB2_WorldEdit", "DQB2_WorldEdit.csproj", "{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\csharp\Core\Core.csproj", "{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +20,14 @@ Global
 		{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
