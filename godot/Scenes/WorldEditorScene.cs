@@ -1,3 +1,5 @@
+using Blocksy.Core;
+using Blocksy.Core.Generators.BasicHill;
 using DQBEdit.Info;
 using Godot;
 using System;
@@ -5,6 +7,68 @@ using System;
 // TODO delete this
 namespace DQBEdit.Scenes
 {
+	partial class TestGenerator : VoxelGeneratorScript
+	{
+		private readonly I2DSampler<int> sampler;
+		const int Channel = (int)VoxelBuffer.ChannelId.ChannelType;
+		const ulong BLOCK_SEAFLOOR = 8;
+		private readonly ulong voxelId;
+
+		public TestGenerator()
+		{
+			sampler = BasicHillGenerator.Create(PRNG.Create(new Random()));
+			//sampler = new SimpleSlope { Width = 100, Elevation = 50 };
+			sampler = sampler.Translate(new XZ(900, 900));
+
+			voxelId = BlockInfo.Get(3).VoxelID; // grassy earth
+		}
+
+		public override int _GetUsedChannelsMask()
+		{
+			return 1 << Channel;
+		}
+
+		public override void _GenerateBlock(VoxelBuffer outBuffer, Vector3I originInVoxels, int lod)
+		{
+			if (originInVoxels.Y < 0)
+			{
+				outBuffer.Fill(BLOCK_SEAFLOOR);
+			}
+
+			Vector3I bufferSize = outBuffer.GetSize();
+			var xzOrigin = new XZ(originInVoxels.X, originInVoxels.Z);
+			//xzOrigin = xzOrigin.Add(-1024, -1024); // TESTING, seems close to the starting point
+
+			/*
+			for (int x = 0; x < Math.Min(bufferSize.X, originInVoxels.X / 32); x++)
+			{
+				outBuffer.SetVoxel(4, x, 0, 0, Channel);
+			}
+			for (int z = 0; z < Math.Min(bufferSize.Z, originInVoxels.Z / 32); z++)
+			{
+				outBuffer.SetVoxel(5, 0, 0, z, Channel);
+			}
+			*/
+
+			for (int x = 0; x < bufferSize.X; x++)
+			{
+				for (int z = 0; z < bufferSize.Z; z++)
+				{
+					var xz = xzOrigin.Add(x, z);
+					int height = sampler.Sample(xz) - originInVoxels.Y;
+					if (height > 0)
+					{
+						height = Math.Min(height, bufferSize.Y);
+						for (int y = 0; y < height; y++)
+						{
+							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
+						}
+					}
+				}
+			}
+		}
+	}
+
 	public partial class WorldEditorScene : Node3D
 	{
 		private VoxelTerrain _VoxelTerrain;
@@ -21,14 +85,14 @@ namespace DQBEdit.Scenes
 
 		public void LoadWorld(StageData stageData)
 		{
-            _VoxelTerrain.Stream = new VoxelStreamDQB2()
-            {
-                DQB2StageData = stageData
-            };
+			//_VoxelTerrain.Stream = new VoxelStreamDQB2() { DQB2StageData = stageData };
+			_VoxelTerrain.Generator = new TestGenerator();
+			GD.Print("LOADED");
 		}
 		public void UnloadWorld()
 		{
 			_VoxelTerrain.Stream = null;
+			_VoxelTerrain.Generator = null;
 		}
 
 		/*public void _on_button_pressed()

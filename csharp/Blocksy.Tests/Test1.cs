@@ -1,0 +1,22 @@
+﻿using Blocksy.Core;
+using Blocksy.Core.Generators.BasicHill;
+
+namespace Blocksy.Tests
+{
+	[TestClass]
+	public sealed class Test1
+	{
+		[TestMethod]
+		public void TestMethod1()
+		{
+			var prng = PRNG.Create(new Random());
+			string seed = prng.Serialize();
+
+			for (int i = 0; i < 1000; i++)
+			{
+				var hill = BasicHillGenerator.Create(prng);
+				Assert.IsNotNull(hill, $"from seed: {seed}");
+			}
+		}
+	}
+}

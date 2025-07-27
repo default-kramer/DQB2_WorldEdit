@@ -1,4 +1,4 @@
-using Core;
+using Blocksy.Core;
 using DQBEdit.Info;
 using Godot;
 using System;
@@ -47,7 +47,7 @@ namespace DQBEdit
 						Vector3I coords = (positionInBlocks * bufferSize) + new Vector3I(x, y, z);
 						int tile = coords.X % 32 + (coords.Z % 32 * 32);
 						StageData.BlockInstance block = chunk.GetBlock(coords.Y, tile);
-						if (block is not null)
+						if (block is not null && block.BlockID <= 1158)
 						{
 							ulong voxelId = BlockInfo.Get(block.BlockID).VoxelID;
 							//if (voxelId > 0) { voxelId = ClassLibTest.GetSand(); } // TESTING

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DQB2_WorldEdit", "DQB2_WorldEdit.csproj", "{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "..\csharp\Core\Core.csproj", "{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocksy.Core", "..\csharp\Core\Blocksy.Core.csproj", "{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocksy.Tests", "..\csharp\Blocksy.Tests\Blocksy.Tests.csproj", "{0CEFC819-A8D4-4890-8243-5C1851AA8D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,12 @@ Global
 		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
 		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
 		{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
+		{0CEFC819-A8D4-4890-8243-5C1851AA8D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEFC819-A8D4-4890-8243-5C1851AA8D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEFC819-A8D4-4890-8243-5C1851AA8D82}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEFC819-A8D4-4890-8243-5C1851AA8D82}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEFC819-A8D4-4890-8243-5C1851AA8D82}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEFC819-A8D4-4890-8243-5C1851AA8D82}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
