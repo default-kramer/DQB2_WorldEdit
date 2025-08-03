@@ -196,26 +196,10 @@ sealed class Wall : I2DSampler<int>
 				if (cell.Y > 0)
 				{
 					var xz = new XZ(i, cell.offset);
-					array.Put(xz, cell.Y);
-					if (layerIndex < layers.Count - 1 && cell.corner.HasValue && cell.corner.Value > 0)
+					if (array.Sample(xz) == empty) // may already be set by a corner
 					{
-						array.Put(xz.Add(0, 1), cell.corner.Value);
+						array.Put(xz, cell.Y);
 					}
-				}
-			}
-		}
-
-		// TODO do we have to do corners on a separate pass?
-		for (int layerIndex = 0; layerIndex < layers.Count; layerIndex++)
-		{
-			var layer = layers[layerIndex];
-			for (int i = 0; i < layer.cells.Length; i++)
-			{
-				var cell = layer.cells[i];
-				if (cell.Y > 0)
-				{
-					var xz = new XZ(i, cell.offset);
-					//array.Put(xz, cell.Y);
 					if (layerIndex < layers.Count - 1 && cell.corner.HasValue && cell.corner.Value > 0)
 					{
 						array.Put(xz.Add(0, 1), cell.corner.Value);

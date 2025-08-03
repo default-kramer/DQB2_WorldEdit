@@ -16,7 +16,12 @@ namespace DQBEdit.Scenes
 
 		public TestGenerator()
 		{
-			sampler = BasicHillGenerator.Create(PRNG.Create(new Random()));
+			var prng = PRNG.Create(new Random());
+			prng.NextDouble();
+			GD.Print("seed is: " + prng.Serialize());
+
+			//sampler = BasicHillGenerator.Create(PRNG.Create(new Random()));
+			sampler = BasicHill2.Create(prng, width: 150);
 			//sampler = new SimpleSlope { Width = 100, Elevation = 50 };
 			sampler = sampler.Translate(new XZ(900, 900));
 

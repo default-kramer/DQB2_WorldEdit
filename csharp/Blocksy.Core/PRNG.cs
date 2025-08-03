@@ -132,6 +132,12 @@ public sealed class PRNG
 		return (int)(NextDouble() * maxValue);
 	}
 
+	public T RandomChoice<T>(params T[] items)
+	{
+		int index = NextInt32(items.Length);
+		return items[index];
+	}
+
 	public string Serialize()
 	{
 		return DoSerialize(s10, s11, s12, s20, s21, s22);
