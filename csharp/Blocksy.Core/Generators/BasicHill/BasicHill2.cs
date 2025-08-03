@@ -151,7 +151,7 @@ public sealed class BasicHill2 : I2DSampler<int>
 			{
 				int bumpWidth = prng.NextInt32(BLAH.runLength - couldAddBump) + minBumpWidth;
 				int bumpStart = runStart + minBumpOffset + prng.NextInt32(BLAH.runLength - (bumpWidth + minBumpOffset + minBumpOffset));
-				int bumpY = contour.Skip(bumpStart).Take(bumpWidth).Max(cell => cell.Y) - 2;
+				int bumpY = contour.Skip(bumpStart).Take(bumpWidth).Min(cell => cell.Y) - 1;
 
 				if (bumpY > 0)
 				{
