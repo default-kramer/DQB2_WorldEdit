@@ -6,8 +6,7 @@ using System.Linq;
 namespace Blocksy.Core.Generators
 {
 	/// <summary>
-	/// C# port of the Racket HILLISH generator algorithm.
-	/// This algorithm procedurally generates a hill as a series of 2D layers.
+	/// BUGGY... but might be worth looking at anyway for comparing aesthetics
 	/// </summary>
 	public static class Hillish
 	{

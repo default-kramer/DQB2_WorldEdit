@@ -65,6 +65,8 @@ public sealed class PRNG
 		return new PRNG(this);
 	}
 
+	public static PRNG Deserialize(string seed) => new PRNG(State.Deserialize(seed));
+
 	/// <summary>
 	/// Caller must ensure the thread-safety of the given <paramref name="seeder"/>.
 	/// </summary>

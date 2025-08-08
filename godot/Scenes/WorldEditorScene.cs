@@ -10,7 +10,7 @@ namespace DQBEdit.Scenes
 {
 	partial class TestGenerator : VoxelGeneratorScript
 	{
-		private readonly I2DSampler<int> sampler;
+		private readonly I2DSampler<ShinBasicHill.Item> sampler;
 		const int Channel = (int)VoxelBuffer.ChannelId.ChannelType;
 		const ulong BLOCK_SEAFLOOR = 8;
 		private readonly ulong voxelId;
@@ -29,9 +29,12 @@ namespace DQBEdit.Scenes
 			//sh.Smooth(2);
 			//sampler = sh;
 
-			sampler = Hillish.Create(prng);
+			//sampler = Hillish.Create(prng);
 
 			//sampler = new SimpleSlope { Width = 100, Elevation = 50 };
+
+			sampler = ShinBasicHill.Generate(prng, 200, 60);
+
 			sampler = sampler.Translate(new XZ(900, 900));
 
 			voxelId = BlockInfo.Get(3).VoxelID; // grassy earth
@@ -69,13 +72,21 @@ namespace DQBEdit.Scenes
 				for (int z = 0; z < bufferSize.Z; z++)
 				{
 					var xz = xzOrigin.Add(x, z);
-					int height = sampler.Sample(xz) - originInVoxels.Y;
+					var item = sampler.Sample(xz);
+					int height = item.y - originInVoxels.Y;
 					if (height > 0)
 					{
 						height = Math.Min(height, bufferSize.Y);
 						for (int y = 0; y < height; y++)
 						{
-							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
+							if (item.layerId % 2 == 0)
+							{
+								outBuffer.SetVoxel(voxelId, x, y, z, Channel);
+							}
+							else
+							{
+								outBuffer.SetVoxel(19, x, y, z, Channel);
+							}
 						}
 					}
 				}
