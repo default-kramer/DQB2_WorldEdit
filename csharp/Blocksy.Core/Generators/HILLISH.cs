@@ -20,6 +20,53 @@ namespace Blocksy.Core.Generators
 		}
 
 		/// <summary>
+		/// Distinguishes between different types of corners in a hill layer cell.
+		/// </summary>
+		public enum CornerType
+		{
+			/// <summary>The cell is not a corner.</summary>
+			None,
+			/// <summary>The cell is an unfilled corner, awaiting connection to an adjacent cell.</summary>
+			Unfilled,
+			/// <summary>The cell is a filled corner, with its corner space occupied.</summary>
+			Filled
+		}
+
+		/// <summary>
+		/// Represents the state of a corner in a hill layer cell.
+		/// This struct provides a type-safe way to handle the different corner states,
+		/// replacing the original implementation's use of `object`.
+		/// </summary>
+		public readonly struct CornerInfo
+		{
+			/// <summary>Gets the type of the corner.</summary>
+			public CornerType Type { get; }
+
+			/// <summary>Gets the marker for an unfilled corner. Valid only if Type is Unfilled.</summary>
+			public CornerMarker Marker { get; }
+
+			/// <summary>Gets the Y-value of the cell filling the corner space. Valid only if Type is Filled.</summary>
+			public int FillY { get; }
+
+			private CornerInfo(CornerType type, CornerMarker marker, int fillY)
+			{
+				Type = type;
+				Marker = marker;
+				FillY = fillY;
+			}
+
+			/// <summary>Represents a cell that is not a corner.</summary>
+			public static CornerInfo None => new CornerInfo(CornerType.None, default, 0);
+
+			/// <summary>Creates an unfilled corner with a specific marker.</summary>
+			public static CornerInfo Unfilled(CornerMarker marker) => new CornerInfo(CornerType.Unfilled, marker, 0);
+
+			/// <summary>Creates a filled corner with a specific Y-value.</summary>
+			public static CornerInfo Filled(int y) => new CornerInfo(CornerType.Filled, default, y);
+		}
+
+
+		/// <summary>
 		/// Represents a single cell in a hill layer.
 		/// </summary>
 		public class LayerCell
@@ -28,14 +75,11 @@ namespace Blocksy.Core.Generators
 			public int Z { get; set; }
 			public int Y { get; set; }
 			/// <summary>
-			/// Can be:
-			/// - bool `false`: Not a corner.
-			/// - `CornerMarker`: An unfilled corner.
-			/// - `int`: A filled corner, storing the Y value of the filling cell.
+			/// Describes the corner state of this cell.
 			/// </summary>
-			public object Corner { get; set; }
+			public CornerInfo Corner { get; set; }
 
-			public LayerCell(int x, int z, int y, object corner)
+			public LayerCell(int x, int z, int y, CornerInfo corner)
 			{
 				X = x;
 				Z = z;
@@ -61,9 +105,9 @@ namespace Blocksy.Core.Generators
 				foreach (var cell in layer)
 				{
 					array.Put(new XZ(cell.X, cell.Z), cell.Y);
-					if (cell.Corner is int cornerY)
+					if (cell.Corner.Type == CornerType.Filled)
 					{
-						array.Put(new XZ(cell.X, cell.Z + 1), cornerY);
+						array.Put(new XZ(cell.X, cell.Z + 1), cell.Corner.FillY);
 					}
 				}
 			}
@@ -238,10 +282,10 @@ namespace Blocksy.Core.Generators
 
 				int nextZ = (i + 1 < run.Count) ? run[i + 1] : z;
 
-				object corner;
-				if (z < currentPrevZ) corner = CornerMarker.Prev;
-				else if (z < nextZ) corner = CornerMarker.Next;
-				else corner = false;
+				CornerInfo corner;
+				if (z < currentPrevZ) corner = CornerInfo.Unfilled(CornerMarker.Prev);
+				else if (z < nextZ) corner = CornerInfo.Unfilled(CornerMarker.Next);
+				else corner = CornerInfo.None;
 
 				cells.Add(new LayerCell(currentX, z, newY, corner));
 
@@ -263,14 +307,14 @@ namespace Blocksy.Core.Generators
 				var a = newLayer[i];
 				var b = newLayer[i + 1];
 
-				if (a.Corner is CornerMarker markerA && markerA == CornerMarker.Next)
+				if (a.Corner.Type == CornerType.Unfilled && a.Corner.Marker == CornerMarker.Next)
 				{
-					a.Corner = b.Y;
+					a.Corner = CornerInfo.Filled(b.Y);
 				}
 
-				if (b.Corner is CornerMarker markerB && markerB == CornerMarker.Prev)
+				if (b.Corner.Type == CornerType.Unfilled && b.Corner.Marker == CornerMarker.Prev)
 				{
-					b.Corner = a.Y;
+					b.Corner = CornerInfo.Filled(a.Y);
 				}
 			}
 			return newLayer;
@@ -278,7 +322,7 @@ namespace Blocksy.Core.Generators
 
 		private static List<int> LayerToContour(List<LayerCell> layer)
 		{
-			return layer.Select(cell => cell.Z + (cell.Corner is int ? 2 : 1)).ToList();
+			return layer.Select(cell => cell.Z + (cell.Corner.Type == CornerType.Filled ? 2 : 1)).ToList();
 		}
 
 		private static Func<List<LayerCell>, bool> MakeRejecter(List<LayerCell> prevLayer, int minSeparation, int maxSeparation)
