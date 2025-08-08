@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Blocksy.Core.Generators
@@ -11,11 +12,18 @@ namespace Blocksy.Core.Generators
 	public static class Hillish
 	{
 		// these values should be configurable eventually:
-		const int initialY = 12;
+		const int initialY = 30;
 		const int initialRange = 2; // plus-or-minus
-		const int yDrop = 3;
 		const int minSeparation = 1;
 		const int maxSeparation = 4;
+		static IEnumerable<int> dyChoices => [2, 3, 1, 4, 5, 6]; // trying 6 first causes some kind of vicious cycle??
+		const bool enforceRunVsContour = false; // TODO NOMERGE... but it actually looks okay this way??
+
+		// A "run" is a segment within a layer where all the cells have the same (Y + Z) value.
+		// Locking (Y + Z) instead of just Y is an aesthetic decision which means the Y value drops
+		// by 1 when the layer takes 1 step closer, and Y increases by 1 when the layer takes 1 step back.
+		const int runLengthMin = 2;
+		const int runLengthRand = 4;
 
 		/// <summary>
 		/// Represents a marker for a corner in a layer, indicating the direction of the turn.
@@ -130,19 +138,29 @@ namespace Blocksy.Core.Generators
 		private static List<List<LayerCell>> Generate(PRNG prng, int minContourLength = 60)
 		{
 			var initialContour = BuildContour(minContourLength, prng);
+			if (initialContour.Count > minContourLength)
+			{
+				initialContour = initialContour.Take(minContourLength).ToList();
+			}
 
-			Func<List<LayerCell>, bool> firstLayerRejecter = run =>
-				run.Any(cell =>
+			bool firstLayerRejecter(ReadOnlySpan<LayerCell> run)
+			{
+				foreach (var cell in run)
 				{
-					int y = cell.Y + cell.Z;
-					return y < (initialY - initialRange) || y > (initialY + initialRange);
-				});
+					int sum = cell.Y + cell.Z;
+					if (sum < (initialY - initialRange) || sum > (initialY + initialRange))
+					{
+						return true;
+					}
+				}
+				return false;
+			}
 
-			var firstLayer = ContourToLayer(initialContour, initialY, firstLayerRejecter, prng);
+			int y = initialY - initialContour[0];
+			var firstLayer = ContourToLayerNEW(initialContour, y, firstLayerRejecter, prng);
 			firstLayer = FillCorners(firstLayer);
 
 			var layers = new List<List<LayerCell>> { firstLayer };
-			int y = initialY - yDrop;
 
 			while (true)
 			{
@@ -155,37 +173,28 @@ namespace Blocksy.Core.Generators
 				}
 
 				var nextContour = LayerToContour(prevLayer);
-				var rejecter = MakeRejecter(prevLayer);
 
-				List<LayerCell>? nextLayer = null;
-				// This retry logic is a direct port of the original Racket code's RETRY macro.
-				// It attempts to generate a valid layer up to 101 times.
-				// A more advanced implementation could use backtracking: if generation fails
-				// repeatedly for a layer, it would undo the previous layer and retry it with
-				// different random choices. This would be more robust against getting "stuck"
-				// in a state where no valid next layer can be generated.
-				for (int i = 0; i < 101; i++)
+				bool done = false;
+				foreach (var dy in dyChoices)
 				{
 					try
 					{
-						nextLayer = ContourToLayer(nextContour, y, rejecter, prng);
-						if (nextLayer != null) break;
+						int newY = y - dy;
+						var nextLayer = ContourToLayerNEW(nextContour, newY, run => ShouldRejectRun(prevLayer, run), prng);
+						nextLayer = FillCorners(nextLayer);
+						layers.Insert(0, nextLayer);
+						y = newY;
+						done = true;
+						break;
 					}
 					catch (Exception)
 					{
-						if (i == 100) throw new Exception("Hill generation failed after maximum retries.");
 					}
 				}
-
-				if (nextLayer == null)
+				if (!done)
 				{
-					// Failed to generate a valid layer. Stop here.
-					break;
+					throw new Exception("failed...");
 				}
-
-				nextLayer = FillCorners(nextLayer);
-				layers.Insert(0, nextLayer);
-				y -= yDrop;
 			}
 
 			layers.Reverse();
@@ -217,90 +226,215 @@ namespace Blocksy.Core.Generators
 			return contour;
 		}
 
-		private static List<LayerCell> ContourToLayer(List<int> contour, int y, Func<List<LayerCell>, bool> runRejecter, PRNG prng)
+		class TODO : LayerGenerator.Shared
 		{
-			const int runLengthMin = 2;
-			const int runLengthRand = 4;
-			int retryCounter = 0;
+			public required LayerCell[] Buffer { get; init; }
+			public required PRNG prng { get; init; }
+			public required IReadOnlyList<int> Contour { get; init; }
+			public required Func<ReadOnlySpan<LayerCell>, bool> ShouldRejectRunFunc { get; init; }
 
-			var resultLayer = new List<LayerCell>();
-			int currentIndex = 0;
-			int currentX = 0;
-			int currentY = y;
+			public int maxX => Buffer.Length;
+			public IImmutableSet<int> PossibleRunLengths => Enumerable.Range(runLengthMin, runLengthRand).ToImmutableSortedSet();
 
-			while (currentIndex < contour.Count)
+			public required int MaxSteps { get; init; }
+			private int stepsTaken = 0;
+
+			public bool GetWritableBuffer(int xStart, int runLength, out Span<LayerCell> buffer)
 			{
-				bool runAccepted = false;
-				while (!runAccepted)
+				int xEnd = xStart + runLength;
+				if (enforceRunVsContour && xEnd < maxX && xEnd > 0)
 				{
-					retryCounter++;
-					if (retryCounter > 100)
+					// don't allow a run to end where the contour changes
+					if (Contour[xEnd] != Contour[xEnd - 1])
 					{
-						throw new Exception("Too many retries in ContourToLayer! (probable infinite loop)");
-					}
-
-					int runLength = runLengthMin + prng.NextInt32(runLengthRand);
-					runLength = Math.Min(runLength, contour.Count - currentIndex);
-
-					var head = contour.GetRange(currentIndex, runLength);
-					int tailIndex = currentIndex + runLength;
-
-					if (tailIndex < contour.Count && head.Last() != contour[tailIndex])
-					{
-						continue;
-					}
-
-					int runY = currentY + prng.RandomChoice(-1, 1);
-
-					var run = RunToCells(head, currentX, head[0], runY);
-
-					if (!runRejecter(run))
-					{
-						resultLayer.AddRange(run);
-						currentY = run.Last().Y;
-						currentX += runLength;
-						currentIndex += runLength;
-						retryCounter = 0;
-						runAccepted = true;
+						buffer = default;
+						return false;
 					}
 				}
+
+				buffer = Buffer.AsSpan().Slice(xStart, runLength);
+				return true;
 			}
-			return resultLayer;
+
+			public bool IncrementStepCounter()
+			{
+				stepsTaken++;
+				return stepsTaken > MaxSteps;
+			}
+
+			public bool ShouldRejectRun(Span<LayerCell> run) => ShouldRejectRunFunc(run);
 		}
 
-		private static List<LayerCell> RunToCells(List<int> run, int startX, int prevZ, int y)
+		record struct LayerGenerator(LayerGenerator.Shared shared, int xStart, int prevY)
 		{
-			var cells = new List<LayerCell>();
-			int currentX = startX;
-			int currentPrevZ = prevZ;
-
-			for (int i = 0; i < run.Count; i++)
+			public enum Result
 			{
-				int z = run[i];
-				int dz = currentPrevZ - z;
-				int newY;
-				switch (dz)
+				Success,
+
+				/// <summary>
+				/// A kind of failure that cannot be attributed to bad luck -- this node was doomed to fail.
+				/// </summary>
+				Dead,
+
+				/// <summary>
+				/// A failure that might be due to bad luck.
+				/// </summary>
+				Unlucky,
+
+				/// <summary>
+				/// Used when we've wasted too much time and should quit entirely.
+				/// </summary>
+				Aborted,
+			}
+
+			public interface Shared
+			{
+				/// <summary>
+				/// Internal state of the PRNG is expected to always advance; no backtracking here.
+				/// </summary>
+				PRNG prng { get; }
+
+				int maxX { get; }
+
+				/// <summary>
+				/// Returns a writable buffer into which the algorithm will attempt to write results.
+				/// Return false to indicate "don't try that xEnd value again" -- this is used to
+				/// avoid ending a run where the contour changes, for aesthetic reasons.
+				/// </summary>
+				bool GetWritableBuffer(int xStart, int runLength, out Span<LayerCell> buffer);
+
+				/// <summary>
+				/// Returns true when it's time to give up.
+				/// </summary>
+				bool IncrementStepCounter();
+
+				IImmutableSet<int> PossibleRunLengths { get; }
+
+				bool ShouldRejectRun(Span<LayerCell> run);
+
+				IReadOnlyList<int> Contour { get; }
+			}
+
+			public Result Execute()
+			{
+				if (xStart >= shared.maxX)
 				{
-					case 0: newY = y; break;
-					case -1: newY = y - 1; break;
-					case 1: newY = y + 1; break;
-					default: throw new Exception("Z cannot jump by more than 1!");
+					return Result.Success;
+				}
+				else if (xStart > shared.maxX)
+				{
+					throw new Exception("assert fail");
 				}
 
-				int nextZ = (i + 1 < run.Count) ? run[i + 1] : z;
+				var possibleRunLengths = shared.PossibleRunLengths;
 
-				CornerInfo corner;
-				if (z < currentPrevZ) corner = CornerInfo.Unfilled(CornerMarker.Prev);
-				else if (z < nextZ) corner = CornerInfo.Unfilled(CornerMarker.Next);
-				else corner = CornerInfo.None;
+				for (int i = 0; i < 50; i++)
+				{
+					int unsafeRunLength = shared.prng.RandomChoice(possibleRunLengths.ToArray());
+					int runLength = Math.Min(unsafeRunLength, shared.maxX - xStart);
+					if (!shared.GetWritableBuffer(xStart, runLength, out var buffer))
+					{
+						possibleRunLengths = possibleRunLengths.Remove(unsafeRunLength); // don't try it again, we know it will fail
+						if (!possibleRunLengths.Any())
+						{
+							return Result.Dead; // no possible run lengths work
+						}
+						else
+						{
+							// this was cheap (no recursion), let's not count it towards our giveup counters
+							i--;
+							continue;
+						}
+					}
 
-				cells.Add(new LayerCell(currentX, z, newY, corner));
+					if (shared.IncrementStepCounter())
+					{
+						return Result.Aborted;
+					}
 
-				currentX++;
-				currentPrevZ = z;
-				y = newY;
+					int y = prevY + shared.prng.RandomChoice(-1, 1);
+					WriteRun(buffer, ref y);
+
+					if (!shared.ShouldRejectRun(buffer))
+					{
+						var recurseResult = new LayerGenerator(this.shared, xStart + runLength, y).Execute();
+						switch (recurseResult)
+						{
+							case Result.Success:
+							case Result.Aborted:
+								return recurseResult;
+							case Result.Unlucky:
+								// Too bad, we'll keep looping.
+								break;
+							case Result.Dead:
+								// hmm... Would it even help to try to detect "all possible recursions are dead"?
+								// It's complicated, and it's not clear that it would actually save time in practice.
+								break;
+							default:
+								throw new Exception($"Assert fail: {recurseResult}");
+						}
+					}
+				}
+
+				return Result.Unlucky; // loop finished without succeeding
 			}
-			return cells;
+
+			private void WriteRun(Span<LayerCell> buffer, ref int cellY)
+			{
+				int runLength = buffer.Length;
+
+				int prevZ = (xStart > 0) ? shared.Contour[xStart - 1] : shared.Contour[xStart];
+
+				for (int j = 0; j < runLength; j++)
+				{
+					int currentX = xStart + j;
+					int z = shared.Contour[currentX];
+					int dz = prevZ - z;
+					switch (dz)
+					{
+						case 0:
+						case 1:
+						case -1:
+							cellY += dz;
+							break;
+						default:
+							throw new Exception("contour Z cannot jump by more than 1!");
+					}
+
+					int nextZ = (currentX + 1 < shared.Contour.Count) ? shared.Contour[currentX + 1] : z;
+
+					CornerInfo corner;
+					if (z < prevZ) corner = CornerInfo.Unfilled(CornerMarker.Prev);
+					else if (z < nextZ) corner = CornerInfo.Unfilled(CornerMarker.Next);
+					else corner = CornerInfo.None;
+
+					buffer[j] = new LayerCell(currentX, z, cellY, corner);
+					prevZ = z;
+				}
+			}
+		}
+
+		private static List<LayerCell> ContourToLayerNEW(IReadOnlyList<int> contour, int y, Func<ReadOnlySpan<LayerCell>, bool> shouldRejectRun, PRNG prng)
+		{
+			var TODO = new TODO()
+			{
+				Buffer = new LayerCell[contour.Count],
+				Contour = contour,
+				MaxSteps = contour.Count * 100,
+				prng = prng,
+				ShouldRejectRunFunc = shouldRejectRun,
+			};
+
+			for (int attempts = 0; attempts < 25; attempts++)
+			{
+				var result = new LayerGenerator(TODO, 0, y).Execute();
+				if (result == LayerGenerator.Result.Success)
+				{
+					return TODO.Buffer.ToList();
+				}
+			}
+
+			throw new Exception("TOO MANY RETRIES?!?!");
 		}
 
 		private static List<LayerCell> FillCorners(List<LayerCell> layer)
@@ -332,15 +466,20 @@ namespace Blocksy.Core.Generators
 			return layer.Select(cell => cell.Z + (cell.Corner.Type == CornerType.Filled ? 2 : 1)).ToList();
 		}
 
-		private static Func<List<LayerCell>, bool> MakeRejecter(List<LayerCell> prevLayer)
+		private static bool ShouldRejectRun(IReadOnlyList<LayerCell> prevLayer, ReadOnlySpan<LayerCell> run)
 		{
-			return run => run.Any(cell =>
+			for (int i = 0; i < run.Length; i++)
 			{
+				var cell = run[i];
 				if (cell.X >= prevLayer.Count) return true; // Should not happen with valid contours
 				var northCell = prevLayer[cell.X];
 				int separation = northCell.Y - cell.Y;
-				return separation < minSeparation || separation > maxSeparation;
-			});
+				if (separation < minSeparation || separation > maxSeparation)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 }
