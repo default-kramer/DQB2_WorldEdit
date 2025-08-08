@@ -10,6 +10,13 @@ namespace Blocksy.Core.Generators
 	/// </summary>
 	public static class Hillish
 	{
+		// these values should be configurable eventually:
+		const int initialY = 12;
+		const int initialRange = 2; // plus-or-minus
+		const int yDrop = 3;
+		const int minSeparation = 1;
+		const int maxSeparation = 4;
+
 		/// <summary>
 		/// Represents a marker for a corner in a layer, indicating the direction of the turn.
 		/// </summary>
@@ -128,14 +135,14 @@ namespace Blocksy.Core.Generators
 				run.Any(cell =>
 				{
 					int y = cell.Y + cell.Z;
-					return y < 10 || y > 14;
+					return y < (initialY - initialRange) || y > (initialY + initialRange);
 				});
 
-			var firstLayer = ContourToLayer(initialContour, 12, firstLayerRejecter, prng);
+			var firstLayer = ContourToLayer(initialContour, initialY, firstLayerRejecter, prng);
 			firstLayer = FillCorners(firstLayer);
 
 			var layers = new List<List<LayerCell>> { firstLayer };
-			int y = 12 - 3;
+			int y = initialY - yDrop;
 
 			while (true)
 			{
@@ -148,7 +155,7 @@ namespace Blocksy.Core.Generators
 				}
 
 				var nextContour = LayerToContour(prevLayer);
-				var rejecter = MakeRejecter(prevLayer, 1, 4);
+				var rejecter = MakeRejecter(prevLayer);
 
 				List<LayerCell>? nextLayer = null;
 				// This retry logic is a direct port of the original Racket code's RETRY macro.
@@ -178,7 +185,7 @@ namespace Blocksy.Core.Generators
 
 				nextLayer = FillCorners(nextLayer);
 				layers.Insert(0, nextLayer);
-				y -= 3;
+				y -= yDrop;
 			}
 
 			layers.Reverse();
@@ -325,7 +332,7 @@ namespace Blocksy.Core.Generators
 			return layer.Select(cell => cell.Z + (cell.Corner.Type == CornerType.Filled ? 2 : 1)).ToList();
 		}
 
-		private static Func<List<LayerCell>, bool> MakeRejecter(List<LayerCell> prevLayer, int minSeparation, int maxSeparation)
+		private static Func<List<LayerCell>, bool> MakeRejecter(List<LayerCell> prevLayer)
 		{
 			return run => run.Any(cell =>
 			{
