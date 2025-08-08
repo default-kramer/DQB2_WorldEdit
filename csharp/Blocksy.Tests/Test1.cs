@@ -1,4 +1,5 @@
 ﻿using Blocksy.Core;
+using Blocksy.Core.Generators;
 using Blocksy.Core.Generators.BasicHill;
 
 namespace Blocksy.Tests
@@ -28,6 +29,19 @@ namespace Blocksy.Tests
 			for (int i = 0; i < 1000; i++)
 			{
 				var hill = BasicHill2.Create(prng, width: 50);
+				Assert.IsNotNull(hill, $"from seed: {seed}");
+			}
+		}
+
+		[TestMethod]
+		public void TestMethod3()
+		{
+			var prng = PRNG.Create(new Random());
+			string seed = prng.Serialize();
+
+			for (int i = 0; i < 1000; i++)
+			{
+				var hill = Hillish.Create(prng);
 				Assert.IsNotNull(hill, $"from seed: {seed}");
 			}
 		}

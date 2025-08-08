@@ -1,4 +1,5 @@
 using Blocksy.Core;
+using Blocksy.Core.Generators;
 using Blocksy.Core.Generators.BasicHill;
 using DQBEdit.Info;
 using Godot;
@@ -17,11 +18,19 @@ namespace DQBEdit.Scenes
 		public TestGenerator()
 		{
 			var prng = PRNG.Create(new Random());
-			prng.NextDouble();
-			GD.Print("seed is: " + prng.Serialize());
+			//prng.NextDouble();
+			//GD.Print("seed is: " + prng.Serialize());
+			//var prng = new PRNG(PRNG.State.Deserialize("3648141951-3107574069-4240370761-2437842710-244421380-2819314752"));
 
 			//sampler = BasicHillGenerator.Create(PRNG.Create(new Random()));
-			sampler = BasicHill2.Create(prng, width: 150);
+			//sampler = BasicHill2.Create(prng, width: 150);
+
+			//var sh = StripedHill.Create(prng, width: 150, new StripedHill.Config());
+			//sh.Smooth(2);
+			//sampler = sh;
+
+			sampler = Hillish.Create(prng);
+
 			//sampler = new SimpleSlope { Width = 100, Elevation = 50 };
 			sampler = sampler.Translate(new XZ(900, 900));
 
