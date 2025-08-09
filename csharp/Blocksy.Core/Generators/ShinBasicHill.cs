@@ -17,27 +17,52 @@ namespace Blocksy.Core.Generators;
 /// Also, we can create a starter backstop to generate the first layer
 /// (which will have no previous layer).
 ///
-/// NOTE TO FUTURE SELF - If you want to address the fact that the backstop naturally flattens over time,
-/// the correct approach would probably be something like:
-/// * before each layer is generated
-///   - check if backstop is too flat
-///   - if so, create "shims" as needed and add them to some list for later
-///   - rebuild the backstop, including the shims
-///     * be careful that the new backstop doesn't have any problematic alcoves!
-///   - generate the layer using the possibly-updated backstop
-/// * when constructing the final array, be sure to include data from all layers and all shims
-///
-/// The reason the backstop tends toward flatness is due to <see cref="FillAlcoves"/>.
-/// (And alcoves would fill naturally even without this method due to cornering.)
+/// But wait, there's more!
+/// The backstop tends toward Z-flatness as more layers are added.
+/// (This is a natural consequence of cornering.
+///  Also <see cref="FillAlcoves"/> causes Z-flatness.)
+/// So we may introduce "shims" to counteract this.
 /// </remarks>
 public sealed class ShinBasicHill
 {
-	private const int minSeparation = 1;
-	private const int maxSeparation = 4;
-	const int runLengthMin = 2;
-	const int runLengthRand = 4;
+	public sealed record Config
+	{
+		/// <summary>
+		/// Minimum separation (range is inclusive).
+		/// The "separation" is calculated for every X, how much the Y value (elevation)
+		/// drops compared to the same X in the previous layer.
+		/// The formula is `separation(N,X) = Layers[N-1][X].Y - Layers[N][X].Y`
+		/// </summary>
+		public int MinSeparation { get; init; } = 1;
 
-	public record struct Item(int y, int layerId);
+		/// <summary>
+		/// Maximum separation (range is inclusive).
+		/// See <see cref="MinSeparation"/>.
+		/// </summary>
+		public int MaxSeparation { get; init; } = 4;
+
+		/// <summary>
+		/// Minimum run length.
+		/// Layers are built one run at a time.
+		/// Each run of a layer chooses a Y value (elevation) that is +1 or -1 from the previous run.
+		/// (Note that Y also changes whenever Z changes, so it's more accurate to define
+		///  "adjusted Y" = Y+Z and say that each run chooses an "adjusted Y" that is +1 or -1
+		///  from the previous run.)
+		/// </summary>
+		public int RunWidthMin { get; init; } = 2;
+		public int RunWidthMax { get; init; } = 5;
+		internal int RunWidthRand => (RunWidthMax + 1) - RunWidthMin;
+
+		/// <summary>
+		/// When the contour (Z) stays unchanged for at least this many steps,
+		/// we consider it "too flat" and add a shim to introduce some jaggedness.
+		/// </summary>
+		public int UnacceptableZFlatness { get; init; } = 10;
+
+		public int ShimMinOffset { get; init; } = 2;
+	}
+
+	public record struct Item(int y, int layerId, bool isShim);
 
 	record struct Point(XZ xz, int y);
 
@@ -93,7 +118,7 @@ public sealed class ShinBasicHill
 			this.points = points;
 		}
 
-		private bool Rejects(Point point)
+		private bool Rejects(Point point, Config config)
 		{
 			var north = this.points[point.xz.X];
 			if (point.xz.Z != north.xz.Z + 1)
@@ -101,7 +126,7 @@ public sealed class ShinBasicHill
 				throw new ArgumentException("given point is not immediately south of backstop");
 			}
 			int separation = north.y - point.y;
-			return separation < minSeparation || separation > maxSeparation;
+			return separation < config.MinSeparation || separation > config.MaxSeparation;
 		}
 
 		/// <summary>
@@ -124,17 +149,17 @@ public sealed class ShinBasicHill
 		/// <summary>
 		/// Returns all possible Y values that the first cell of the next layer could start at
 		/// </summary>
-		public IEnumerable<int> InitialYChoices()
+		public IEnumerable<int> InitialYChoices(Config config)
 		{
 			var anchor = this.points[0];
 			int y = anchor.y;
 			var xz = anchor.xz.Add(0, 1);
 
-			int yMin = anchor.y - maxSeparation;
+			int yMin = anchor.y - config.MaxSeparation;
 			while (y >= yMin)
 			{
 				var test = new Point(xz, y);
-				if (!Rejects(test))
+				if (!Rejects(test, config))
 				{
 					yield return y;
 				}
@@ -142,7 +167,7 @@ public sealed class ShinBasicHill
 			}
 		}
 
-		public bool GetCellForNextLayer(int x, ref int y, int layerId, out Cell cell)
+		public bool GetCellForNextLayer(Config config, int x, ref int y, int layerId, out Cell cell)
 		{
 			var north = points[x];
 
@@ -191,7 +216,87 @@ public sealed class ShinBasicHill
 				cell = new Cell(new Point(xz, y), false, layerId);
 			}
 
-			return !Rejects(cell.NorthernmostPoint);
+			return !Rejects(cell.NorthernmostPoint, config);
+		}
+
+		public bool TryAddShim(PRNG prng, Config config, int layerId, out Backstop backstop, out Shim shim)
+		{
+			if (config.UnacceptableZFlatness < 1)
+			{
+				backstop = default!;
+				shim = default!;
+				return false;
+			}
+
+			foreach (var zFlatness in GetZFlatnesses().Where(zF => zF.width >= config.UnacceptableZFlatness))
+			{
+				var best = new List<Point>();
+				int x = zFlatness.start.X + config.ShimMinOffset;
+				int shimEndLimit = zFlatness.xEnd - config.ShimMinOffset;
+				while (x < shimEndLimit)
+				{
+					var start = points[x];
+					var seq = points.Skip(x).TakeWhile(p => p.y == start.y && p.xz.X < shimEndLimit).ToList();
+					// longest wins, taller Y is tiebreaker
+					if (seq.Count > best.Count || (seq.Count == best.Count && seq[0].y > best[0].y))
+					{
+						best = seq;
+					}
+					x += seq.Count;
+				}
+
+				if (best.Count > 0)
+				{
+					// Decreasing Y here can cause the algorithm to get stuck, so we use the same Y.
+					// (IMO, this also looks better than decreasing Y.)
+					// But if you wanted, you could lower all shims as a post-processing step...
+					shim = new Shim()
+					{
+						Start = best[0].xz.Add(0, 1),
+						Width = best.Count,
+						Y = best[0].y,
+						LayerId = layerId,
+					};
+
+					var nextPoints = this.points.ToList();
+					foreach (var point in shim.Points)
+					{
+						nextPoints[point.xz.X] = point;
+					};
+					backstop = new Backstop(nextPoints);
+
+					return true;
+				}
+			}
+
+			backstop = default!;
+			shim = default!;
+			return false;
+		}
+
+		private IEnumerable<ZFlatness> GetZFlatnesses()
+		{
+			int xStart = 0;
+			while (xStart < points.Count)
+			{
+				int xEnd = xStart;
+				var start = points[xStart];
+				int minY = start.y;
+
+				while (xEnd < points.Count && start.xz.Z == points[xEnd].xz.Z)
+				{
+					minY = Math.Min(minY, points[xEnd].y);
+					xEnd++;
+				}
+
+				yield return new ZFlatness(start.xz, xEnd, minY);
+				xStart = xEnd;
+			}
+		}
+
+		record struct ZFlatness(XZ start, int xEnd, int minY)
+		{
+			public int width => xEnd - start.X;
 		}
 	}
 
@@ -218,50 +323,84 @@ public sealed class ShinBasicHill
 		public IEnumerable<Point> Points => cells.SelectMany(cell => cell.Points());
 	}
 
+	sealed class Shim
+	{
+		public required XZ Start { get; init; }
+		public required int Width { get; init; }
+		public required int Y { get; init; }
+		public required int LayerId { get; init; }
+
+		public int xEnd => Start.X + Width;
+		public IEnumerable<Point> Points => Enumerable.Range(0, Width).Select(i => new Point(Start.Add(i, 0), Y));
+	}
+
 	private readonly PRNG prng;
 	private readonly int width;
+	private readonly Config config;
 
 	private ShinBasicHill(PRNG prng, int width)
 	{
 		this.prng = prng;
 		this.width = width;
+		this.config = new Config();
 	}
 
 	public static I2DSampler<Item> Generate(PRNG prng, int width, int height)
 	{
 		var hill = new ShinBasicHill(prng, width);
-		var layers = hill.BuildLayers(height);
-		int zEnd = layers.Last().MaxZ + 1;
+		var (layers, shims) = hill.BuildLayers(height);
+
+		var allPoints = layers.SelectMany(l => l.Points)
+			.Concat(shims.SelectMany(s => s.Points));
+		int zEnd = 1 + allPoints.Max(p => p.xz.Z);
 
 		var box = new BoundingBox(new XZ(0, 0), new XZ(width, zEnd));
-		var array = new MutableArray2D<Item>(box, new Item(-1, -1));
+		var array = new MutableArray2D<Item>(box, new Item(-1, -1, false));
 
 		foreach (var layer in layers)
 		{
 			foreach (var point in layer.Points)
 			{
-				array.Put(point.xz, new Item(point.y, layer.LayerId));
+				array.Put(point.xz, new Item(point.y, layer.LayerId, isShim: false));
+			}
+		}
+
+		foreach (var shim in shims)
+		{
+			foreach (var point in shim.Points)
+			{
+				array.Put(point.xz, new Item(point.y, shim.LayerId, isShim: true));
 			}
 		}
 
 		return array;
 	}
 
-	private List<Layer> BuildLayers(int height)
+	private (List<Layer>, List<Shim>) BuildLayers(int height)
 	{
 		var layers = new List<Layer>();
+		var shims = new List<Shim>();
 
-		var backstop = GenerateInitialBackstop(height + minSeparation);
-		var layer = GenerateLayer(backstop, layers.Count);
+		// We increment layerId *before* generating the layer
+		// so that it remains correct for any shims that may follow.
+		int layerId = -1;
+
+		var backstop = GenerateInitialBackstop(height + config.MinSeparation);
+		var layer = GenerateLayer(backstop, ++layerId);
 
 		while (layer.HasData)
 		{
 			layers.Add(layer);
 			backstop = layer.ToBackstop();
-			layer = GenerateLayer(backstop, layers.Count);
+			while (backstop.TryAddShim(prng, config, layerId, out var nextBackstop, out var shim))
+			{
+				shims.Add(shim);
+				backstop = nextBackstop;
+			}
+			layer = GenerateLayer(backstop, ++layerId);
 		}
 
-		return layers;
+		return (layers, shims);
 	}
 
 	private Backstop GenerateInitialBackstop(int y)
@@ -279,7 +418,7 @@ public sealed class ShinBasicHill
 		var points = new List<Point>();
 		while (x < width)
 		{
-			int xEnd = x + runLengthMin + prng.NextInt32(runLengthRand);
+			int xEnd = x + config.RunWidthMin + prng.NextInt32(config.RunWidthRand);
 			xEnd = Math.Min(xEnd, width);
 
 			for (; x < xEnd; x++)
@@ -317,13 +456,14 @@ public sealed class ShinBasicHill
 		var buffer = new Cell[width];
 		var shared = new Shared(buffer)
 		{
+			config = config,
 			backstop = backstop,
 			LayerId = layerId,
 			prng = prng,
-			legalRunLengths = Enumerable.Range(runLengthMin, runLengthRand).ToImmutableSortedSet(),
+			legalRunLengths = Enumerable.Range(config.RunWidthMin, config.RunWidthRand).ToImmutableSortedSet(),
 		};
 
-		var yChoices = backstop.InitialYChoices().OrderBy(x => prng.NextDouble()).ToList();
+		var yChoices = backstop.InitialYChoices(config).OrderBy(x => prng.NextDouble()).ToList();
 
 		foreach (int y in yChoices)
 		{
@@ -400,6 +540,7 @@ public sealed class ShinBasicHill
 
 	sealed class Shared
 	{
+		public required Config config { get; init; }
 		public required PRNG prng { get; init; }
 		public required Backstop backstop { get; init; }
 		public required IImmutableSet<int> legalRunLengths { get; init; }
@@ -437,27 +578,35 @@ public sealed class ShinBasicHill
 
 			for (int i = 0; i < 5; i++)
 			{
-				if (runLengths.Count == 0)
+				if (!ChooseRandomRunLength(ref runLengths, out int runLength))
 				{
-					return false; // no valid run lengths
+					return false; // no valid run lengths remain
 				}
-
-				int runLength = shared.prng.RandomChoice(runLengths.ToArray());
-				if (!shared.backstop.CanEndRunAt(xStart + runLength))
-				{
-					// Don't count this as a retry.
-					// Remove the failed runLength from the pool and try again.
-					runLengths = runLengths.Remove(runLength);
-					i--;
-					continue;
-				}
-
 				if (GenerateRunRecursive(runLength))
 				{
 					return true;
 				}
 			}
 
+			return false;
+		}
+
+		private bool ChooseRandomRunLength(ref IImmutableSet<int> runLengths, out int runLength)
+		{
+			while (runLengths.Any())
+			{
+				runLength = shared.prng.RandomChoice(runLengths.ToArray());
+				if (shared.backstop.CanEndRunAt(xStart + runLength))
+				{
+					return true;
+				}
+				else
+				{
+					runLengths = runLengths.Remove(runLength);
+				}
+			}
+
+			runLength = int.MinValue;
 			return false;
 		}
 
@@ -473,7 +622,7 @@ public sealed class ShinBasicHill
 			for (int i = 0; i < runLength; i++)
 			{
 				int x = xStart + i;
-				if (shared.backstop.GetCellForNextLayer(x, ref y, shared.LayerId, out var cell))
+				if (shared.backstop.GetCellForNextLayer(shared.config, x, ref y, shared.LayerId, out var cell))
 				{
 					buffer[i] = cell;
 				}

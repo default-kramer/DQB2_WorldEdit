@@ -79,14 +79,18 @@ namespace DQBEdit.Scenes
 						height = Math.Min(height, bufferSize.Y);
 						for (int y = 0; y < height; y++)
 						{
-							if (item.layerId % 2 == 0)
+							ulong voxelId = this.voxelId;
+
+							if (item.isShim)
 							{
-								outBuffer.SetVoxel(voxelId, x, y, z, Channel);
+								voxelId = 20; // sandstone
 							}
-							else
+							else if (item.layerId % 2 == 1)
 							{
-								outBuffer.SetVoxel(19, x, y, z, Channel);
+								voxelId = 19; // sand
 							}
+
+							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
 						}
 					}
 				}
