@@ -12,12 +12,12 @@ public static class Util
 	{
 		private readonly I2DSampler<T> sampler;
 		private readonly XZ translation;
-		public BoundingBox Box { get; }
+		public Rect Bounds { get; }
 
 		public Translator(I2DSampler<T> sampler, XZ translation)
 		{
 			this.sampler = sampler;
-			this.Box = sampler.Box.Translate(translation);
+			this.Bounds = sampler.Bounds.Translate(translation);
 			this.translation = translation;
 		}
 

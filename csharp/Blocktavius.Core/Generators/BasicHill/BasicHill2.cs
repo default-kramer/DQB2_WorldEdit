@@ -329,11 +329,11 @@ public sealed class BasicHill2 : I2DSampler<int>
 		}
 	}
 
-	public BoundingBox Box => new BoundingBox(new XZ(0, 0), new XZ(width, rows.Count));
+	public Rect Bounds => new Rect(new XZ(0, 0), new XZ(width, rows.Count));
 
 	public int Sample(XZ xz)
 	{
-		if (Box.Contains(xz))
+		if (Bounds.Contains(xz))
 		{
 			var row = rows[xz.Z];
 			return row[xz.X].Y;

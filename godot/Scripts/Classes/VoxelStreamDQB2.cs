@@ -50,7 +50,6 @@ namespace DQBEdit
 						if (block is not null && block.BlockID <= 1158)
 						{
 							ulong voxelId = BlockInfo.Get(block.BlockID).VoxelID;
-							//if (voxelId > 0) { voxelId = ClassLibTest.GetSand(); } // TESTING
 							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
 						}
 					}

@@ -352,7 +352,7 @@ public sealed class QuaintCliff
 			.Concat(shims.SelectMany(s => s.Points));
 		int zEnd = 1 + allPoints.Max(p => p.xz.Z);
 
-		var box = new BoundingBox(new XZ(0, 0), new XZ(width, zEnd));
+		var box = new Rect(new XZ(0, 0), new XZ(width, zEnd));
 		var array = new MutableArray2D<Item>(box, new Item(-1, -1, false));
 
 		foreach (var layer in layers)

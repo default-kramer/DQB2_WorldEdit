@@ -203,11 +203,11 @@ public sealed class StripedHill : I2DSampler<int>
 		return rows[z];
 	}
 
-	public BoundingBox Box => new BoundingBox(new XZ(0, 0), new XZ(width, rows.Count));
+	public Rect Bounds => new Rect(new XZ(0, 0), new XZ(width, rows.Count));
 
 	public int Sample(XZ xz)
 	{
-		if (Box.Contains(xz))
+		if (Bounds.Contains(xz))
 		{
 			return rows[xz.Z][xz.X].Y;
 		}

@@ -111,7 +111,7 @@ namespace Blocktavius.Core.Generators
 		{
 			var layers = Generate(prng);
 			var maxZ = layers.SelectMany(l => l).Max(cell => cell.Z);
-			var box = new BoundingBox(new XZ(0, 0), new XZ(layers[0].Count, maxZ + 2));
+			var box = new Rect(new XZ(0, 0), new XZ(layers[0].Count, maxZ + 2));
 			var array = new MutableArray2D<int>(box, -1);
 
 			foreach (var layer in layers)

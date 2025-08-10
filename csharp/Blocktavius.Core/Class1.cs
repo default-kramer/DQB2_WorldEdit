@@ -1,10 +1,5 @@
 ﻿namespace Blocktavius.Core;
 
-public static class ClassLibTest
-{
-	public static ulong GetSand() => 19;
-}
-
 public record struct XZ(int X, int Z)
 {
 	public XZ Add(int dx, int dz) => new XZ(X + dx, Z + dz);
@@ -38,9 +33,9 @@ public sealed record OrdinalDirection : CompassDirection
 	public static readonly OrdinalDirection NorthWest = new(-1, -1);
 }
 
-public record BoundingBox(XZ start, XZ end)
+public record Rect(XZ start, XZ end)
 {
-	public static readonly BoundingBox Zero = new(new XZ(0, 0), new XZ(0, 0));
+	public static readonly Rect Zero = new(new XZ(0, 0), new XZ(0, 0));
 
 	public bool Contains(XZ xz) => GetIndex(xz).HasValue;
 
@@ -71,10 +66,9 @@ public record BoundingBox(XZ start, XZ end)
 		return zIndex * width + xIndex;
 	}
 
-	public int Width => end.X - start.X;
-	public int Height => end.Z - start.Z; // TODO rename? "height" sounds like a Y coordinate
+	public XZ Size => new XZ(end.X - start.X, end.Z - start.Z);
 
-	public static BoundingBox Union(IEnumerable<BoundingBox> boxes)
+	public static Rect Union(IEnumerable<Rect> boxes)
 	{
 		int minX = int.MaxValue;
 		int minZ = int.MaxValue;
@@ -100,18 +94,18 @@ public record BoundingBox(XZ start, XZ end)
 
 		if (!any)
 		{
-			return BoundingBox.Zero;
+			return Rect.Zero;
 		}
 
-		return new BoundingBox(new XZ(minX, minZ), new XZ(maxX, maxZ));
+		return new Rect(new XZ(minX, minZ), new XZ(maxX, maxZ));
 	}
 
-	public BoundingBox Translate(XZ xz) => new BoundingBox(this.start.Add(xz), this.end.Add(xz));
+	public Rect Translate(XZ xz) => new Rect(this.start.Add(xz), this.end.Add(xz));
 }
 
 public interface I2DSampler<T>
 {
-	BoundingBox Box { get; }
+	Rect Bounds { get; }
 	T Sample(XZ xz);
 }
 
@@ -119,19 +113,19 @@ sealed class MutableArray2D<T> : I2DSampler<T>
 {
 	private readonly T[] array;
 	private readonly T defaultValue;
-	public BoundingBox Box { get; }
+	public Rect Bounds { get; }
 
-	public MutableArray2D(BoundingBox box, T defaultValue)
+	public MutableArray2D(Rect bounds, T defaultValue)
 	{
 		this.defaultValue = defaultValue;
-		Box = box;
-		array = new T[box.Width * box.Height];
+		Bounds = bounds;
+		array = new T[bounds.Size.X * bounds.Size.Z];
 		array.AsSpan().Fill(defaultValue);
 	}
 
 	public T Sample(XZ xz)
 	{
-		var index = Box.GetIndex(xz);
+		var index = Bounds.GetIndex(xz);
 		if (index.HasValue)
 		{
 			return array[index.Value];
@@ -141,7 +135,7 @@ sealed class MutableArray2D<T> : I2DSampler<T>
 
 	public void Put(XZ xz, T value)
 	{
-		var index = Box.GetIndex(xz);
+		var index = Bounds.GetIndex(xz);
 		if (!index.HasValue)
 		{
 			throw new ArgumentOutOfRangeException(nameof(xz));

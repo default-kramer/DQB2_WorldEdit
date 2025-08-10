@@ -13,11 +13,11 @@ public sealed class SimpleSlope : I2DSampler<int>
 	public int Width { get; init; }
 	public int Elevation { get; init; }
 
-	public BoundingBox Box => new BoundingBox(new XZ(0, 0), new XZ(Width, Elevation));
+	public Rect Bounds => new Rect(new XZ(0, 0), new XZ(Width, Elevation));
 
 	public int Sample(XZ xz)
 	{
-		if (Box.Contains(xz))
+		if (Bounds.Contains(xz))
 		{
 			return Elevation - xz.Z;
 		}
@@ -72,7 +72,7 @@ sealed class Layer
 
 	internal readonly LayerCell[] cells;
 	public bool IsEmpty { get; }
-	public BoundingBox BoundingBox { get; }
+	public Rect BoundingBox { get; }
 
 	private Layer(LayerCell[] cells)
 	{
@@ -90,7 +90,7 @@ sealed class Layer
 			}
 		}
 
-		BoundingBox = new BoundingBox(new XZ(0, 0), new XZ(cells.Length, maxOffset + 1));
+		BoundingBox = new Rect(new XZ(0, 0), new XZ(cells.Length, maxOffset + 1));
 	}
 
 	internal static Layer FromContour(PRNG prng, Contour contour, int Y) => FromContour(prng, contour.offsets, Y);
@@ -178,13 +178,13 @@ sealed class Layer
 sealed class Wall : I2DSampler<int>
 {
 	private readonly I2DSampler<int> sampler;
-	public BoundingBox Box => sampler.Box;
+	public Rect Bounds => sampler.Bounds;
 
 	const int empty = -1; // use Y=-1 as an empty value
 
 	private Wall(IReadOnlyList<Layer> layers)
 	{
-		var box = BoundingBox.Union(layers.Select(l => l.BoundingBox));
+		var box = Rect.Union(layers.Select(l => l.BoundingBox));
 		var array = new MutableArray2D<int>(box, empty);
 
 		for (int layerIndex = 0; layerIndex < layers.Count; layerIndex++)
@@ -245,7 +245,7 @@ public sealed class BasicHillGenerator : I2DSampler<int>
 		this.wall = wall;
 	}
 
-	public BoundingBox Box => wall.Box;
+	public Rect Bounds => wall.Bounds;
 	public int Sample(XZ xz) => wall.Sample(xz);
 
 	public static BasicHillGenerator Create(PRNG prng)
