@@ -47,15 +47,15 @@ namespace Blocktavius.Tests
 		}
 
 		[TestMethod]
-		public void TestMethod4()
+		public void ExerciseQuaintCliff()
 		{
 			var prng = PRNG.Create(new Random());
 			Console.WriteLine(prng.Serialize());
 
 			for (int i = 0; i < 1000; i++)
 			{
-				var hill = ShinBasicHill.Generate(prng, 100, 60);
-				Assert.IsNotNull(hill);
+				var cliff = Blocktavius.Core.Generators.Cliffs.QuaintCliff.Generate(prng, 100, 60);
+				Assert.IsNotNull(cliff);
 			}
 		}
 	}

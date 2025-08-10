@@ -1,6 +1,5 @@
 using Blocktavius.Core;
-using Blocktavius.Core.Generators;
-using Blocktavius.Core.Generators.BasicHill;
+using Blocktavius.Core.Generators.Cliffs;
 using DQBEdit.Info;
 using Godot;
 using System;
@@ -10,7 +9,7 @@ namespace DQBEdit.Scenes
 {
 	partial class TestGenerator : VoxelGeneratorScript
 	{
-		private readonly I2DSampler<ShinBasicHill.Item> sampler;
+		private readonly I2DSampler<QuaintCliff.Item> sampler;
 		const int Channel = (int)VoxelBuffer.ChannelId.ChannelType;
 		const ulong BLOCK_SEAFLOOR = 8;
 		private readonly ulong voxelId;
@@ -33,7 +32,7 @@ namespace DQBEdit.Scenes
 
 			//sampler = new SimpleSlope { Width = 100, Elevation = 50 };
 
-			sampler = ShinBasicHill.Generate(prng, 200, 60);
+			sampler = QuaintCliff.Generate(prng, 200, 60);
 
 			sampler = sampler.Translate(new XZ(900, 900));
 

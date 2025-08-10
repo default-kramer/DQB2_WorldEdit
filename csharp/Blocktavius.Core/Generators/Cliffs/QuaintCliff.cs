@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Blocktavius.Core.Generators;
-
-// TODO this shouldn't be named "hill", it's a "wall" or "embankment"...
+namespace Blocktavius.Core.Generators.Cliffs;
 
 /// <remarks>
 /// This algorithm operates by constructing layers one at a time.
@@ -23,7 +21,7 @@ namespace Blocktavius.Core.Generators;
 ///  Also <see cref="FillAlcoves"/> causes Z-flatness.)
 /// So we may introduce "shims" to counteract this.
 /// </remarks>
-public sealed class ShinBasicHill
+public sealed class QuaintCliff
 {
 	public sealed record Config
 	{
@@ -338,7 +336,7 @@ public sealed class ShinBasicHill
 	private readonly int width;
 	private readonly Config config;
 
-	private ShinBasicHill(PRNG prng, int width)
+	private QuaintCliff(PRNG prng, int width)
 	{
 		this.prng = prng;
 		this.width = width;
@@ -347,7 +345,7 @@ public sealed class ShinBasicHill
 
 	public static I2DSampler<Item> Generate(PRNG prng, int width, int height)
 	{
-		var hill = new ShinBasicHill(prng, width);
+		var hill = new QuaintCliff(prng, width);
 		var (layers, shims) = hill.BuildLayers(height);
 
 		var allPoints = layers.SelectMany(l => l.Points)
