@@ -1,36 +1,32 @@
-﻿namespace Blocktavius.Core;
+﻿using System.Collections.Immutable;
+
+namespace Blocktavius.Core;
 
 public record struct XZ(int X, int Z)
 {
+	public static XZ Zero => new XZ(0, 0);
+
 	public XZ Add(int dx, int dz) => new XZ(X + dx, Z + dz);
 
 	public XZ Add(XZ xz) => Add(xz.X, xz.Z);
 
+	public XZ Step(Direction direction) => Add(direction.Step);
+
 	public XZ Subtract(XZ xz) => new XZ(X - xz.X, Z - xz.Z);
-}
 
-public record CompassDirection(int dX, int dZ)
-{
-}
+	public XZ Scale(int factor) => new XZ(X * factor, Z * factor);
 
-public sealed record CardinalDirection : CompassDirection
-{
-	private CardinalDirection(int dX, int dZ) : base(dX, dZ) { }
+	public XZ Scale(XZ scale) => new XZ(X * scale.X, Z * scale.Z);
 
-	public static readonly CardinalDirection North = new(0, -1);
-	public static readonly CardinalDirection South = new(0, 1);
-	public static readonly CardinalDirection East = new(1, 0);
-	public static readonly CardinalDirection West = new(-1, 0);
-}
+	public XZ Unscale(XZ scale) => new XZ(X / scale.X, Z / scale.Z);
 
-public sealed record OrdinalDirection : CompassDirection
-{
-	private OrdinalDirection(int dX, int dZ) : base(dX, dZ) { }
-
-	public static readonly OrdinalDirection NorthEast = new(1, -1);
-	public static readonly OrdinalDirection SouthEast = new(1, 1);
-	public static readonly OrdinalDirection SouthWest = new(-1, 1);
-	public static readonly OrdinalDirection NorthWest = new(-1, -1);
+	public IEnumerable<XZ> CardinalNeighbors()
+	{
+		yield return Add(1, 0);
+		yield return Add(-1, 0);
+		yield return Add(0, 1);
+		yield return Add(0, -1);
+	}
 }
 
 public record Rect(XZ start, XZ end)
@@ -101,6 +97,37 @@ public record Rect(XZ start, XZ end)
 	}
 
 	public Rect Translate(XZ xz) => new Rect(this.start.Add(xz), this.end.Add(xz));
+
+	public IEnumerable<XZ> Enumerate()
+	{
+		for (int x = start.X; x < end.X; x++)
+		{
+			for (int z = start.Z; z < end.Z; z++)
+			{
+				yield return new XZ(x, z);
+			}
+		}
+	}
+
+	public static Rect GetBounds(IEnumerable<XZ> xzs)
+	{
+		int xMin = int.MaxValue;
+		int zMin = int.MaxValue;
+
+		int xMax = int.MinValue;
+		int zMax = int.MinValue;
+
+		foreach (var xz in xzs)
+		{
+			xMin = Math.Min(xMin, xz.X);
+			zMin = Math.Min(zMin, xz.Z);
+
+			xMax = Math.Max(xMax, xz.X);
+			zMax = Math.Max(zMax, xz.Z);
+		}
+
+		return new Rect(new XZ(xMin, zMin), new XZ(xMax + 1, zMax + 1));
+	}
 }
 
 public interface I2DSampler<T>
@@ -121,6 +148,12 @@ sealed class MutableArray2D<T> : I2DSampler<T>
 		Bounds = bounds;
 		array = new T[bounds.Size.X * bounds.Size.Z];
 		array.AsSpan().Fill(defaultValue);
+	}
+
+	public T this[XZ xz]
+	{
+		get => array[Bounds.GetIndex(xz) ?? throw new ArgumentOutOfRangeException(nameof(xz))];
+		set => Put(xz, value);
 	}
 
 	public T Sample(XZ xz)
