@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Blocksy.Core\Blocksy.Core.csproj" />
+    <ProjectReference Include="..\Blocktavius.Core\Blocktavius.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

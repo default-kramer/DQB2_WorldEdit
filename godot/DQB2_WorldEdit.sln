@@ -5,9 +5,9 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DQB2_WorldEdit", "DQB2_WorldEdit.csproj", "{2A1DE51E-AD4D-494C-8E91-2C9EC6DA7DB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocksy.Core", "..\csharp\Blocksy.Core\Blocksy.Core.csproj", "{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocktavius.Core", "..\csharp\Blocktavius.Core\Blocktavius.Core.csproj", "{1A6E0033-33F4-4DE8-87BC-77A8D7778FF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocksy.Tests", "..\csharp\Blocksy.Tests\Blocksy.Tests.csproj", "{0CEFC819-A8D4-4890-8243-5C1851AA8D82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blocktavius.Tests", "..\csharp\Blocktavius.Tests\Blocktavius.Tests.csproj", "{0CEFC819-A8D4-4890-8243-5C1851AA8D82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
