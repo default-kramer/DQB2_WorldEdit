@@ -1,6 +1,6 @@
-using Blocksy.Core;
-using Blocksy.Core.Generators;
-using Blocksy.Core.Generators.BasicHill;
+using Blocktavius.Core;
+using Blocktavius.Core.Generators;
+using Blocktavius.Core.Generators.BasicHill;
 using DQBEdit.Info;
 using Godot;
 using System;

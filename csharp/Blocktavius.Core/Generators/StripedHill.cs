@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Blocksy.Core.Generators;
+namespace Blocktavius.Core.Generators;
 
 public sealed class StripedHill : I2DSampler<int>
 {

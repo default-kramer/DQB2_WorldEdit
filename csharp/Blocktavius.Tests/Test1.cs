@@ -1,8 +1,8 @@
-﻿using Blocksy.Core;
-using Blocksy.Core.Generators;
-using Blocksy.Core.Generators.BasicHill;
+﻿using Blocktavius.Core;
+using Blocktavius.Core.Generators;
+using Blocktavius.Core.Generators.BasicHill;
 
-namespace Blocksy.Tests
+namespace Blocktavius.Tests
 {
 	[TestClass]
 	public sealed class Test1

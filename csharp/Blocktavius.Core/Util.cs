@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blocksy.Core;
+namespace Blocktavius.Core;
 
 public static class Util
 {

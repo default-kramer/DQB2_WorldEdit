@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Blocksy.Core.Generators
+namespace Blocktavius.Core.Generators
 {
 	/// <summary>
 	/// BUGGY... but might be worth looking at anyway for comparing aesthetics

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blocksy.Core;
+namespace Blocktavius.Core;
 
 /// <summary>
 /// A deterministic pseudorandom number generator.

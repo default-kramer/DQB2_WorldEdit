@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace Blocksy.Core.Generators;
+namespace Blocktavius.Core.Generators;
 
 // TODO this shouldn't be named "hill", it's a "wall" or "embankment"...
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blocksy.Core.Generators.BasicHill;
+namespace Blocktavius.Core.Generators.BasicHill;
 
 public sealed class BasicHill2 : I2DSampler<int>
 {

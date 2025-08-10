@@ -1,4 +1,4 @@
-﻿namespace Blocksy.Core;
+﻿namespace Blocktavius.Core;
 
 public static class ClassLibTest
 {
