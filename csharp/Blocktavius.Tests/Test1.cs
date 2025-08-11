@@ -58,5 +58,16 @@ namespace Blocktavius.Tests
 				Assert.IsNotNull(cliff);
 			}
 		}
+
+		[TestMethod]
+		public void ExerciseTileTagger()
+		{
+			var prng = PRNG.Create(new Random());
+			Console.WriteLine(prng.Serialize());
+
+			// Use a single tag
+			// Generate a blob-shaped hill
+			// Render it!
+		}
 	}
 }

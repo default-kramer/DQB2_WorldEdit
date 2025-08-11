@@ -60,9 +60,20 @@ public sealed class QuaintCliff
 		public int ShimMinOffset { get; init; } = 2;
 	}
 
-	public record struct Item(int y, int layerId, bool isShim);
+	public enum Kind
+	{
+		Nothing,
+		Normal,
+		Shim,
+		Backfill,
+	}
 
-	record struct Point(XZ xz, int y);
+	public record struct Item(int y, int layerId, Kind kind);
+
+	record struct Point(XZ xz, int y)
+	{
+		public bool Include => y > 0;
+	}
 
 	/// <summary>
 	/// When dealing with corners, we will need to populate 2 Z coords at a given X coord.
@@ -349,25 +360,37 @@ public sealed class QuaintCliff
 		var (layers, shims) = hill.BuildLayers(height);
 
 		var allPoints = layers.SelectMany(l => l.Points)
-			.Concat(shims.SelectMany(s => s.Points));
+			.Concat(shims.SelectMany(s => s.Points))
+			.Where(p => p.Include);
+
 		int zEnd = 1 + allPoints.Max(p => p.xz.Z);
 
 		var box = new Rect(new XZ(0, 0), new XZ(width, zEnd));
-		var array = new MutableArray2D<Item>(box, new Item(-1, -1, false));
+		var array = new MutableArray2D<Item>(box, new Item(-1, -1, Kind.Nothing));
 
 		foreach (var layer in layers)
 		{
-			foreach (var point in layer.Points)
+			foreach (var point in layer.Points.Where(p => p.Include))
 			{
-				array.Put(point.xz, new Item(point.y, layer.LayerId, isShim: false));
+				array.Put(point.xz, new Item(point.y, layer.LayerId, Kind.Normal));
 			}
 		}
 
 		foreach (var shim in shims)
 		{
-			foreach (var point in shim.Points)
+			foreach (var point in shim.Points.Where(p => p.Include))
 			{
-				array.Put(point.xz, new Item(point.y, shim.LayerId, isShim: true));
+				array.Put(point.xz, new Item(point.y, shim.LayerId, Kind.Shim));
+			}
+		}
+
+		for (int x = 0; x < width; x++)
+		{
+			var xz = new XZ(x, 0);
+			while (array.Sample(xz).y < 0)
+			{
+				array.Put(xz, new Item(height, -42, Kind.Backfill));
+				xz = xz.Add(0, 1);
 			}
 		}
 
@@ -444,6 +467,13 @@ public sealed class QuaintCliff
 		if (points.Count != width)
 		{
 			throw new Exception("assert fail");
+		}
+
+		// back that thing up if needed
+		int backup = points.Select(x => x.xz.Z - SHIFT).Min();
+		if (backup > 0)
+		{
+			points = points.Select(p => new Point(p.xz.Add(0, -backup), p.y)).ToList();
 		}
 
 		return new Backstop(points);

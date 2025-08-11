@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blocktavius.Core.Generators.Cliffs;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -282,5 +283,98 @@ sealed class TileTagger<TTag> where TTag : notnull
 		}
 
 		return edges;
+	}
+}
+
+public sealed class TODO
+{
+	public static I2DSampler<int> GenerateRandomHills(XZ unscaledSize, int scale, PRNG prng)
+	{
+		const int onlyTag = 42; // any value is fine
+
+		var tileTagger = new TileTagger<int>(unscaledSize, new XZ(scale, scale));
+
+		/*
+		for (int i = 0; i < 20; i++)
+		{
+			int x = prng.NextInt32(unscaledSize.X);
+			int z = prng.NextInt32(unscaledSize.Z);
+			tileTagger.AddTag(new XZ(x, z), onlyTag);
+		}
+		*/
+		tileTagger.AddTag(new XZ(0, 0), onlyTag);
+		tileTagger.AddTag(new XZ(0, 1), onlyTag);
+		tileTagger.AddTag(new XZ(1, 0), onlyTag);
+		tileTagger.AddTag(new XZ(2, 0), onlyTag);
+		tileTagger.AddTag(new XZ(3, 0), onlyTag);
+		tileTagger.AddTag(new XZ(3, 1), onlyTag);
+
+		var regions = tileTagger.GetRegions(onlyTag);
+
+		const int maxElevation = 20;
+
+		var cliffs = new List<I2DSampler<QuaintCliff.Item>>();
+		foreach (var region in regions)
+		{
+			foreach (var edge in region.Edges)
+			{
+				var cliff = QuaintCliff.Generate(prng, edge.Length, maxElevation);
+				var insetAmount = cliff.Bounds.Size.Z;
+
+				if (edge.InsideDirection == CardinalDirection.North)
+				{
+					cliff = cliff.Rotate(0).Translate(edge.Start.Add(0, -insetAmount));
+				}
+				else if (edge.InsideDirection == CardinalDirection.South)
+				{
+					cliff = cliff.Rotate(180).Translate(edge.Start); // inset handled naturally via rotation
+				}
+				else if (edge.InsideDirection == CardinalDirection.East)
+				{
+					cliff = cliff.Rotate(90).Translate(edge.Start); // inset handled naturally via rotation
+				}
+				else if (edge.InsideDirection == CardinalDirection.West)
+				{
+					cliff = cliff.Rotate(270).Translate(edge.Start.Add(-insetAmount, 0));
+				}
+
+				cliffs.Add(cliff);
+			}
+		}
+
+		var bounds = Rect.Union(regions.Select(r => r.Bounds).Concat(cliffs.Select(c => c.Bounds)));
+
+		const int empty = -1;
+		const int cliffMin = 0;
+		var elevations = new MutableArray2D<int>(bounds, empty);
+
+		foreach (var cliff in cliffs)
+		{
+			foreach (var xz in cliff.Bounds.Enumerate())
+			{
+				var sample = Math.Max(cliffMin, cliff.Sample(xz).y);
+				var exist = elevations.Sample(xz);
+				if (exist > empty)
+				{
+					// cliffs overlap, use the min
+					sample = Math.Min(sample, exist);
+				}
+				elevations.Put(xz, sample);
+			}
+		}
+
+		foreach (var region in regions)
+		{
+			foreach (var xz in region.Bounds.Enumerate())
+			{
+				// don't overwrite anything that came from a cliff
+				if (region.Contains(xz) && elevations.Sample(xz) == empty)
+				{
+					elevations.Put(xz, maxElevation);
+				}
+			}
+		}
+
+		return elevations;
 	}
 }

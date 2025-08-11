@@ -28,4 +28,90 @@ public static class Util
 	{
 		return new Translator<T>(sampler, xz);
 	}
+
+	abstract class Rotator<T> : I2DSampler<T>
+	{
+		protected readonly I2DSampler<T> sampler;
+		public Rect Bounds { get; }
+
+		protected Rotator(I2DSampler<T> sampler)
+		{
+			this.sampler = sampler;
+			if (RotateBounds)
+			{
+				var start = sampler.Bounds.start;
+				Bounds = new Rect(start, start.Add(sampler.Bounds.Size.Z, sampler.Bounds.Size.X));
+			}
+			else
+			{
+				Bounds = sampler.Bounds;
+			}
+		}
+
+		protected abstract bool RotateBounds { get; }
+
+		public T Sample(XZ xz)
+		{
+			xz = xz.Subtract(sampler.Bounds.start);
+			xz = Blah(xz);
+			xz = sampler.Bounds.start.Add(xz);
+			return sampler.Sample(xz);
+		}
+
+		protected abstract XZ Blah(XZ blah);
+	}
+
+	class Rotator90<T> : Rotator<T>
+	{
+		public Rotator90(I2DSampler<T> sampler) : base(sampler) { }
+		protected override bool RotateBounds => true;
+		protected override XZ Blah(XZ blah)
+		{
+			return new XZ(blah.Z, Bounds.Size.X - 1 - blah.X);
+		}
+	}
+
+	class Rotator180<T> : Rotator<T>
+	{
+		public Rotator180(I2DSampler<T> sampler) : base(sampler) { }
+		protected override bool RotateBounds => false;
+		protected override XZ Blah(XZ blah)
+		{
+			return new XZ(Bounds.Size.X - 1 - blah.X, Bounds.Size.Z - 1 - blah.Z);
+		}
+	}
+
+	class Rotator270<T> : Rotator<T>
+	{
+		public Rotator270(I2DSampler<T> sampler) : base(sampler) { }
+		protected override bool RotateBounds => true;
+		protected override XZ Blah(XZ blah)
+		{
+			return new XZ(Bounds.Size.Z - 1 - blah.Z, blah.X);
+		}
+	}
+
+	public static I2DSampler<T> Rotate<T>(this I2DSampler<T> sampler, int degrees)
+	{
+		degrees = (degrees % 360 + 360) % 360;
+
+		if (degrees == 0)
+		{
+			return sampler;
+		}
+		else if (degrees == 90)
+		{
+			return new Rotator90<T>(sampler);
+		}
+		else if (degrees == 180)
+		{
+			return new Rotator180<T>(sampler);
+		}
+		else if (degrees == 270)
+		{
+			return new Rotator270<T>(sampler);
+		}
+
+		throw new ArgumentException($"{nameof(degrees)} must be a multiple of 90, but got {degrees}");
+	}
 }

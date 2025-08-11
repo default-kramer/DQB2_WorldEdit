@@ -9,7 +9,8 @@ namespace DQBEdit.Scenes
 {
 	partial class TestGenerator : VoxelGeneratorScript
 	{
-		private readonly I2DSampler<QuaintCliff.Item> sampler;
+		//private readonly I2DSampler<QuaintCliff.Item> sampler;
+		private readonly I2DSampler<int> sampler;
 		const int Channel = (int)VoxelBuffer.ChannelId.ChannelType;
 		const ulong BLOCK_SEAFLOOR = 8;
 		private readonly ulong voxelId;
@@ -32,7 +33,9 @@ namespace DQBEdit.Scenes
 
 			//sampler = new SimpleSlope { Width = 100, Elevation = 50 };
 
-			sampler = QuaintCliff.Generate(prng, 200, 60);
+			//sampler = QuaintCliff.Generate(prng, 200, 60);
+
+			sampler = TODO.GenerateRandomHills(new XZ(20, 20), 24, prng);
 
 			sampler = sampler.Translate(new XZ(900, 900));
 
@@ -71,6 +74,7 @@ namespace DQBEdit.Scenes
 				for (int z = 0; z < bufferSize.Z; z++)
 				{
 					var xz = xzOrigin.Add(x, z);
+					/* Quaint
 					var item = sampler.Sample(xz);
 					int height = item.y - originInVoxels.Y;
 					if (height > 0)
@@ -89,6 +93,17 @@ namespace DQBEdit.Scenes
 								voxelId = 19; // sand
 							}
 
+							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
+						}
+					}
+					*/
+
+					int height = sampler.Sample(xz) - originInVoxels.Y;
+					if (height > 0)
+					{
+						height = Math.Min(height, bufferSize.Y);
+						for (int y = 0; y < height; y++)
+						{
 							outBuffer.SetVoxel(voxelId, x, y, z, Channel);
 						}
 					}

@@ -12,6 +12,8 @@ public record struct XZ(int X, int Z)
 
 	public XZ Step(Direction direction) => Add(direction.Step);
 
+	public XZ Step(Direction direction, int steps) => Add(direction.Step.Scale(steps));
+
 	public XZ Subtract(XZ xz) => new XZ(X - xz.X, Z - xz.Z);
 
 	public XZ Scale(int factor) => new XZ(X * factor, Z * factor);
