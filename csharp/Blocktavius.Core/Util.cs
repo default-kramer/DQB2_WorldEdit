@@ -114,4 +114,27 @@ public static class Util
 
 		throw new ArgumentException($"{nameof(degrees)} must be a multiple of 90, but got {degrees}");
 	}
+
+	sealed class SwapEW<T> : I2DSampler<T>
+	{
+		private readonly I2DSampler<T> sampler;
+		public SwapEW(I2DSampler<T> sampler)
+		{
+			this.sampler = sampler;
+		}
+
+		public Rect Bounds => sampler.Bounds;
+
+		public T Sample(XZ xz)
+		{
+			int xOffset = xz.X - sampler.Bounds.start.X;
+			int x = sampler.Bounds.end.X - (1 + xOffset);
+			return sampler.Sample(new XZ(x, xz.Z));
+		}
+	}
+
+	public static I2DSampler<T> SwapEastWest<T>(this I2DSampler<T> sampler)
+	{
+		return new SwapEW<T>(sampler);
+	}
 }

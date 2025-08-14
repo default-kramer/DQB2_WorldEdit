@@ -68,7 +68,10 @@ public sealed class QuaintCliff
 		Backfill,
 	}
 
-	public record struct Item(int y, int layerId, Kind kind);
+	public record struct Item(int y, int layerId, Kind kind) : IHaveElevation
+	{
+		public int Y => y;
+	}
 
 	record struct Point(XZ xz, int y)
 	{

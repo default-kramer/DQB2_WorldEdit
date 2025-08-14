@@ -14,7 +14,7 @@ sealed record Edge
 	public required CardinalDirection InsideDirection { get; init; }
 	public required int Length { get; init; }
 
-	public XZ End() => Start.Add(Direction.Parse(StepDirection).Step.Scale(Length));
+	public XZ End => Start.Add(Direction.Parse(StepDirection).Step.Scale(Length));
 
 	internal Edge Scale(XZ scale)
 	{
@@ -150,7 +150,7 @@ sealed class TileTagger<TTag> where TTag : notnull
 		var scaledEdges = CombineEdges(unscaledSegments)
 			.Select(edge => edge.Scale(scale))
 			.ToList();
-		var scaledBounds = Rect.GetBounds(scaledEdges.Select(e => e.End()).Concat(scaledEdges.Select(e => e.Start)));
+		var scaledBounds = Rect.GetBounds(scaledEdges.Select(e => e.End).Concat(scaledEdges.Select(e => e.Start)));
 
 		return new Region(unscaledTiles, scale)
 		{
@@ -239,7 +239,7 @@ sealed class TileTagger<TTag> where TTag : notnull
 			segments.Remove(seg);
 
 			var start = seg.Start;
-			var end = seg.End();
+			var end = seg.End;
 			int totalLength = seg.Length;
 
 			bool done = false;
@@ -247,7 +247,7 @@ sealed class TileTagger<TTag> where TTag : notnull
 			{
 				var connection = segments
 					.Where(s => s.StepDirection == seg.StepDirection)
-					.Where(s => s.Start == end || s.End() == start)
+					.Where(s => s.Start == end || s.End == start)
 					.FirstOrDefault();
 
 				if (connection == null)
@@ -261,9 +261,9 @@ sealed class TileTagger<TTag> where TTag : notnull
 
 				if (connection.Start == end)
 				{
-					end = connection.End();
+					end = connection.End;
 				}
-				else if (connection.End() == start)
+				else if (connection.End == start)
 				{
 					start = connection.Start;
 				}
@@ -288,61 +288,98 @@ sealed class TileTagger<TTag> where TTag : notnull
 
 public sealed class TODO
 {
-	public static I2DSampler<int> GenerateRandomHills(XZ unscaledSize, int scale, PRNG prng)
+	public static I2DSampler<int> GenerateRandomHills(int scale, PRNG prng)
 	{
 		const int onlyTag = 42; // any value is fine
 
+		bool inset = false;
+
+		var unscaledSize = new XZ(72 / scale, 24 / scale);
 		var tileTagger = new TileTagger<int>(unscaledSize, new XZ(scale, scale));
 
-		/*
-		for (int i = 0; i < 20; i++)
+		for (int z = 0; z < unscaledSize.Z; z++)
 		{
-			int x = prng.NextInt32(unscaledSize.X);
-			int z = prng.NextInt32(unscaledSize.Z);
-			tileTagger.AddTag(new XZ(x, z), onlyTag);
+			tileTagger.AddTag(new XZ(0, z), onlyTag);
+			tileTagger.AddTag(new XZ(unscaledSize.X - 1, z), onlyTag);
 		}
-		*/
-		tileTagger.AddTag(new XZ(0, 0), onlyTag);
-		tileTagger.AddTag(new XZ(0, 1), onlyTag);
-		tileTagger.AddTag(new XZ(1, 0), onlyTag);
-		tileTagger.AddTag(new XZ(2, 0), onlyTag);
-		tileTagger.AddTag(new XZ(3, 0), onlyTag);
-		tileTagger.AddTag(new XZ(3, 1), onlyTag);
+		for (int x = 0; x < unscaledSize.X; x++)
+		{
+			tileTagger.AddTag(new XZ(x, 0), onlyTag);
+		}
 
 		var regions = tileTagger.GetRegions(onlyTag);
 
 		const int maxElevation = 20;
 
-		var cliffs = new List<I2DSampler<QuaintCliff.Item>>();
+		var cliffData = new List<(I2DSampler<QuaintCliff.Item> sampler, Edge edge)>();
+
+		var allEdges = regions.SelectMany(r => r.Edges);
 		foreach (var region in regions)
 		{
 			foreach (var edge in region.Edges)
 			{
 				var cliff = QuaintCliff.Generate(prng, edge.Length, maxElevation);
-				var insetAmount = cliff.Bounds.Size.Z;
+				var thickness = cliff.Bounds.Size.Z;
 
 				if (edge.InsideDirection == CardinalDirection.North)
 				{
-					cliff = cliff.Rotate(0).Translate(edge.Start.Add(0, -insetAmount));
+					if (inset)
+					{
+						cliff = cliff.Rotate(0).Translate(edge.Start.Add(0, -thickness));
+					}
+					else
+					{
+						cliff = cliff.Rotate(0).Translate(edge.Start);
+					}
 				}
 				else if (edge.InsideDirection == CardinalDirection.South)
 				{
-					cliff = cliff.Rotate(180).Translate(edge.Start); // inset handled naturally via rotation
+					if (inset)
+					{
+						cliff = cliff.Rotate(180).Translate(edge.Start); // inset handled naturally via rotation
+					}
+					else
+					{
+						cliff = cliff.Rotate(180).Translate(edge.Start.Add(0, -thickness));
+					}
 				}
 				else if (edge.InsideDirection == CardinalDirection.East)
 				{
-					cliff = cliff.Rotate(90).Translate(edge.Start); // inset handled naturally via rotation
+					if (inset)
+					{
+						cliff = cliff.Rotate(90).Translate(edge.Start); // inset handled naturally via rotation
+					}
+					else
+					{
+						cliff = cliff.Rotate(90).Translate(edge.Start.Add(-thickness, 0));
+					}
 				}
 				else if (edge.InsideDirection == CardinalDirection.West)
 				{
-					cliff = cliff.Rotate(270).Translate(edge.Start.Add(-insetAmount, 0));
+					if (inset)
+					{
+						cliff = cliff.Rotate(270).Translate(edge.Start.Add(-thickness, 0));
+					}
+					else
+					{
+						cliff = cliff.Rotate(270).Translate(edge.Start);
+					}
 				}
 
-				cliffs.Add(cliff);
+				cliffData.Add((cliff, edge));
 			}
 		}
 
-		var bounds = Rect.Union(regions.Select(r => r.Bounds).Concat(cliffs.Select(c => c.Bounds)));
+		IReadOnlyList<I2DSampler<Elevation>> corners = new List<I2DSampler<Elevation>>();
+		if (!inset)
+		{
+			corners = BuildCorners(cliffData);
+		}
+
+		var cliffs = cliffData.Select(c => c.sampler);
+		var bounds = Rect.Union(regions.Select(r => r.Bounds)
+			.Concat(cliffs.Select(c => c.Bounds))
+			.Concat(corners.Select(c => c.Bounds)));
 
 		const int empty = -1;
 		const int cliffMin = 0;
@@ -354,12 +391,28 @@ public sealed class TODO
 			{
 				var sample = Math.Max(cliffMin, cliff.Sample(xz).y);
 				var exist = elevations.Sample(xz);
-				if (exist > empty)
+				bool cliffsOverlap = exist > empty;
+				if (cliffsOverlap)
 				{
-					// cliffs overlap, use the min
-					sample = Math.Min(sample, exist);
+					if (inset)
+					{
+						sample = Math.Min(sample, exist);
+					}
+					else
+					{
+						sample = Math.Max(sample, exist);
+					}
 				}
 				elevations.Put(xz, sample);
+			}
+		}
+
+		foreach (var corner in corners)
+		{
+			foreach (var xz in corner.Bounds.Enumerate())
+			{
+				var sample = corner.Sample(xz);
+				elevations.Put(xz, sample.Y);
 			}
 		}
 
@@ -376,5 +429,71 @@ public sealed class TODO
 		}
 
 		return elevations;
+	}
+
+	private static IReadOnlyList<I2DSampler<Elevation>> BuildCorners(IReadOnlyList<(I2DSampler<QuaintCliff.Item> sampler, Edge edge)> cliffData)
+	{
+		var corners = new List<I2DSampler<Elevation>>();
+
+		foreach (var cliff in cliffData)
+		{
+			if (cliff.edge.InsideDirection == CardinalDirection.North)
+			{
+				var found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.West && x.edge.End == cliff.edge.End);
+				if (found.sampler != null)
+				{
+					var corner = BuildCorner(cliff.sampler, found.sampler);
+					corner = corner.Translate(new XZ(cliff.sampler.Bounds.end.X, found.sampler.Bounds.end.Z));
+					corners.Add(corner);
+				}
+
+				found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.East && x.edge.End == cliff.edge.Start);
+				if (found.sampler != null)
+				{
+					var corner = BuildCorner(cliff.sampler.SwapEastWest(), found.sampler.SwapEastWest());
+					corner = corner.SwapEastWest().Translate(cliff.edge.Start.Add(-corner.Bounds.Size.X, 0));
+					corners.Add(corner);
+				}
+			}
+			else if (cliff.edge.InsideDirection == CardinalDirection.South)
+			{
+				var found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.East && x.edge.Start == cliff.edge.Start);
+				if (found.sampler != null)
+				{
+					var corner = BuildCorner(cliff.sampler.Rotate(180), found.sampler.Rotate(180));
+					corner = corner.Rotate(180).Translate(cliff.edge.Start.Subtract(corner.Bounds.Size));
+					corners.Add(corner);
+				}
+
+				found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.West && x.edge.Start == cliff.edge.End);
+				if (found.sampler != null)
+				{
+					var corner = BuildCorner(cliff.sampler.Rotate(180).SwapEastWest(), found.sampler.Rotate(180).SwapEastWest());
+					corner = corner.Rotate(180).SwapEastWest().Translate(cliff.edge.End.Add(0, -corner.Bounds.Size.Z));
+					corners.Add(corner);
+				}
+			}
+		}
+
+		return corners;
+	}
+
+	private static I2DSampler<Elevation> BuildCorner<T>(I2DSampler<T> cliffWest, I2DSampler<T> cliffNorth) where T : IHaveElevation
+	{
+		var size = new XZ(cliffNorth.Bounds.Size.X, cliffWest.Bounds.Size.Z);
+		var array = new MutableArray2D<Elevation>(new Rect(XZ.Zero, size), new Elevation(-1));
+
+		for (int x = 0; x < size.X; x++)
+		{
+			for (int z = 0; z < size.Z; z++)
+			{
+				var westSample = cliffWest.Sample(new XZ(cliffWest.Bounds.end.X - 1, cliffWest.Bounds.start.Z + z));
+				var northSample = cliffNorth.Sample(new XZ(cliffNorth.Bounds.start.X + x, cliffNorth.Bounds.end.Z - 1));
+				int minY = Math.Min(westSample.Y, northSample.Y);
+				array.Put(new XZ(x, z), new Elevation(minY));
+			}
+		}
+
+		return array;
 	}
 }

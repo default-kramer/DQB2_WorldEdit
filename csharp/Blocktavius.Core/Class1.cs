@@ -2,6 +2,13 @@
 
 namespace Blocktavius.Core;
 
+public interface IHaveElevation
+{
+	int Y { get; }
+}
+
+public record struct Elevation(int Y) : IHaveElevation;
+
 public record struct XZ(int X, int Z)
 {
 	public static XZ Zero => new XZ(0, 0);
@@ -132,7 +139,7 @@ public record Rect(XZ start, XZ end)
 	}
 }
 
-public interface I2DSampler<T>
+public interface I2DSampler<out T>
 {
 	Rect Bounds { get; }
 	T Sample(XZ xz);

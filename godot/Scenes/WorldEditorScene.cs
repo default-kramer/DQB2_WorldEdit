@@ -35,7 +35,7 @@ namespace DQBEdit.Scenes
 
 			//sampler = QuaintCliff.Generate(prng, 200, 60);
 
-			sampler = TODO.GenerateRandomHills(new XZ(20, 20), 24, prng);
+			sampler = TODO.GenerateRandomHills(12, prng);
 
 			sampler = sampler.Translate(new XZ(900, 900));
 
