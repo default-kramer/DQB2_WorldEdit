@@ -38,6 +38,10 @@ sealed record Edge
 	}
 }
 
+enum CornerType { Inside, Outside };
+
+sealed record Corner(Edge NorthOrSouthEdge, Edge EastOrWestEdge, CornerType CornerType);
+
 sealed record Region
 {
 	private readonly IReadOnlySet<XZ> unscaledTiles;
@@ -53,6 +57,117 @@ sealed record Region
 	public required Rect Bounds { get; init; }
 
 	public bool Contains(XZ xz) => unscaledTiles.Contains(xz.Unscale(scale));
+
+	public IReadOnlyList<Corner> ComputeCorners()
+	{
+		var startLookup = Edges.GroupBy(e => e.Start).ToDictionary(g => g.Key, g => g.ToList());
+		var endLookup = Edges.GroupBy(e => e.End).ToDictionary(g => g.Key, g => g.ToList());
+
+		// add empty lists so we can always put Start or End into either dictionary safely
+		foreach (var edge in Edges)
+		{
+			if (!startLookup.ContainsKey(edge.End))
+			{
+				startLookup[edge.End] = new List<Edge>();
+			}
+			if (!endLookup.ContainsKey(edge.Start))
+			{
+				endLookup[edge.Start] = new List<Edge>();
+			}
+		}
+
+		var corners = new List<Corner>();
+
+		foreach (var edge in Edges)
+		{
+			void maybeAdd(Edge? other, CornerType type)
+			{
+				if (other != null)
+				{
+					corners.Add(new Corner(edge, other, type));
+				}
+			}
+
+			if (edge.InsideDirection == CardinalDirection.North)
+			{
+				/*
+				  xxxx|
+				  xxxx|
+				  ----O
+				*/
+				var found = endLookup[edge.End].FirstOrDefault(e => e.InsideDirection == CardinalDirection.West);
+				maybeAdd(found, CornerType.Outside);
+
+				/*
+				  |xxxx
+				  |xxxx
+				  O----
+				 */
+				found = endLookup[edge.Start].FirstOrDefault(x => x.InsideDirection == CardinalDirection.East);
+				maybeAdd(found, CornerType.Outside);
+
+				/*
+				 xxxxxx
+				 xxxxxx
+				 ---Oxx
+				    |xx
+				    |xx
+				 */
+				found = startLookup[edge.End].FirstOrDefault(x => x.InsideDirection == CardinalDirection.East);
+				maybeAdd(found, CornerType.Inside);
+
+				/*
+				  xxxxxx
+				  xxxxxx
+				  xxO---
+				  xx|
+				  xx|
+				 */
+				found = startLookup[edge.Start].FirstOrDefault(x => x.InsideDirection == CardinalDirection.West);
+				maybeAdd(found, CornerType.Inside);
+			}
+			else if (edge.InsideDirection == CardinalDirection.South)
+			{
+				/*
+				  O----
+				  |xxxx
+				  |xxxx
+				 */
+				var found = startLookup[edge.Start].FirstOrDefault(e => e.InsideDirection == CardinalDirection.East);
+				maybeAdd(found, CornerType.Outside);
+
+				/*
+				  ----O
+				  xxxx|
+				  xxxx|
+				 */
+				found = startLookup[edge.End].FirstOrDefault(e => e.InsideDirection == CardinalDirection.West);
+				maybeAdd(found, CornerType.Outside);
+
+				/*
+				     |xx
+				     |xx
+				  ---Oxx
+				  xxxxxx
+				  xxxxxx
+				 */
+				found = endLookup[edge.End].FirstOrDefault(e => e.InsideDirection == CardinalDirection.East);
+				maybeAdd(found, CornerType.Inside);
+
+				/*
+				  xx|
+				  xx|
+				  xxO---
+				  xxxxxx
+				  xxxxxx
+				 */
+				found = endLookup[edge.Start].FirstOrDefault(e => e.InsideDirection == CardinalDirection.West);
+				maybeAdd(found, CornerType.Inside);
+			}
+		}
+
+		return corners;
+	}
 }
 
 sealed class TileTagger<TTag> where TTag : notnull
@@ -292,8 +407,6 @@ public sealed class TODO
 	{
 		const int onlyTag = 42; // any value is fine
 
-		bool inset = false;
-
 		var unscaledSize = new XZ(72 / scale, 24 / scale);
 		var tileTagger = new TileTagger<int>(unscaledSize, new XZ(scale, scale));
 
@@ -310,109 +423,79 @@ public sealed class TODO
 		var regions = tileTagger.GetRegions(onlyTag);
 
 		const int maxElevation = 20;
+		const int FUDGE = 12; // TODO
 
-		var cliffData = new List<(I2DSampler<QuaintCliff.Item> sampler, Edge edge)>();
+		var cliffData = new List<(I2DSampler<QuaintCliff.Item> sampler, I2DSampler<QuaintCliff.Item> biggerSampler, Edge edge)>();
 
-		var allEdges = regions.SelectMany(r => r.Edges);
+		var allCorners = new List<Corner>();
+
 		foreach (var region in regions)
 		{
+			allCorners.AddRange(region.ComputeCorners());
+
 			foreach (var edge in region.Edges)
 			{
-				var cliff = QuaintCliff.Generate(prng, edge.Length, maxElevation);
+				var bigCliff = QuaintCliff.Generate(prng, edge.Length + FUDGE * 2, maxElevation);
+				var cliff = bigCliff.Crop(new Rect(bigCliff.Bounds.start.Add(FUDGE, 0), bigCliff.Bounds.end.Add(-FUDGE, 0)))
+					.TranslateTo(XZ.Zero);
 				var thickness = cliff.Bounds.Size.Z;
 
 				if (edge.InsideDirection == CardinalDirection.North)
 				{
-					if (inset)
-					{
-						cliff = cliff.Rotate(0).Translate(edge.Start.Add(0, -thickness));
-					}
-					else
-					{
-						cliff = cliff.Rotate(0).Translate(edge.Start);
-					}
+					var translateTo = edge.Start;
+					cliff = cliff.Rotate(0).Translate(translateTo);
+					bigCliff = bigCliff.Rotate(0).Translate(translateTo.Add(-FUDGE, 0));
 				}
 				else if (edge.InsideDirection == CardinalDirection.South)
 				{
-					if (inset)
-					{
-						cliff = cliff.Rotate(180).Translate(edge.Start); // inset handled naturally via rotation
-					}
-					else
-					{
-						cliff = cliff.Rotate(180).Translate(edge.Start.Add(0, -thickness));
-					}
+					var translateTo = edge.Start.Add(0, -thickness);
+					cliff = cliff.Rotate(180).Translate(translateTo);
+					bigCliff = bigCliff.Rotate(180).Translate(translateTo.Add(-FUDGE, 0));
 				}
 				else if (edge.InsideDirection == CardinalDirection.East)
 				{
-					if (inset)
-					{
-						cliff = cliff.Rotate(90).Translate(edge.Start); // inset handled naturally via rotation
-					}
-					else
-					{
-						cliff = cliff.Rotate(90).Translate(edge.Start.Add(-thickness, 0));
-					}
+					var translateTo = edge.Start.Add(-thickness, 0);
+					cliff = cliff.Rotate(90).Translate(translateTo);
+					bigCliff = bigCliff.Rotate(90).Translate(translateTo.Add(0, -FUDGE));
 				}
 				else if (edge.InsideDirection == CardinalDirection.West)
 				{
-					if (inset)
-					{
-						cliff = cliff.Rotate(270).Translate(edge.Start.Add(-thickness, 0));
-					}
-					else
-					{
-						cliff = cliff.Rotate(270).Translate(edge.Start);
-					}
+					var translateTo = edge.Start;
+					cliff = cliff.Rotate(270).Translate(translateTo);
+					bigCliff = bigCliff.Rotate(270).Translate(translateTo.Add(0, -FUDGE));
 				}
 
-				cliffData.Add((cliff, edge));
+				cliffData.Add((cliff, bigCliff, edge));
 			}
 		}
 
-		IReadOnlyList<I2DSampler<Elevation>> corners = new List<I2DSampler<Elevation>>();
-		if (!inset)
-		{
-			corners = BuildCorners(cliffData);
-		}
-
-		var cliffs = cliffData.Select(c => c.sampler);
-		var bounds = Rect.Union(regions.Select(r => r.Bounds)
-			.Concat(cliffs.Select(c => c.Bounds))
-			.Concat(corners.Select(c => c.Bounds)));
+		var bounds = Rect.Union(regions.Select(r => r.Bounds), cliffData.Select(c => c.biggerSampler.Bounds));
 
 		const int empty = -1;
-		const int cliffMin = 0;
 		var elevations = new MutableArray2D<int>(bounds, empty);
 
-		foreach (var cliff in cliffs)
+		foreach (var cliff in cliffData.Select(x => x.sampler))
 		{
 			foreach (var xz in cliff.Bounds.Enumerate())
 			{
-				var sample = Math.Max(cliffMin, cliff.Sample(xz).y);
+				// Inside corners will naturally overlap.
+				// Using `max` isn't perfect here, but it could be good enough.
 				var exist = elevations.Sample(xz);
-				bool cliffsOverlap = exist > empty;
-				if (cliffsOverlap)
-				{
-					if (inset)
-					{
-						sample = Math.Min(sample, exist);
-					}
-					else
-					{
-						sample = Math.Max(sample, exist);
-					}
-				}
-				elevations.Put(xz, sample);
+				var sample = cliff.Sample(xz).y;
+				elevations.Put(xz, Math.Max(exist, sample));
 			}
 		}
 
-		foreach (var corner in corners)
+		foreach (var corner in allCorners.Where(c => c.CornerType == CornerType.Outside))
 		{
-			foreach (var xz in corner.Bounds.Enumerate())
+			var cliff1 = cliffData.Single(c => c.edge == corner.EastOrWestEdge).biggerSampler;
+			var cliff2 = cliffData.Single(c => c.edge == corner.NorthOrSouthEdge).biggerSampler;
+
+			foreach (var xz in cliff1.Bounds.Enumerate().Intersect(cliff2.Bounds.Enumerate()))
 			{
-				var sample = corner.Sample(xz);
-				elevations.Put(xz, sample.Y);
+				var sample1 = cliff1.Sample(xz);
+				var sample2 = cliff2.Sample(xz);
+				elevations.Put(xz, Math.Min(sample1.y, sample2.y));
 			}
 		}
 
@@ -420,8 +503,7 @@ public sealed class TODO
 		{
 			foreach (var xz in region.Bounds.Enumerate())
 			{
-				// don't overwrite anything that came from a cliff
-				if (region.Contains(xz) && elevations.Sample(xz) == empty)
+				if (region.Contains(xz))
 				{
 					elevations.Put(xz, maxElevation);
 				}
@@ -429,71 +511,5 @@ public sealed class TODO
 		}
 
 		return elevations;
-	}
-
-	private static IReadOnlyList<I2DSampler<Elevation>> BuildCorners(IReadOnlyList<(I2DSampler<QuaintCliff.Item> sampler, Edge edge)> cliffData)
-	{
-		var corners = new List<I2DSampler<Elevation>>();
-
-		foreach (var cliff in cliffData)
-		{
-			if (cliff.edge.InsideDirection == CardinalDirection.North)
-			{
-				var found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.West && x.edge.End == cliff.edge.End);
-				if (found.sampler != null)
-				{
-					var corner = BuildCorner(cliff.sampler, found.sampler);
-					corner = corner.Translate(new XZ(cliff.sampler.Bounds.end.X, found.sampler.Bounds.end.Z));
-					corners.Add(corner);
-				}
-
-				found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.East && x.edge.End == cliff.edge.Start);
-				if (found.sampler != null)
-				{
-					var corner = BuildCorner(cliff.sampler.SwapEastWest(), found.sampler.SwapEastWest());
-					corner = corner.SwapEastWest().Translate(cliff.edge.Start.Add(-corner.Bounds.Size.X, 0));
-					corners.Add(corner);
-				}
-			}
-			else if (cliff.edge.InsideDirection == CardinalDirection.South)
-			{
-				var found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.East && x.edge.Start == cliff.edge.Start);
-				if (found.sampler != null)
-				{
-					var corner = BuildCorner(cliff.sampler.Rotate(180), found.sampler.Rotate(180));
-					corner = corner.Rotate(180).Translate(cliff.edge.Start.Subtract(corner.Bounds.Size));
-					corners.Add(corner);
-				}
-
-				found = cliffData.FirstOrDefault(x => x.edge.InsideDirection == CardinalDirection.West && x.edge.Start == cliff.edge.End);
-				if (found.sampler != null)
-				{
-					var corner = BuildCorner(cliff.sampler.Rotate(180).SwapEastWest(), found.sampler.Rotate(180).SwapEastWest());
-					corner = corner.Rotate(180).SwapEastWest().Translate(cliff.edge.End.Add(0, -corner.Bounds.Size.Z));
-					corners.Add(corner);
-				}
-			}
-		}
-
-		return corners;
-	}
-
-	private static I2DSampler<Elevation> BuildCorner<T>(I2DSampler<T> cliffWest, I2DSampler<T> cliffNorth) where T : IHaveElevation
-	{
-		var size = new XZ(cliffNorth.Bounds.Size.X, cliffWest.Bounds.Size.Z);
-		var array = new MutableArray2D<Elevation>(new Rect(XZ.Zero, size), new Elevation(-1));
-
-		for (int x = 0; x < size.X; x++)
-		{
-			for (int z = 0; z < size.Z; z++)
-			{
-				var westSample = cliffWest.Sample(new XZ(cliffWest.Bounds.end.X - 1, cliffWest.Bounds.start.Z + z));
-				var northSample = cliffNorth.Sample(new XZ(cliffNorth.Bounds.start.X + x, cliffNorth.Bounds.end.Z - 1));
-				int minY = Math.Min(westSample.Y, northSample.Y);
-				array.Put(new XZ(x, z), new Elevation(minY));
-			}
-		}
-
-		return array;
 	}
 }

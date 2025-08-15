@@ -73,7 +73,11 @@ public record Rect(XZ start, XZ end)
 
 	public XZ Size => new XZ(end.X - start.X, end.Z - start.Z);
 
-	public static Rect Union(IEnumerable<Rect> boxes)
+	public static Rect Union(IEnumerable<Rect> boxes) => DoUnion(boxes);
+
+	public static Rect Union(params IEnumerable<Rect>[] dater) => DoUnion(dater);
+
+	private static Rect DoUnion(params IEnumerable<Rect>[] seqs)
 	{
 		int minX = int.MaxValue;
 		int minZ = int.MaxValue;
@@ -83,18 +87,21 @@ public record Rect(XZ start, XZ end)
 
 		bool any = false;
 
-		foreach (var box in boxes)
+		foreach (var boxes in seqs)
 		{
-			any = true;
+			foreach (var box in boxes)
+			{
+				any = true;
 
-			var start = box.start;
-			var end = box.end;
+				var start = box.start;
+				var end = box.end;
 
-			minX = Math.Min(minX, start.X);
-			minZ = Math.Min(minZ, start.Z);
+				minX = Math.Min(minX, start.X);
+				minZ = Math.Min(minZ, start.Z);
 
-			maxX = Math.Max(maxX, end.X);
-			maxZ = Math.Max(maxZ, end.Z);
+				maxX = Math.Max(maxX, end.X);
+				maxZ = Math.Max(maxZ, end.Z);
+			}
 		}
 
 		if (!any)

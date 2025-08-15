@@ -29,6 +29,17 @@ public static class Util
 		return new Translator<T>(sampler, xz);
 	}
 
+	public static I2DSampler<T> TranslateTo<T>(this I2DSampler<T> sampler, XZ newTopLeft)
+	{
+		var relative = newTopLeft.Subtract(sampler.Bounds.start);
+		var result = sampler.Translate(relative);
+		if (result.Bounds.start != XZ.Zero)
+		{
+			throw new Exception("assert fail! NOMERGE");
+		}
+		return result;
+	}
+
 	abstract class Rotator<T> : I2DSampler<T>
 	{
 		protected readonly I2DSampler<T> sampler;
@@ -137,4 +148,18 @@ public static class Util
 	{
 		return new SwapEW<T>(sampler);
 	}
+
+	sealed record class Cropper<T>(I2DSampler<T> sampler, Rect Bounds) : I2DSampler<T>
+	{
+		public T Sample(XZ xz)
+		{
+			if (Bounds.Contains(xz))
+			{
+				return sampler.Sample(xz);
+			}
+			return sampler.Sample(sampler.Bounds.end); // end is out of bounds by definition
+		}
+	}
+
+	public static I2DSampler<T> Crop<T>(this I2DSampler<T> sampler, Rect newBounds) => new Cropper<T>(sampler, newBounds);
 }
