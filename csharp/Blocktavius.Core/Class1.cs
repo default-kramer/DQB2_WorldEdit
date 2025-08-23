@@ -152,7 +152,7 @@ public interface I2DSampler<out T>
 	T Sample(XZ xz);
 }
 
-sealed class MutableArray2D<T> : I2DSampler<T>
+public sealed class MutableArray2D<T> : I2DSampler<T>
 {
 	private readonly T[] array;
 	private readonly T defaultValue;
