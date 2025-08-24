@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace Blocktavius.AppDQB2
 {
@@ -69,6 +70,19 @@ namespace Blocktavius.AppDQB2
 		}
 	}
 
+	class TileSizeItemsSource : IItemsSource
+	{
+		public Xceed.Wpf.Toolkit.PropertyGrid.Attributes.ItemCollection GetValues()
+		{
+			var items = new Xceed.Wpf.Toolkit.PropertyGrid.Attributes.ItemCollection();
+			foreach (var i in new[] { 4, 8, 12, 16, 24, 32 })
+			{
+				items.Add(i, i.ToString());
+			}
+			return items;
+		}
+	}
+
 	class LayerVM : ViewModelBase
 	{
 		private TileGridPainterVM _painter;
@@ -110,6 +124,7 @@ namespace Blocktavius.AppDQB2
 			return _painter;
 		}
 
+		[Browsable(false)]
 		public ITileGridPainterVM TileGridPainterVM => _painter;
 
 		public string LayerName
@@ -125,6 +140,7 @@ namespace Blocktavius.AppDQB2
 			}
 		}
 
+		[ItemsSource(typeof(TileSizeItemsSource))]
 		public int TileSize
 		{
 			get => tileSize;

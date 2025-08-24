@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Blocktavius.AppDQB2"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:pg="clr-namespace:Xceed.Wpf.Toolkit.PropertyGrid;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -31,30 +32,13 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        <ListView Grid.Column="0" x:Name="lvLayers" ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <EventSetter Event="GotFocus" Handler="ListViewItem_GotFocus" />
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBox Text="{Binding LayerName}"></TextBox>
-                        <StackPanel Orientation="Horizontal">
-                            <Label>Scale:</Label>
-                            <ComboBox SelectedItem="{Binding TileSize}" Width="50">
-                                <sys:Int32>4</sys:Int32>
-                                <sys:Int32>8</sys:Int32>
-                                <sys:Int32>12</sys:Int32>
-                                <sys:Int32>16</sys:Int32>
-                                <sys:Int32>24</sys:Int32>
-                                <sys:Int32>32</sys:Int32>
-                            </ComboBox>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ListView x:Name="lvLayers" ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}" DisplayMemberPath="LayerName"></ListView>
+            <pg:PropertyGrid Grid.Row="1" SelectedObject="{Binding SelectedLayer}"></pg:PropertyGrid>
+        </Grid>
     </Grid>
 </Window>
