@@ -4,11 +4,46 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Blocktavius.AppDQB2"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel Orientation="Horizontal">
-        <StackPanel Orientation="Vertical">
-            <local:TileGridPainterControl />
-        </StackPanel>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <StackPanel.LayoutTransform>
+                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
+                </StackPanel.LayoutTransform>
+                <local:TileGridPainterControl DataContext="{Binding SelectedLayer.TileGridPainterVM}" />
+            </StackPanel>
+        </ScrollViewer>
+        <ListView Grid.Column="0" x:Name="lvLayers" ItemsSource="{Binding Layers}" SelectedItem="{Binding SelectedLayer}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="GotFocus" Handler="ListViewItem_GotFocus" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBox Text="{Binding LayerName}"></TextBox>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Scale:</Label>
+                            <ComboBox SelectedItem="{Binding TileSize}" Width="50">
+                                <sys:Int32>4</sys:Int32>
+                                <sys:Int32>8</sys:Int32>
+                                <sys:Int32>12</sys:Int32>
+                                <sys:Int32>16</sys:Int32>
+                                <sys:Int32>24</sys:Int32>
+                                <sys:Int32>32</sys:Int32>
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </Window>

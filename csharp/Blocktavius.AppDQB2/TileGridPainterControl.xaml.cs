@@ -54,18 +54,20 @@ namespace Blocktavius.AppDQB2
 			BorderPen.Freeze();
 		}
 
-		public TileGridPainterControl()
-		{
-			var vm = new TileGridPainterVM(new XZ(30, 20));
-			vm.SetStatus(new XZ(2, 2), true);
-			vm.SetStatus(new XZ(10, 6), true);
-			DataContext = vm;
-		}
-
 		private bool GetVM(out ITileGridPainterVM vm)
 		{
 			vm = (DataContext as ITileGridPainterVM)!;
 			return vm != null;
+		}
+
+		public TileGridPainterControl()
+		{
+			this.DataContextChanged += (s, e) =>
+			{
+				InvalidateArrange();
+				InvalidateMeasure();
+				InvalidateVisual();
+			};
 		}
 
 		#region Layout and Rendering
