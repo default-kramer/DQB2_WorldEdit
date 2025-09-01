@@ -1,4 +1,5 @@
-﻿using Blocktavius.Core;
+﻿using Blocktavius.AppDQB2.EyeOfRubissDriver;
+using Blocktavius.Core;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
@@ -48,9 +49,8 @@ namespace Blocktavius.AppDQB2
 			var sampler = tagger.BuildHills(true, prng);
 			var world = RebuildWorld(sampler);
 
-			var dir = new DirectoryInfo(@"C:\Users\kramer\Documents\My Games\DRAGON QUEST BUILDERS II\Steam\76561198073553084\_INTEGRATE");
-			WriteChunkFiles(dir, world.Chunks);
-			WriteDriverFile(dir, world.Chunks);
+			WriteChunkFiles(world.Chunks);
+			WriteDriverFile(world.Chunks);
 		}
 
 		private static TileTagger<bool> SetupTagger(ITileGridPainterVM gridData)
@@ -89,11 +89,11 @@ namespace Blocktavius.AppDQB2
 			return world;
 		}
 
-		private static void WriteChunkFiles(DirectoryInfo dir, IEnumerable<Chunk> chunks)
+		private static void WriteChunkFiles(IEnumerable<Chunk> chunks)
 		{
 			foreach (var chunk in chunks)
 			{
-				var fullPath = System.IO.Path.Combine(dir.FullName, chunk.Filename);
+				var fullPath = System.IO.Path.Combine(App.driverDir.FullName, chunk.Filename);
 				using var stream = File.OpenWrite(fullPath);
 				chunk.WriteBytes(stream);
 				stream.Flush();
@@ -101,7 +101,7 @@ namespace Blocktavius.AppDQB2
 			}
 		}
 
-		private static void WriteDriverFile(DirectoryInfo dir, IEnumerable<Chunk> chunks)
+		private static void WriteDriverFile(IEnumerable<Chunk> chunks)
 		{
 			var chunkInfos = chunks.Select(c => new DriverFileModel.ChunkInfo()
 			{
@@ -116,12 +116,7 @@ namespace Blocktavius.AppDQB2
 				ChunkInfos = chunkInfos.ToList(),
 			};
 
-			var options = new System.Text.Json.JsonSerializerOptions();
-			options.WriteIndented = true;
-			string json = System.Text.Json.JsonSerializer.Serialize(content, options);
-
-			var driverPath = System.IO.Path.Combine(dir.FullName, "driver.json");
-			System.IO.File.WriteAllText(driverPath, json);
+			content.WriteToFile(App.driverFile);
 		}
 
 		class World
@@ -168,10 +163,6 @@ namespace Blocktavius.AppDQB2
 					+ y * 32 * 32
 					+ z * 32
 					+ x;
-				if (index >= size || index < 0)
-				{
-					var asdf = 99.ToString();
-				}
 				return index;
 			}
 
@@ -184,28 +175,24 @@ namespace Blocktavius.AppDQB2
 
 			public void WriteBytes(Stream stream)
 			{
-				var bytes = MemoryMarshal.AsBytes<ushort>(blockdata);
-				stream.Write(bytes);
-			}
-		}
-
-		class DriverFileModel
-		{
-			public string IntegrationType { get; init; } = "FSWatcher";
-
-			public required IReadOnlyList<ChunkInfo> ChunkInfos { get; init; }
-
-			/// <summary>
-			/// Ensure that the FileSystemWatcher mechanism sees a change by putting a Guid here.
-			/// (Not sure if necessary, but no reason not to do it.)
-			/// </summary>
-			public required string UniqueValue { get; init; }
-
-			public record ChunkInfo
-			{
-				public required string RelativePath { get; init; }
-				public required int OffsetX { get; init; }
-				public required int OffsetZ { get; init; }
+				if (BitConverter.IsLittleEndian)
+				{
+					var bytes = MemoryMarshal.AsBytes<ushort>(blockdata);
+					stream.Write(bytes);
+				}
+				else
+				{
+					var bytes = new byte[blockdata.Length * 2];
+					for (int i = 0; i < blockdata.Length; i++)
+					{
+						ushort val = blockdata[i];
+						byte lo = (byte)(val & 0xFF);
+						byte hi = (byte)(val >> 8);
+						bytes[i] = lo;
+						bytes[i + 1] = hi;
+					}
+					stream.Write(bytes);
+				}
 			}
 		}
 	}
