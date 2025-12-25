@@ -170,7 +170,7 @@ sealed record Region
 	}
 }
 
-sealed class TileTagger<TTag> where TTag : notnull
+public sealed class TileTagger<TTag> where TTag : notnull
 {
 	public XZ UnscaledSize { get; }
 	public XZ Scale { get; }
@@ -192,10 +192,16 @@ sealed class TileTagger<TTag> where TTag : notnull
 		array[loc] = array[loc].Add(tag);
 	}
 
-	public IReadOnlyList<Region> GetRegions(TTag tag)
+	internal IReadOnlyList<Region> GetRegions(TTag tag)
 	{
 		var regions = FindRegionTiles(array, tag);
 		return regions.Select(r => BuildRegion(r, Scale)).ToList();
+	}
+
+	public I2DSampler<int> BuildHills(TTag tag, PRNG prng)
+	{
+		var regions = GetRegions(tag);
+		return TODO.BuildHills(regions, prng);
 	}
 
 	/// <summary>
@@ -421,7 +427,11 @@ public sealed class TODO
 		}
 
 		var regions = tileTagger.GetRegions(onlyTag);
+		return BuildHills(regions, prng);
+	}
 
+	internal static I2DSampler<int> BuildHills(IReadOnlyList<Region> regions, PRNG prng)
+	{
 		const int maxElevation = 20;
 		const int FUDGE = 12; // TODO
 
